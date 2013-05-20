@@ -1,2 +1,2 @@
-radiosity-engine
+Radiosity engine
 ================
