@@ -78,14 +78,17 @@
     <ClCompile Include="..\src\patch.cpp">
       <Filter>Source Files\Radiosity</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\quadpatch.cpp">
-      <Filter>Source Files\Radiosity</Filter>
-    </ClCompile>
     <ClCompile Include="..\src\raytracer.cpp">
       <Filter>Source Files\Tracer</Filter>
     </ClCompile>
     <ClCompile Include="..\src\ray.cpp">
       <Filter>Source Files\Tracer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\trianglepatch.cpp">
+      <Filter>Source Files\Radiosity</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\shape.cpp">
+      <Filter>Source Files\Shapes</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -119,9 +122,6 @@
     <ClInclude Include="..\src\quad.h">
       <Filter>Header Files\Shapes</Filter>
     </ClInclude>
-    <ClInclude Include="..\src\quadpatch.h">
-      <Filter>Header Files\Radiosity</Filter>
-    </ClInclude>
     <ClInclude Include="..\src\ray.h">
       <Filter>Header Files\Tracer</Filter>
     </ClInclude>
@@ -130,6 +130,9 @@
     </ClInclude>
     <ClInclude Include="..\src\raytracer.h">
       <Filter>Header Files\Tracer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\trianglepatch.h">
+      <Filter>Header Files\Radiosity</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

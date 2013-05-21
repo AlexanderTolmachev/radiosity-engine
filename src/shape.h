@@ -16,12 +16,13 @@ typedef QSharedPointer<Shape> ShapePointer;
 
 class Shape {
   public:
-    Shape(MaterialPointer material) :mMaterial(material) {} 
-    virtual ~Shape() {}
+    Shape(MaterialPointer material);
+    virtual ~Shape();
     
-    virtual PatchCollectionPointer splitIntoPatches(float patchSize) const = 0;
+    MaterialPointer getMaterial() const;
 
-    MaterialPointer getMaterial() const { return mMaterial; }
+    PatchCollectionPointer splitIntoPatches(float patchSize) const;
+    virtual PatchCollectionPointer splitIntoPatches() const = 0;
 
   private:
     MaterialPointer mMaterial;

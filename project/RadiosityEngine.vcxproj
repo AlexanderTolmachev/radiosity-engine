@@ -92,12 +92,13 @@
     <ClCompile Include="..\src\main.cpp" />
     <ClCompile Include="..\src\patch.cpp" />
     <ClCompile Include="..\src\quad.cpp" />
-    <ClCompile Include="..\src\quadpatch.cpp" />
     <ClCompile Include="..\src\radiosityengine.cpp" />
     <ClCompile Include="..\src\ray.cpp" />
     <ClCompile Include="..\src\raytracer.cpp" />
     <ClCompile Include="..\src\scene.cpp" />
     <ClCompile Include="..\src\sceneloader.cpp" />
+    <ClCompile Include="..\src\shape.cpp" />
+    <ClCompile Include="..\src\trianglepatch.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\camera.h" />
@@ -105,7 +106,6 @@
     <ClInclude Include="..\src\material.h" />
     <ClInclude Include="..\src\patch.h" />
     <ClInclude Include="..\src\quad.h" />
-    <ClInclude Include="..\src\quadpatch.h" />
     <ClInclude Include="..\src\radiosityengine.h" />
     <ClInclude Include="..\src\ray.h" />
     <ClInclude Include="..\src\rayintersection.h" />
@@ -113,6 +113,7 @@
     <ClInclude Include="..\src\scene.h" />
     <ClInclude Include="..\src\sceneloader.h" />
     <ClInclude Include="..\src\shape.h" />
+    <ClInclude Include="..\src\trianglepatch.h" />
     <ClInclude Include="..\src\types.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

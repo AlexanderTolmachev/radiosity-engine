@@ -60,19 +60,29 @@ void RayTracer::render() {
 }
 
 Color RayTracer::traceRay(const Ray &ray) {
-  RayIntersection intersection = calculateNearestIntersectionWithPatch(ray);
-  
+  RayIntersection intersection = calculateNearestIntersectionWithPatch(ray);  
   if (!intersection.rayIntersectsWithPatch) {
     return Color();
   }
 
-  Vector intersectionPoint = ray.getPointAt(intersection.distanceFromRayOrigin);
   PatchPointer patch = intersection.patch;
 
   return patch->getExcidentLight();
 }
 
 RayIntersection RayTracer::calculateNearestIntersectionWithPatch(const Ray &ray) const {
-  // TODO: Implement
-  return RayIntersection();
+  RayIntersection nearestIntersection;
+
+  for each (auto patch in *mScenePatches) {
+    RayIntersection intersection = patch->intersectWithRay(ray);
+    if (!intersection.rayIntersectsWithPatch) {
+      continue;
+    }
+
+    if (intersection.distanceFromRayOrigin < nearestIntersection.distanceFromRayOrigin) {
+      nearestIntersection = intersection;
+    }
+  }
+
+  return nearestIntersection;
 }
