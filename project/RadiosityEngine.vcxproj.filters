@@ -13,11 +13,32 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Source Files\Parameters">
+      <UniqueIdentifier>{72f2d0c4-a3d5-4d63-b2dd-be601cd6fba4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Scene">
+      <UniqueIdentifier>{d22e6d34-8693-4d4f-9eda-0c883588034c}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Header Files\Parameters">
       <UniqueIdentifier>{ce79ffd0-e64f-468f-bf62-2d9a09395ec1}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Parameters">
-      <UniqueIdentifier>{72f2d0c4-a3d5-4d63-b2dd-be601cd6fba4}</UniqueIdentifier>
+    <Filter Include="Header Files\Scene">
+      <UniqueIdentifier>{d4294703-19d8-4826-88a8-5ca43061f542}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Commons">
+      <UniqueIdentifier>{3b2ccef9-ad5d-4313-a281-747166d9d4b7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Camera">
+      <UniqueIdentifier>{13b6e7d8-2a47-43a3-84fa-3e6a84dd362d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Camera">
+      <UniqueIdentifier>{1bf36c5a-7cd9-4d6f-91c5-9a398ade3f8a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Shapes">
+      <UniqueIdentifier>{fe54a0b2-a5da-44f6-9b04-43c9fcb344bd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Shapes">
+      <UniqueIdentifier>{6a60f70b-b168-4ffc-991f-a602ca0a7a17}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -27,10 +48,34 @@
     <ClCompile Include="..\src\inputparameters.cpp">
       <Filter>Source Files\Parameters</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\scene.cpp">
+      <Filter>Source Files\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\sceneloader.cpp">
+      <Filter>Source Files\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\camera.cpp">
+      <Filter>Source Files\Camera</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\inputparameters.h">
       <Filter>Header Files\Parameters</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\scene.h">
+      <Filter>Header Files\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\sceneloader.h">
+      <Filter>Header Files\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\types.h">
+      <Filter>Header Files\Commons</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\camera.h">
+      <Filter>Header Files\Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\shape.h">
+      <Filter>Header Files\Shapes</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

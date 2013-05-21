@@ -87,11 +87,19 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\src\camera.cpp" />
     <ClCompile Include="..\src\inputparameters.cpp" />
     <ClCompile Include="..\src\main.cpp" />
+    <ClCompile Include="..\src\scene.cpp" />
+    <ClCompile Include="..\src\sceneloader.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\src\camera.h" />
     <ClInclude Include="..\src\inputparameters.h" />
+    <ClInclude Include="..\src\scene.h" />
+    <ClInclude Include="..\src\sceneloader.h" />
+    <ClInclude Include="..\src\shape.h" />
+    <ClInclude Include="..\src\types.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
