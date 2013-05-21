@@ -84,6 +84,9 @@
     <ClCompile Include="..\src\raytracer.cpp">
       <Filter>Source Files\Tracer</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\ray.cpp">
+      <Filter>Source Files\Tracer</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\inputparameters.h">
@@ -118,6 +121,12 @@
     </ClInclude>
     <ClInclude Include="..\src\quadpatch.h">
       <Filter>Header Files\Radiosity</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\ray.h">
+      <Filter>Header Files\Tracer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\rayintersection.h">
+      <Filter>Header Files\Tracer</Filter>
     </ClInclude>
     <ClInclude Include="..\src\raytracer.h">
       <Filter>Header Files\Tracer</Filter>

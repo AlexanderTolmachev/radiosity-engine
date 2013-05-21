@@ -3,8 +3,11 @@
 #include <vector>
 
 #include "material.h"
+#include "ray.h"
+
 
 class Patch;
+struct RayIntersection;
 
 typedef QSharedPointer<Patch> PatchPointer;
 typedef std::vector<PatchPointer> PatchCollection;
@@ -14,6 +17,8 @@ class Patch {
   public:
     Patch(MaterialPointer material);
     virtual ~Patch();
+
+    virtual RayIntersection intersectWithRay(const Ray &ray) const = 0;
 
     const MaterialPointer& getMaterial() const; 
     const Color& getIncidentLight() const;

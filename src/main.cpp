@@ -27,8 +27,8 @@ int main(int argc, char *argv[]) {
     printUsage();
     return -1;
   }
+  
   std::cout << *inputParameters;
-
   std::cout << "Loading scene..." << std::endl; 
 
   SceneLoader sceneLoader;

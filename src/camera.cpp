@@ -36,6 +36,14 @@ Camera::Camera(Vector position, Vector up, Vector lookAt,
 Camera::~Camera() {
 }
 
+Ray Camera::emitRay(int x, int y) const {
+  float xProjection	 = 2.0 * mAspectRatio * (static_cast<float>(x) / mImageWidth - 0.5);
+  float yProjection  = 2.0 * (0.5 - static_cast<float>(y) / mImageHeight);
+  Vector rayDirection = (mCameraXAxis * xProjection + mCameraYAxis * yProjection + mCameraZAxis * mFocusDistance);
+
+  return Ray(mPosition, rayDirection);
+}
+
 void Camera::setImageResolution(int width, int height) {
   mImageWidth = width;
   mImageHeight = height;

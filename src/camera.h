@@ -8,6 +8,7 @@
 #include <QSharedPointer>
 
 #include "types.h"
+#include "ray.h"
 
 class Camera;
 
@@ -18,6 +19,8 @@ class Camera {
     Camera(Vector position, Vector up, Vector lookAt, 
            float fov, float nearPlaneDistance);
     virtual ~Camera();
+
+    Ray emitRay(int x, int y) const;
 
     void setImageResolution(int width, int height);
 

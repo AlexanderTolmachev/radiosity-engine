@@ -1,4 +1,5 @@
 #include "quadpatch.h"
+#include "rayintersection.h"
 
 QuadPatch::QuadPatch(Vector vertex0, Vector vertex1, Vector vertex2, Vector vertex3, MaterialPointer material) 
   : Patch(material),
@@ -11,3 +12,7 @@ QuadPatch::QuadPatch(Vector vertex0, Vector vertex1, Vector vertex2, Vector vert
 QuadPatch::~QuadPatch() {
 }
 
+RayIntersection QuadPatch::intersectWithRay(const Ray &ray) const {
+  // TODO: Implement
+  return RayIntersection();
+}

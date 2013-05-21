@@ -11,6 +11,7 @@ public:
   QuadPatch(Vector vertex0, Vector vertex1, Vector vertex2, Vector vertex3, MaterialPointer material);
   virtual ~QuadPatch();
 
+  RayIntersection intersectWithRay(const Ray &ray) const;
 
 private:
   Vector mVertex0;
