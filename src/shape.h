@@ -8,6 +8,7 @@
 #include <QSharedPointer>
 
 #include "material.h"
+#include "patch.h"
 
 class Shape;
 
@@ -17,9 +18,11 @@ class Shape {
   public:
     Shape(MaterialPointer material) :mMaterial(material) {} 
     virtual ~Shape() {}
+    
+    virtual PatchCollectionPointer splitIntoPatches(float patchSize) const = 0;
 
     MaterialPointer getMaterial() const { return mMaterial; }
-    
+
   private:
     MaterialPointer mMaterial;
 };

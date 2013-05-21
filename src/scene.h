@@ -20,10 +20,12 @@ class Scene {
     Scene();
     virtual ~Scene();
 
-    void setCamera(CameraPointer camera);
-    void addShape(ShapePointer shape);
+    void setCamera(const CameraPointer &camera);
+    void addShape(const ShapePointer &shape);
     
-    CameraPointer getCamera() const;
+    const CameraPointer& getCamera() const;
+
+    PatchCollectionPointer splitIntoPatches(float patchSize) const;
 
   private:
     CameraPointer mCamera;

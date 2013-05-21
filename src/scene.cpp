@@ -12,14 +12,25 @@ Scene::Scene()
 Scene::~Scene() {
 }
 
-void Scene::setCamera(CameraPointer camera) {
+void Scene::setCamera(const CameraPointer &camera) {
   mCamera = camera;
 }
 
-void Scene::addShape(ShapePointer shape) {
+void Scene::addShape(const ShapePointer &shape) {
   mShapes.push_back(shape);
 }
 
-CameraPointer Scene::getCamera() const {
+const CameraPointer& Scene::getCamera() const {
   return mCamera;
+}
+
+PatchCollectionPointer Scene::splitIntoPatches(float patchSize) const {
+  PatchCollectionPointer scenePatches = PatchCollectionPointer(new PatchCollection());
+
+  for each (auto shape in mShapes) {
+    PatchCollectionPointer shapePatches = shape->splitIntoPatches(patchSize);
+    scenePatches->insert(scenePatches->end(), shapePatches->begin(), shapePatches->end());
+  }
+
+  return scenePatches;
 }

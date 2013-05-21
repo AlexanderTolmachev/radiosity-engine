@@ -2,11 +2,14 @@
 
 #include "patch.h"
 
+class QuadPatch;
+
+typedef QSharedPointer<QuadPatch> QuadPatchPointer;
+
 class QuadPatch : public Patch {
 public:
   QuadPatch(Vector vertex0, Vector vertex1, Vector vertex2, Vector vertex3, MaterialPointer material);
   virtual ~QuadPatch();
-
 
 
 private:

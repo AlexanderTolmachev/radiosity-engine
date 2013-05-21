@@ -1,6 +1,14 @@
 #pragma once
 
+#include <vector>
+
 #include "material.h"
+
+class Patch;
+
+typedef QSharedPointer<Patch> PatchPointer;
+typedef std::vector<PatchPointer> PatchCollection;
+typedef QSharedPointer<PatchCollection> PatchCollectionPointer;
 
 class Patch {
   public:
