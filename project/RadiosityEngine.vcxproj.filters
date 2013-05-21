@@ -66,6 +66,9 @@
     <ClCompile Include="..\src\radiosityengine.cpp">
       <Filter>Source Files\Radiosity</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\quadshape.cpp">
+      <Filter>Source Files\Shapes</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\inputparameters.h">
@@ -91,6 +94,9 @@
     </ClInclude>
     <ClInclude Include="..\src\material.h">
       <Filter>Header Files\Radiosity</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\quadshape.h">
+      <Filter>Header Files\Shapes</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
