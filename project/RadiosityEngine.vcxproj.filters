@@ -46,6 +46,12 @@
     <Filter Include="Source Files\Radiosity">
       <UniqueIdentifier>{746c9f13-bc50-477d-ba12-337806d09091}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Tracer">
+      <UniqueIdentifier>{f9ce1c27-03dc-4bad-b51f-3fe9df1397a0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Tracer">
+      <UniqueIdentifier>{7c806c15-7662-4134-8d17-e8711bd31bc3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\main.cpp">
@@ -74,6 +80,9 @@
     </ClCompile>
     <ClCompile Include="..\src\quadpatch.cpp">
       <Filter>Source Files\Radiosity</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\raytracer.cpp">
+      <Filter>Source Files\Tracer</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -109,6 +118,9 @@
     </ClInclude>
     <ClInclude Include="..\src\quadpatch.h">
       <Filter>Header Files\Radiosity</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\raytracer.h">
+      <Filter>Header Files\Tracer</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

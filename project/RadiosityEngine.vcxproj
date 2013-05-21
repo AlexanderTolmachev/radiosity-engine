@@ -94,6 +94,7 @@
     <ClCompile Include="..\src\quad.cpp" />
     <ClCompile Include="..\src\quadpatch.cpp" />
     <ClCompile Include="..\src\radiosityengine.cpp" />
+    <ClCompile Include="..\src\raytracer.cpp" />
     <ClCompile Include="..\src\scene.cpp" />
     <ClCompile Include="..\src\sceneloader.cpp" />
   </ItemGroup>
@@ -105,6 +106,7 @@
     <ClInclude Include="..\src\quad.h" />
     <ClInclude Include="..\src\quadpatch.h" />
     <ClInclude Include="..\src\radiosityengine.h" />
+    <ClInclude Include="..\src\raytracer.h" />
     <ClInclude Include="..\src\scene.h" />
     <ClInclude Include="..\src\sceneloader.h" />
     <ClInclude Include="..\src\shape.h" />

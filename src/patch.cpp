@@ -2,6 +2,7 @@
 
 Patch::Patch(MaterialPointer material) 
   : mMaterial(material) {
+  // Initialize patch with emission light
   mExcidentLight = mMaterial->emmission;
 }
 

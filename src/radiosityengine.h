@@ -4,6 +4,7 @@
 #include <QImage>
 
 #include "scene.h"
+#include "raytracer.h"
 
 class RadiosityEngine {
 public:
@@ -12,13 +13,11 @@ public:
 
   void setScene(ScenePointer scene);
   void setImageResolution(int width, int height);
-  void renderScene(int interationsNumber, float patchSize);
+  void calculateIllumination(int interationsNumber, float patchSize);
+  void renderScene();
   void saveRenderedImageToFile(const QString &filePath);
 
 private:
-  void render(int interationsNumber, float patchSize);
- 
-private:
   ScenePointer mScene;
-  QImage mRenderedImage;
+  RayTracer mRayTracer;
 };

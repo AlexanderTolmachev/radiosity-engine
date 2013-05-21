@@ -19,18 +19,22 @@ void RadiosityEngine::setImageResolution(int width, int height) {
   mScene->getCamera()->setImageResolution(width, height);
 }
 
-void RadiosityEngine::renderScene(int interationsNumber, float patchSize) {
-  mRenderedImage = QImage(mScene->getCamera()->getImageWidth(), mScene->getCamera()->getImageHeight(), QImage::Format_RGB32);
-  render(interationsNumber, patchSize);
+void RadiosityEngine::calculateIllumination(int interationsNumber, float patchSize) {
+  PatchCollectionPointer scenePatches = mScene->splitIntoPatches(patchSize);
+
+  for (int iteration = 0; iteration < interationsNumber; ++iteration) {
+    std::cout << "Iteration: " << iteration << std::endl;
+    // TODO: Implement iterative radiosity calculation
+  }
+
+  mRayTracer.setScenePatches(scenePatches);
+}
+
+void RadiosityEngine::renderScene() {
+  mRayTracer.setCamera(mScene->getCamera());
+  mRayTracer.renderScene();
 }
 
 void RadiosityEngine::saveRenderedImageToFile(const QString& filePath) {
-  mRenderedImage.save(filePath);
-}
-
-/**
- * private:
- */
-void RadiosityEngine::render(int interationsNumber, float patchSize) {
-
+  mRayTracer.saveRenderedImageToFile(filePath);
 }

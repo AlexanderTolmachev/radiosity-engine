@@ -38,17 +38,21 @@ int main(int argc, char *argv[]) {
     return -1;    
   }
 
-  std::cout << "Loading scene finished" << std::endl; 
+  std::cout << "Loading scene is finished" << std::endl; 
 
   RadiosityEngine radiosityEngine;
   radiosityEngine.setScene(scene);
   radiosityEngine.setImageResolution(inputParameters->xResolution, inputParameters->yResolution);
 
-  std::cout << "Rendering scene..." << std::endl;
-  radiosityEngine.renderScene(inputParameters->iterationsNumber, inputParameters->patchSize);
-  std::cout << "Rendering scene finished" << std::endl; 
+  std::cout << "Calculating illumination..." << std::endl;
+  radiosityEngine.calculateIllumination(inputParameters->iterationsNumber, inputParameters->patchSize);
+  std::cout << "Calculating illumination is finished" << std::endl;
 
-  std::cout << "Saving image to file '" << inputParameters->outputFilePath.toUtf8().constData() << "'" << std::endl; 
+  std::cout << "Rendering scene..." << std::endl;
+  radiosityEngine.renderScene();
+  std::cout << "Rendering scene is finished" << std::endl; 
+
+  std::cout << "Saving image to file '" << inputParameters->outputFilePath.toUtf8().constData() << "'..." << std::endl; 
   radiosityEngine.saveRenderedImageToFile(inputParameters->outputFilePath);
   std::cout << "Image is saved" << std::endl;
 
