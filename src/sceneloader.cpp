@@ -113,14 +113,72 @@ CameraPointer SceneLoader::readCamera(const QDomElement &element) const {
 }
 
 ShapePointer SceneLoader::readShape(const QDomElement &element) const {
-  // TODO implement
+  QString shapeType;
+  if (!readAttributeAsString(element, "type", shapeType)) {
+    return ShapePointer(NULL);
+  }
+
+  MaterialPointer shapeMaterial = readMaterial(element);
+  if (shapeMaterial == NULL) {
+    return ShapePointer(NULL);
+  }
+
+  if (shapeType == "quad") {
+    return readQuad(element, shapeMaterial);
+  }
+
+  std::cerr << "Scene parsing error: unknown shape type '" << shapeType.toUtf8().constData() << "'" << std::endl;
   return ShapePointer(NULL);
+}
+
+QuadPointer SceneLoader::readQuad(const QDomElement &element, MaterialPointer material) const {
+  Vector vertex0;
+  Vector vertex1;
+  Vector vertex2;
+  Vector vertex3;
+
+  if (readChildElementAsVector(element, "v0", vertex0) &&
+    readChildElementAsVector(element, "v1", vertex1) &&
+    readChildElementAsVector(element, "v2", vertex2) &&
+    readChildElementAsVector(element, "v3", vertex3)) {
+      return QuadPointer(new Quad(vertex0, vertex1, vertex2, vertex3, material));
+  }
+
+  return QuadPointer(NULL);
+}
+
+MaterialPointer SceneLoader::readMaterial(const QDomElement &element) const {
+  QDomElement materialElement = element.firstChildElement("material");
+
+  if (materialElement.isNull()) {
+    std::cerr << "Scene parsing error: element '" << element.tagName().toUtf8().constData() << "' has no 'material' child element" << std::endl;
+    return MaterialPointer(NULL);
+  }
+
+  MaterialPointer material = MaterialPointer(new Material());
+  if (readChildElementAsColor(materialElement, "emission", material->emmision) &&
+    readChildElementAsColor(materialElement, "reflectance", material->reflectance) &&
+    readChildElementAsColor(materialElement, "color", material->color)) {
+      return material;
+  }
+
+  return MaterialPointer(NULL);
 }
 
 bool SceneLoader::readVector(const QDomElement &element, Vector &vector) const {  
   if (readAttributeAsFloat(element, "x", vector.x) && 
     readAttributeAsFloat(element, "y", vector.y) && 
     readAttributeAsFloat(element, "z", vector.z)) {
+      return true;
+  }
+
+  return false;
+}
+
+bool SceneLoader::readColor(const QDomElement &element, Color &color) const {
+  if (readAttributeAsFloat(element, "r", color.r) && 
+    readAttributeAsFloat(element, "g", color.g) && 
+    readAttributeAsFloat(element, "b", color.b)) {
       return true;
   }
 
@@ -162,6 +220,17 @@ bool SceneLoader::readChildElementAsVector(const QDomElement &element, const QSt
   }
 
   return readVector(childElement, vector);
+}
+
+bool SceneLoader::readChildElementAsColor(const QDomElement &element, const QString &childElementName, Color &color) const {
+  QDomElement childElement = element.firstChildElement(childElementName);
+
+  if (childElement.isNull()) {
+    std::cerr << "Scene parsing error: element '" << element.tagName().toUtf8().constData() << "' has no '" << childElementName.toUtf8().constData() << "' child element" << std::endl;
+    return false;
+  }
+
+  return readColor(childElement, color);
 }
 
 bool SceneLoader::readChildElementAsFloat(const QDomElement &element, const QString &childElementName, const QString &attributeName, float &value) const {
