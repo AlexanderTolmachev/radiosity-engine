@@ -7,6 +7,8 @@
 #include <QtCore/QCoreApplication>
 
 #include "inputparameters.h"
+#include "sceneloader.h"
+#include "radiosityengine.h"
 
 void printUsage();
 
@@ -25,8 +27,30 @@ int main(int argc, char *argv[]) {
     printUsage();
     return -1;
   }
-
   std::cout << *inputParameters;
+
+  std::cout << "Loading scene..." << std::endl; 
+
+  SceneLoader sceneLoader;
+  ScenePointer scene = sceneLoader.loadScene(inputParameters->sceneFilePath);
+  if (scene == NULL) {
+    std::cout << "Scene loading failed" << std::endl;
+    return -1;    
+  }
+
+  std::cout << "Loading scene finished" << std::endl; 
+
+  RadiosityEngine radiosityEngine;
+  radiosityEngine.setScene(scene);
+  radiosityEngine.setImageResolution(inputParameters->xResolution, inputParameters->yResolution);
+
+  std::cout << "Rendering scene..." << std::endl;
+  radiosityEngine.renderScene(inputParameters->iterationsNumber, inputParameters->patchSize);
+  std::cout << "Rendering scene finished" << std::endl; 
+
+  std::cout << "Saving image to file '" << inputParameters->outputFilePath.toUtf8().constData() << "'" << std::endl; 
+  radiosityEngine.saveRenderedImageToFile(inputParameters->outputFilePath);
+  std::cout << "Image is saved" << std::endl;
 
   return 0; 
 }

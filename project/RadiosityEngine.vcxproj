@@ -90,12 +90,14 @@
     <ClCompile Include="..\src\camera.cpp" />
     <ClCompile Include="..\src\inputparameters.cpp" />
     <ClCompile Include="..\src\main.cpp" />
+    <ClCompile Include="..\src\radiosityengine.cpp" />
     <ClCompile Include="..\src\scene.cpp" />
     <ClCompile Include="..\src\sceneloader.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\camera.h" />
     <ClInclude Include="..\src\inputparameters.h" />
+    <ClInclude Include="..\src\radiosityengine.h" />
     <ClInclude Include="..\src\scene.h" />
     <ClInclude Include="..\src\sceneloader.h" />
     <ClInclude Include="..\src\shape.h" />

@@ -40,6 +40,12 @@
     <Filter Include="Source Files\Shapes">
       <UniqueIdentifier>{6a60f70b-b168-4ffc-991f-a602ca0a7a17}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Radiosity">
+      <UniqueIdentifier>{cfc1bd6b-9a60-46fb-853a-58c9f5f43233}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Radiosity">
+      <UniqueIdentifier>{746c9f13-bc50-477d-ba12-337806d09091}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\main.cpp">
@@ -56,6 +62,9 @@
     </ClCompile>
     <ClCompile Include="..\src\camera.cpp">
       <Filter>Source Files\Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\radiosityengine.cpp">
+      <Filter>Source Files\Radiosity</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -76,6 +85,9 @@
     </ClInclude>
     <ClInclude Include="..\src\shape.h">
       <Filter>Header Files\Shapes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\radiosityengine.h">
+      <Filter>Header Files\Radiosity</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
