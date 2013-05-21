@@ -97,6 +97,7 @@
   <ItemGroup>
     <ClInclude Include="..\src\camera.h" />
     <ClInclude Include="..\src\inputparameters.h" />
+    <ClInclude Include="..\src\material.h" />
     <ClInclude Include="..\src\radiosityengine.h" />
     <ClInclude Include="..\src\scene.h" />
     <ClInclude Include="..\src\sceneloader.h" />

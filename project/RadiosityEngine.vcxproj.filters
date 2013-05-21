@@ -89,5 +89,8 @@
     <ClInclude Include="..\src\radiosityengine.h">
       <Filter>Header Files\Radiosity</Filter>
     </ClInclude>
+    <ClInclude Include="..\src\material.h">
+      <Filter>Header Files\Radiosity</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
