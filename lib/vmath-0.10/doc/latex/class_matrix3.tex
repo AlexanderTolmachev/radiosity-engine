@@ -1,0 +1,684 @@
+\hypertarget{class_matrix3}{
+\section{Matrix3$<$ T $>$ Class Template Reference}
+\label{class_matrix3}\index{Matrix3@{Matrix3}}
+}
+
+
+Class for matrix 3x3.  
+
+
+
+
+{\ttfamily \#include $<$vmath.h$>$}
+
+
+
+Collaboration diagram for Matrix3$<$ T $>$:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=160pt]{class_matrix3__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_matrix3_afbc8b655540e4b5b04d8439b606303b0}{Matrix3} ()
+\begin{DoxyCompactList}\small\item\em Creates identity matrix. \item\end{DoxyCompactList}\item 
+\hyperlink{class_matrix3_a3986b8f36efefb3ab2455e86fdb5e327}{Matrix3} (const T $\ast$dt)
+\begin{DoxyCompactList}\small\item\em Copy matrix values from array (these data must be in column major order!). \item\end{DoxyCompactList}\item 
+\hyperlink{class_matrix3_a7f0b1ceaedeffd2ab458b6dc7edc358c}{Matrix3} (const \hyperlink{class_matrix3}{Matrix3}$<$ T $>$ \&src)
+\begin{DoxyCompactList}\small\item\em Copy constructor. \item\end{DoxyCompactList}\item 
+{\footnotesize template$<$class FromT $>$ }\\\hyperlink{class_matrix3_acf94796374f73b4559336f08e233038c}{Matrix3} (const \hyperlink{class_matrix3}{Matrix3}$<$ FromT $>$ \&src)
+\begin{DoxyCompactList}\small\item\em Copy casting constructor. \item\end{DoxyCompactList}\item 
+void \hyperlink{class_matrix3_a44360e8ae549ec4b2b9c0f8ed4786761}{identity} ()
+\begin{DoxyCompactList}\small\item\em Resets matrix to be identity matrix. \item\end{DoxyCompactList}\item 
+bool \hyperlink{class_matrix3_acf8dc6060016d09250b8706e89f4dcc0}{operator==} (const \hyperlink{class_matrix3}{Matrix3}$<$ T $>$ \&rhs) const 
+\begin{DoxyCompactList}\small\item\em Equality test operator. \item\end{DoxyCompactList}\item 
+bool \hyperlink{class_matrix3_a1ecdce469f979786b1fa257a6fca3866}{operator!=} (const \hyperlink{class_matrix3}{Matrix3}$<$ T $>$ \&rhs) const 
+\begin{DoxyCompactList}\small\item\em Inequality test operator. \item\end{DoxyCompactList}\item 
+T \& \hyperlink{class_matrix3_aba232062fee5e35419c2c0c73aa9b88d}{at} (int x, int y)
+\begin{DoxyCompactList}\small\item\em Get reference to element at position (x,y). \item\end{DoxyCompactList}\item 
+const T \& \hyperlink{class_matrix3_abd32ca6519bd0131709cdeca665b4a23}{at} (int x, int y) const 
+\begin{DoxyCompactList}\small\item\em Get constant reference to element at position (x,y). \item\end{DoxyCompactList}\item 
+T \& \hyperlink{class_matrix3_a21a0e224becfb4fa4447d4c656ad3d0c}{operator()} (int i, int j)
+\begin{DoxyCompactList}\small\item\em Get reference to element at position (i,j), with math matrix notation. \item\end{DoxyCompactList}\item 
+const T \& \hyperlink{class_matrix3_a345b3ea5baef035e1272506540c2905c}{operator()} (int i, int j) const 
+\begin{DoxyCompactList}\small\item\em Get constant reference to element at position (i,j), with math matrix notation. \item\end{DoxyCompactList}\item 
+\hyperlink{class_matrix3}{Matrix3}$<$ T $>$ \& \hyperlink{class_matrix3_afcd3742e1bb4ce693fd28c751a4d8e9c}{operator=} (const \hyperlink{class_matrix3}{Matrix3}$<$ T $>$ \&rhs)
+\begin{DoxyCompactList}\small\item\em Copy operator. \item\end{DoxyCompactList}\item 
+{\footnotesize template$<$class FromT $>$ }\\\hyperlink{class_matrix3}{Matrix3}$<$ T $>$ \& \hyperlink{class_matrix3_a8fc1aae99bf569de84249e8716ce50e8}{operator=} (const \hyperlink{class_matrix3}{Matrix3}$<$ FromT $>$ \&rhs)
+\begin{DoxyCompactList}\small\item\em Copy casting operator. \item\end{DoxyCompactList}\item 
+\hyperlink{class_matrix3}{Matrix3}$<$ T $>$ \& \hyperlink{class_matrix3_a0c34f193be3802cae81c4cbfdfab1a53}{operator=} (const T $\ast$rhs)
+\begin{DoxyCompactList}\small\item\em Copy operator. \item\end{DoxyCompactList}\item 
+\hyperlink{class_matrix3}{Matrix3}$<$ T $>$ \hyperlink{class_matrix3_ad960991a64a1e6c72e21c29fb8c1f890}{operator+} (const \hyperlink{class_matrix3}{Matrix3}$<$ T $>$ \&rhs) const 
+\begin{DoxyCompactList}\small\item\em Addition operator. \item\end{DoxyCompactList}\item 
+\hyperlink{class_matrix3}{Matrix3}$<$ T $>$ \hyperlink{class_matrix3_aeb5ca229fa633ceec14fc93fa873234d}{operator-\/} (const \hyperlink{class_matrix3}{Matrix3}$<$ T $>$ \&rhs) const 
+\begin{DoxyCompactList}\small\item\em Subtraction operator. \item\end{DoxyCompactList}\item 
+\hyperlink{class_matrix3}{Matrix3}$<$ T $>$ \hyperlink{class_matrix3_a635803865b0b5c3c0e2102a44d7ed5d8}{operator+} (T rhs) const 
+\begin{DoxyCompactList}\small\item\em Addition operator. \item\end{DoxyCompactList}\item 
+\hyperlink{class_matrix3}{Matrix3}$<$ T $>$ \hyperlink{class_matrix3_a708ee4b7775f551c63e1d1820ef1d7b2}{operator-\/} (T rhs) const 
+\begin{DoxyCompactList}\small\item\em Subtraction operator. \item\end{DoxyCompactList}\item 
+\hyperlink{class_matrix3}{Matrix3}$<$ T $>$ \hyperlink{class_matrix3_a4a7053f22eee3c50ef099181983370c9}{operator$\ast$} (T rhs) const 
+\begin{DoxyCompactList}\small\item\em Multiplication operator. \item\end{DoxyCompactList}\item 
+\hyperlink{class_matrix3}{Matrix3}$<$ T $>$ \hyperlink{class_matrix3_abf53af4ad067516b153c76a9e18cc410}{operator/} (T rhs) const 
+\begin{DoxyCompactList}\small\item\em Division operator. \item\end{DoxyCompactList}\item 
+\hyperlink{class_vector3}{Vector3}$<$ T $>$ \hyperlink{class_matrix3_add25a42745c41871b2d3b808f0d5047e}{operator$\ast$} (const \hyperlink{class_vector3}{Vector3}$<$ T $>$ \&rhs) const 
+\begin{DoxyCompactList}\small\item\em Multiplication operator. \item\end{DoxyCompactList}\item 
+\hyperlink{class_matrix3}{Matrix3}$<$ T $>$ \hyperlink{class_matrix3_abd84667793375507dc98fc8e896d89b3}{operator$\ast$} (\hyperlink{class_matrix3}{Matrix3}$<$ T $>$ rhs) const 
+\begin{DoxyCompactList}\small\item\em Multiplication operator. \item\end{DoxyCompactList}\item 
+\hyperlink{class_matrix3}{Matrix3}$<$ T $>$ \hyperlink{class_matrix3_aafac87a5bb5afd70a7a8b39257f28558}{transpose} ()
+\begin{DoxyCompactList}\small\item\em Transpose matrix. \item\end{DoxyCompactList}\item 
+\hyperlink{class_matrix3}{Matrix3}$<$ T $>$ \hyperlink{class_matrix3_a3c16292eeaf2514a4fc26de912cf07e0}{lerp} (T fact, const \hyperlink{class_matrix3}{Matrix3}$<$ T $>$ \&rhs) const 
+\begin{DoxyCompactList}\small\item\em Linear interpolation of two matrices. \item\end{DoxyCompactList}\item 
+T \hyperlink{class_matrix3_a4cba34533d0f88feb8a622e5c5b7052d}{det} ()
+\item 
+\hyperlink{class_matrix3}{Matrix3}$<$ T $>$ \hyperlink{class_matrix3_aad3810622196a42d5f1a58e7d49d1417}{inverse} ()
+\begin{DoxyCompactList}\small\item\em Computes inverse matrix. \item\end{DoxyCompactList}\item 
+\hyperlink{class_matrix3_a643aecc11c95f9706a7620deab32a4ee}{operator T $\ast$} ()
+\begin{DoxyCompactList}\small\item\em Conversion to pointer operator. \item\end{DoxyCompactList}\item 
+\hyperlink{class_matrix3_a103a13ad3c2c32985e6e10adb91088f2}{operator const T $\ast$} () const 
+\begin{DoxyCompactList}\small\item\em Conversion to pointer operator. \item\end{DoxyCompactList}\item 
+std::string \hyperlink{class_matrix3_a4208a1713fc7fb654a88eb7b82ef3b02}{toString} () const 
+\begin{DoxyCompactList}\small\item\em Gets string representation. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{class_matrix3}{Matrix3}$<$ T $>$ \hyperlink{class_matrix3_a1e39496a1d1708ddc1658b0bf2f448f2}{createRotationAroundAxis} (T xDeg, T yDeg, T zDeg)
+\begin{DoxyCompactList}\small\item\em Creates rotation matrix by rotation around axis. \item\end{DoxyCompactList}\item 
+{\footnotesize template$<$class It $>$ }\\static \hyperlink{class_matrix3}{Matrix3}$<$ T $>$ \hyperlink{class_matrix3_af183cabaf18b9922fd11e517c5cf26b1}{fromOde} (const It $\ast$mat)
+\begin{DoxyCompactList}\small\item\em Creates rotation matrix from ODE Matrix. \item\end{DoxyCompactList}\item 
+{\footnotesize template$<$class FromT $>$ }\\static \hyperlink{class_matrix3}{Matrix3}$<$ T $>$ \hyperlink{class_matrix3_abce4ed104a81e64ce9cbd479f0105625}{fromRowMajorArray} (const FromT $\ast$arr)
+\begin{DoxyCompactList}\small\item\em Creates new matrix 3x3 from array that represents such matrix 3x3 as array of tightly packed elements in row major order. \item\end{DoxyCompactList}\item 
+{\footnotesize template$<$class FromT $>$ }\\static \hyperlink{class_matrix3}{Matrix3}$<$ T $>$ \hyperlink{class_matrix3_a54ac5b79264837228f219067e92aa853}{fromColumnMajorArray} (const FromT $\ast$arr)
+\begin{DoxyCompactList}\small\item\em Creates new matrix 3x3 from array that represents such matrix 3x3 as array of tightly packed elements in column major order. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+T \hyperlink{class_matrix3_ad0e5ea83502126b24d468ae8cc67255d}{data} \mbox{[}9\mbox{]}
+\begin{DoxyCompactList}\small\item\em Data stored in column major order. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+std::ostream \& \hyperlink{class_matrix3_a281742a1b77b4a4bf76ac03f7b75ee74}{operator$<$$<$} (std::ostream \&lhs, const \hyperlink{class_matrix3}{Matrix3}$<$ T $>$ \&rhs)
+\begin{DoxyCompactList}\small\item\em Output to stream operator. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$class T$>$ class Matrix3$<$ T $>$}
+
+Class for matrix 3x3. \begin{DoxyNote}{Note}
+Data stored in this matrix are in column major order. This arrangement suits OpenGL. If you're using row major matrix, consider using fromRowMajorArray as way for construction Matrix3$<$T$>$ instance. 
+\end{DoxyNote}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_matrix3_afbc8b655540e4b5b04d8439b606303b0}{
+\index{Matrix3@{Matrix3}!Matrix3@{Matrix3}}
+\index{Matrix3@{Matrix3}!Matrix3@{Matrix3}}
+\subsubsection[{Matrix3}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ {\bf Matrix3}$<$ T $>$::{\bf Matrix3} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_matrix3_afbc8b655540e4b5b04d8439b606303b0}
+
+
+Creates identity matrix. 
+
+\hypertarget{class_matrix3_a3986b8f36efefb3ab2455e86fdb5e327}{
+\index{Matrix3@{Matrix3}!Matrix3@{Matrix3}}
+\index{Matrix3@{Matrix3}!Matrix3@{Matrix3}}
+\subsubsection[{Matrix3}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ {\bf Matrix3}$<$ T $>$::{\bf Matrix3} (
+\begin{DoxyParamCaption}
+\item[{const T $\ast$}]{ dt}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_matrix3_a3986b8f36efefb3ab2455e86fdb5e327}
+
+
+Copy matrix values from array (these data must be in column major order!). 
+
+\hypertarget{class_matrix3_a7f0b1ceaedeffd2ab458b6dc7edc358c}{
+\index{Matrix3@{Matrix3}!Matrix3@{Matrix3}}
+\index{Matrix3@{Matrix3}!Matrix3@{Matrix3}}
+\subsubsection[{Matrix3}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ {\bf Matrix3}$<$ T $>$::{\bf Matrix3} (
+\begin{DoxyParamCaption}
+\item[{const {\bf Matrix3}$<$ T $>$ \&}]{ src}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_matrix3_a7f0b1ceaedeffd2ab458b6dc7edc358c}
+
+
+Copy constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em src}]Data source for new created instance of \hyperlink{class_matrix3}{Matrix3} \end{DoxyParams}
+\hypertarget{class_matrix3_acf94796374f73b4559336f08e233038c}{
+\index{Matrix3@{Matrix3}!Matrix3@{Matrix3}}
+\index{Matrix3@{Matrix3}!Matrix3@{Matrix3}}
+\subsubsection[{Matrix3}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ template$<$class FromT $>$ {\bf Matrix3}$<$ T $>$::{\bf Matrix3} (
+\begin{DoxyParamCaption}
+\item[{const {\bf Matrix3}$<$ FromT $>$ \&}]{ src}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_matrix3_acf94796374f73b4559336f08e233038c}
+
+
+Copy casting constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em src}]Data source for new created instance of \hyperlink{class_matrix3}{Matrix3} \end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_matrix3_aba232062fee5e35419c2c0c73aa9b88d}{
+\index{Matrix3@{Matrix3}!at@{at}}
+\index{at@{at}!Matrix3@{Matrix3}}
+\subsubsection[{at}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ T\& {\bf Matrix3}$<$ T $>$::at (
+\begin{DoxyParamCaption}
+\item[{int}]{ x, }
+\item[{int}]{ y}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_matrix3_aba232062fee5e35419c2c0c73aa9b88d}
+
+
+Get reference to element at position (x,y). 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em x}]Number of column (0..2) \item[{\em y}]Number of row (0..2) \end{DoxyParams}
+\hypertarget{class_matrix3_abd32ca6519bd0131709cdeca665b4a23}{
+\index{Matrix3@{Matrix3}!at@{at}}
+\index{at@{at}!Matrix3@{Matrix3}}
+\subsubsection[{at}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ const T\& {\bf Matrix3}$<$ T $>$::at (
+\begin{DoxyParamCaption}
+\item[{int}]{ x, }
+\item[{int}]{ y}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_matrix3_abd32ca6519bd0131709cdeca665b4a23}
+
+
+Get constant reference to element at position (x,y). 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em x}]Number of column (0..2) \item[{\em y}]Number of row (0..2) \end{DoxyParams}
+\hypertarget{class_matrix3_a1e39496a1d1708ddc1658b0bf2f448f2}{
+\index{Matrix3@{Matrix3}!createRotationAroundAxis@{createRotationAroundAxis}}
+\index{createRotationAroundAxis@{createRotationAroundAxis}!Matrix3@{Matrix3}}
+\subsubsection[{createRotationAroundAxis}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ static {\bf Matrix3}$<$T$>$ {\bf Matrix3}$<$ T $>$::createRotationAroundAxis (
+\begin{DoxyParamCaption}
+\item[{T}]{ xDeg, }
+\item[{T}]{ yDeg, }
+\item[{T}]{ zDeg}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline, static\mbox{]}}}}
+\label{class_matrix3_a1e39496a1d1708ddc1658b0bf2f448f2}
+
+
+Creates rotation matrix by rotation around axis. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em xDeg}]Angle (in degrees) of rotation around axis X. \item[{\em yDeg}]Angle (in degrees) of rotation around axis Y. \item[{\em zDeg}]Angle (in degrees) of rotation around axis Z. \end{DoxyParams}
+\hypertarget{class_matrix3_a4cba34533d0f88feb8a622e5c5b7052d}{
+\index{Matrix3@{Matrix3}!det@{det}}
+\index{det@{det}!Matrix3@{Matrix3}}
+\subsubsection[{det}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ T {\bf Matrix3}$<$ T $>$::det (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_matrix3_a4cba34533d0f88feb8a622e5c5b7052d}
+\hypertarget{class_matrix3_a54ac5b79264837228f219067e92aa853}{
+\index{Matrix3@{Matrix3}!fromColumnMajorArray@{fromColumnMajorArray}}
+\index{fromColumnMajorArray@{fromColumnMajorArray}!Matrix3@{Matrix3}}
+\subsubsection[{fromColumnMajorArray}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ template$<$class FromT $>$ static {\bf Matrix3}$<$T$>$ {\bf Matrix3}$<$ T $>$::fromColumnMajorArray (
+\begin{DoxyParamCaption}
+\item[{const FromT $\ast$}]{ arr}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline, static\mbox{]}}}}
+\label{class_matrix3_a54ac5b79264837228f219067e92aa853}
+
+
+Creates new matrix 3x3 from array that represents such matrix 3x3 as array of tightly packed elements in column major order. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em arr}]An array of elements for 3x3 matrix in column major order. \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An instance of Matrix3$<$T$>$ representing {\itshape arr\/} 
+\end{DoxyReturn}
+\hypertarget{class_matrix3_af183cabaf18b9922fd11e517c5cf26b1}{
+\index{Matrix3@{Matrix3}!fromOde@{fromOde}}
+\index{fromOde@{fromOde}!Matrix3@{Matrix3}}
+\subsubsection[{fromOde}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ template$<$class It $>$ static {\bf Matrix3}$<$T$>$ {\bf Matrix3}$<$ T $>$::fromOde (
+\begin{DoxyParamCaption}
+\item[{const It $\ast$}]{ mat}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline, static\mbox{]}}}}
+\label{class_matrix3_af183cabaf18b9922fd11e517c5cf26b1}
+
+
+Creates rotation matrix from ODE Matrix. 
+
+\hypertarget{class_matrix3_abce4ed104a81e64ce9cbd479f0105625}{
+\index{Matrix3@{Matrix3}!fromRowMajorArray@{fromRowMajorArray}}
+\index{fromRowMajorArray@{fromRowMajorArray}!Matrix3@{Matrix3}}
+\subsubsection[{fromRowMajorArray}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ template$<$class FromT $>$ static {\bf Matrix3}$<$T$>$ {\bf Matrix3}$<$ T $>$::fromRowMajorArray (
+\begin{DoxyParamCaption}
+\item[{const FromT $\ast$}]{ arr}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline, static\mbox{]}}}}
+\label{class_matrix3_abce4ed104a81e64ce9cbd479f0105625}
+
+
+Creates new matrix 3x3 from array that represents such matrix 3x3 as array of tightly packed elements in row major order. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em arr}]An array of elements for 3x3 matrix in row major order. \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An instance of Matrix3$<$T$>$ representing {\itshape arr\/} 
+\end{DoxyReturn}
+\hypertarget{class_matrix3_a44360e8ae549ec4b2b9c0f8ed4786761}{
+\index{Matrix3@{Matrix3}!identity@{identity}}
+\index{identity@{identity}!Matrix3@{Matrix3}}
+\subsubsection[{identity}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ void {\bf Matrix3}$<$ T $>$::identity (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_matrix3_a44360e8ae549ec4b2b9c0f8ed4786761}
+
+
+Resets matrix to be identity matrix. 
+
+\hypertarget{class_matrix3_aad3810622196a42d5f1a58e7d49d1417}{
+\index{Matrix3@{Matrix3}!inverse@{inverse}}
+\index{inverse@{inverse}!Matrix3@{Matrix3}}
+\subsubsection[{inverse}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ {\bf Matrix3}$<$T$>$ {\bf Matrix3}$<$ T $>$::inverse (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_matrix3_aad3810622196a42d5f1a58e7d49d1417}
+
+
+Computes inverse matrix. 
+
+\begin{DoxyReturn}{Returns}
+Inverse matrix of this matrix. 
+\end{DoxyReturn}
+\hypertarget{class_matrix3_a3c16292eeaf2514a4fc26de912cf07e0}{
+\index{Matrix3@{Matrix3}!lerp@{lerp}}
+\index{lerp@{lerp}!Matrix3@{Matrix3}}
+\subsubsection[{lerp}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ {\bf Matrix3}$<$T$>$ {\bf Matrix3}$<$ T $>$::lerp (
+\begin{DoxyParamCaption}
+\item[{T}]{ fact, }
+\item[{const {\bf Matrix3}$<$ T $>$ \&}]{ rhs}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_matrix3_a3c16292eeaf2514a4fc26de912cf07e0}
+
+
+Linear interpolation of two matrices. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em fact}]Factor of interpolation. For translation from positon of this matrix (lhs) to matrix rhs, values of factor goes from 0.0 to 1.0. \item[{\em rhs}]Second Matrix for interpolation \end{DoxyParams}
+\begin{DoxyNote}{Note}
+However values of fact parameter are reasonable only in interval \mbox{[}0.0 , 1.0\mbox{]}, you can pass also values outside of this interval and you can get result (extrapolation?) 
+\end{DoxyNote}
+\hypertarget{class_matrix3_a103a13ad3c2c32985e6e10adb91088f2}{
+\index{Matrix3@{Matrix3}!operator const T $\ast$@{operator const T $\ast$}}
+\index{operator const T $\ast$@{operator const T $\ast$}!Matrix3@{Matrix3}}
+\subsubsection[{operator const T $\ast$}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ {\bf Matrix3}$<$ T $>$::operator const T $\ast$ (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_matrix3_a103a13ad3c2c32985e6e10adb91088f2}
+
+
+Conversion to pointer operator. 
+
+\begin{DoxyReturn}{Returns}
+Constant Pointer to internally stored (in management of class Matrix3$<$T$>$) used for passing Matrix3$<$T$>$ values to gl$\ast$\mbox{[}fd\mbox{]}v functions. 
+\end{DoxyReturn}
+\hypertarget{class_matrix3_a643aecc11c95f9706a7620deab32a4ee}{
+\index{Matrix3@{Matrix3}!operator T $\ast$@{operator T $\ast$}}
+\index{operator T $\ast$@{operator T $\ast$}!Matrix3@{Matrix3}}
+\subsubsection[{operator T $\ast$}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ {\bf Matrix3}$<$ T $>$::operator T $\ast$ (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_matrix3_a643aecc11c95f9706a7620deab32a4ee}
+
+
+Conversion to pointer operator. 
+
+\begin{DoxyReturn}{Returns}
+Pointer to internally stored (in management of class Matrix3$<$T$>$) used for passing Matrix3$<$T$>$ values to gl$\ast$\mbox{[}fd\mbox{]}v functions. 
+\end{DoxyReturn}
+\hypertarget{class_matrix3_a1ecdce469f979786b1fa257a6fca3866}{
+\index{Matrix3@{Matrix3}!operator!=@{operator!=}}
+\index{operator!=@{operator!=}!Matrix3@{Matrix3}}
+\subsubsection[{operator!=}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ bool {\bf Matrix3}$<$ T $>$::operator!= (
+\begin{DoxyParamCaption}
+\item[{const {\bf Matrix3}$<$ T $>$ \&}]{ rhs}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_matrix3_a1ecdce469f979786b1fa257a6fca3866}
+
+
+Inequality test operator. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em rhs}]Right hand side argument of binary operator. \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+not (lhs == rhs) :-\/P 
+\end{DoxyReturn}
+\hypertarget{class_matrix3_a21a0e224becfb4fa4447d4c656ad3d0c}{
+\index{Matrix3@{Matrix3}!operator()@{operator()}}
+\index{operator()@{operator()}!Matrix3@{Matrix3}}
+\subsubsection[{operator()}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ T\& {\bf Matrix3}$<$ T $>$::operator() (
+\begin{DoxyParamCaption}
+\item[{int}]{ i, }
+\item[{int}]{ j}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_matrix3_a21a0e224becfb4fa4447d4c656ad3d0c}
+
+
+Get reference to element at position (i,j), with math matrix notation. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em i}]Number of row (1..3) \item[{\em j}]Number of column (1..3) \end{DoxyParams}
+\hypertarget{class_matrix3_a345b3ea5baef035e1272506540c2905c}{
+\index{Matrix3@{Matrix3}!operator()@{operator()}}
+\index{operator()@{operator()}!Matrix3@{Matrix3}}
+\subsubsection[{operator()}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ const T\& {\bf Matrix3}$<$ T $>$::operator() (
+\begin{DoxyParamCaption}
+\item[{int}]{ i, }
+\item[{int}]{ j}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_matrix3_a345b3ea5baef035e1272506540c2905c}
+
+
+Get constant reference to element at position (i,j), with math matrix notation. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em i}]Number of row (1..3) \item[{\em j}]Number of column (1..3) \end{DoxyParams}
+\hypertarget{class_matrix3_a4a7053f22eee3c50ef099181983370c9}{
+\index{Matrix3@{Matrix3}!operator$\ast$@{operator$\ast$}}
+\index{operator$\ast$@{operator$\ast$}!Matrix3@{Matrix3}}
+\subsubsection[{operator$\ast$}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ {\bf Matrix3}$<$T$>$ {\bf Matrix3}$<$ T $>$::operator$\ast$ (
+\begin{DoxyParamCaption}
+\item[{T}]{ rhs}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_matrix3_a4a7053f22eee3c50ef099181983370c9}
+
+
+Multiplication operator. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em rhs}]Right hand side argument of binary operator. \end{DoxyParams}
+\hypertarget{class_matrix3_add25a42745c41871b2d3b808f0d5047e}{
+\index{Matrix3@{Matrix3}!operator$\ast$@{operator$\ast$}}
+\index{operator$\ast$@{operator$\ast$}!Matrix3@{Matrix3}}
+\subsubsection[{operator$\ast$}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ {\bf Vector3}$<$T$>$ {\bf Matrix3}$<$ T $>$::operator$\ast$ (
+\begin{DoxyParamCaption}
+\item[{const {\bf Vector3}$<$ T $>$ \&}]{ rhs}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_matrix3_add25a42745c41871b2d3b808f0d5047e}
+
+
+Multiplication operator. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em rhs}]Right hand side argument of binary operator. \end{DoxyParams}
+\hypertarget{class_matrix3_abd84667793375507dc98fc8e896d89b3}{
+\index{Matrix3@{Matrix3}!operator$\ast$@{operator$\ast$}}
+\index{operator$\ast$@{operator$\ast$}!Matrix3@{Matrix3}}
+\subsubsection[{operator$\ast$}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ {\bf Matrix3}$<$T$>$ {\bf Matrix3}$<$ T $>$::operator$\ast$ (
+\begin{DoxyParamCaption}
+\item[{{\bf Matrix3}$<$ T $>$}]{ rhs}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_matrix3_abd84667793375507dc98fc8e896d89b3}
+
+
+Multiplication operator. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em rhs}]Right hand side argument of binary operator. \end{DoxyParams}
+\hypertarget{class_matrix3_a635803865b0b5c3c0e2102a44d7ed5d8}{
+\index{Matrix3@{Matrix3}!operator+@{operator+}}
+\index{operator+@{operator+}!Matrix3@{Matrix3}}
+\subsubsection[{operator+}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ {\bf Matrix3}$<$T$>$ {\bf Matrix3}$<$ T $>$::operator+ (
+\begin{DoxyParamCaption}
+\item[{T}]{ rhs}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_matrix3_a635803865b0b5c3c0e2102a44d7ed5d8}
+
+
+Addition operator. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em rhs}]Right hand side argument of binary operator. \end{DoxyParams}
+\hypertarget{class_matrix3_ad960991a64a1e6c72e21c29fb8c1f890}{
+\index{Matrix3@{Matrix3}!operator+@{operator+}}
+\index{operator+@{operator+}!Matrix3@{Matrix3}}
+\subsubsection[{operator+}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ {\bf Matrix3}$<$T$>$ {\bf Matrix3}$<$ T $>$::operator+ (
+\begin{DoxyParamCaption}
+\item[{const {\bf Matrix3}$<$ T $>$ \&}]{ rhs}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_matrix3_ad960991a64a1e6c72e21c29fb8c1f890}
+
+
+Addition operator. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em rhs}]Right hand side argument of binary operator. \end{DoxyParams}
+\hypertarget{class_matrix3_aeb5ca229fa633ceec14fc93fa873234d}{
+\index{Matrix3@{Matrix3}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!Matrix3@{Matrix3}}
+\subsubsection[{operator-\/}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ {\bf Matrix3}$<$T$>$ {\bf Matrix3}$<$ T $>$::operator-\/ (
+\begin{DoxyParamCaption}
+\item[{const {\bf Matrix3}$<$ T $>$ \&}]{ rhs}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_matrix3_aeb5ca229fa633ceec14fc93fa873234d}
+
+
+Subtraction operator. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em rhs}]Right hand side argument of binary operator. \end{DoxyParams}
+\hypertarget{class_matrix3_a708ee4b7775f551c63e1d1820ef1d7b2}{
+\index{Matrix3@{Matrix3}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!Matrix3@{Matrix3}}
+\subsubsection[{operator-\/}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ {\bf Matrix3}$<$T$>$ {\bf Matrix3}$<$ T $>$::operator-\/ (
+\begin{DoxyParamCaption}
+\item[{T}]{ rhs}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_matrix3_a708ee4b7775f551c63e1d1820ef1d7b2}
+
+
+Subtraction operator. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em rhs}]Right hand side argument of binary operator. \end{DoxyParams}
+\hypertarget{class_matrix3_abf53af4ad067516b153c76a9e18cc410}{
+\index{Matrix3@{Matrix3}!operator/@{operator/}}
+\index{operator/@{operator/}!Matrix3@{Matrix3}}
+\subsubsection[{operator/}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ {\bf Matrix3}$<$T$>$ {\bf Matrix3}$<$ T $>$::operator/ (
+\begin{DoxyParamCaption}
+\item[{T}]{ rhs}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_matrix3_abf53af4ad067516b153c76a9e18cc410}
+
+
+Division operator. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em rhs}]Right hand side argument of binary operator. \end{DoxyParams}
+\hypertarget{class_matrix3_afcd3742e1bb4ce693fd28c751a4d8e9c}{
+\index{Matrix3@{Matrix3}!operator=@{operator=}}
+\index{operator=@{operator=}!Matrix3@{Matrix3}}
+\subsubsection[{operator=}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ {\bf Matrix3}$<$T$>$\& {\bf Matrix3}$<$ T $>$::operator= (
+\begin{DoxyParamCaption}
+\item[{const {\bf Matrix3}$<$ T $>$ \&}]{ rhs}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_matrix3_afcd3742e1bb4ce693fd28c751a4d8e9c}
+
+
+Copy operator. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em rhs}]Right hand side argument of binary operator. \end{DoxyParams}
+\hypertarget{class_matrix3_a0c34f193be3802cae81c4cbfdfab1a53}{
+\index{Matrix3@{Matrix3}!operator=@{operator=}}
+\index{operator=@{operator=}!Matrix3@{Matrix3}}
+\subsubsection[{operator=}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ {\bf Matrix3}$<$T$>$\& {\bf Matrix3}$<$ T $>$::operator= (
+\begin{DoxyParamCaption}
+\item[{const T $\ast$}]{ rhs}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_matrix3_a0c34f193be3802cae81c4cbfdfab1a53}
+
+
+Copy operator. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em rhs}]Right hand side argument of binary operator. \end{DoxyParams}
+\hypertarget{class_matrix3_a8fc1aae99bf569de84249e8716ce50e8}{
+\index{Matrix3@{Matrix3}!operator=@{operator=}}
+\index{operator=@{operator=}!Matrix3@{Matrix3}}
+\subsubsection[{operator=}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ template$<$class FromT $>$ {\bf Matrix3}$<$T$>$\& {\bf Matrix3}$<$ T $>$::operator= (
+\begin{DoxyParamCaption}
+\item[{const {\bf Matrix3}$<$ FromT $>$ \&}]{ rhs}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_matrix3_a8fc1aae99bf569de84249e8716ce50e8}
+
+
+Copy casting operator. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em rhs}]Right hand side argument of binary operator. \end{DoxyParams}
+\hypertarget{class_matrix3_acf8dc6060016d09250b8706e89f4dcc0}{
+\index{Matrix3@{Matrix3}!operator==@{operator==}}
+\index{operator==@{operator==}!Matrix3@{Matrix3}}
+\subsubsection[{operator==}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ bool {\bf Matrix3}$<$ T $>$::operator== (
+\begin{DoxyParamCaption}
+\item[{const {\bf Matrix3}$<$ T $>$ \&}]{ rhs}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_matrix3_acf8dc6060016d09250b8706e89f4dcc0}
+
+
+Equality test operator. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em rhs}]Right hand side argument of binary operator. \end{DoxyParams}
+\begin{DoxyNote}{Note}
+Test of equality is based of threshold EPSILON value. To be two values equal, must satisfy this condition all elements of matrix $|$ lhs\mbox{[}i\mbox{]} -\/ rhs\mbox{[}i\mbox{]} $|$ $<$ EPSILON, same for y-\/coordinate, z-\/coordinate, and w-\/coordinate. 
+\end{DoxyNote}
+\hypertarget{class_matrix3_a4208a1713fc7fb654a88eb7b82ef3b02}{
+\index{Matrix3@{Matrix3}!toString@{toString}}
+\index{toString@{toString}!Matrix3@{Matrix3}}
+\subsubsection[{toString}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ std::string {\bf Matrix3}$<$ T $>$::toString (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_matrix3_a4208a1713fc7fb654a88eb7b82ef3b02}
+
+
+Gets string representation. 
+
+\hypertarget{class_matrix3_aafac87a5bb5afd70a7a8b39257f28558}{
+\index{Matrix3@{Matrix3}!transpose@{transpose}}
+\index{transpose@{transpose}!Matrix3@{Matrix3}}
+\subsubsection[{transpose}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ {\bf Matrix3}$<$T$>$ {\bf Matrix3}$<$ T $>$::transpose (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_matrix3_aafac87a5bb5afd70a7a8b39257f28558}
+
+
+Transpose matrix. 
+
+
+
+\subsection{Friends And Related Function Documentation}
+\hypertarget{class_matrix3_a281742a1b77b4a4bf76ac03f7b75ee74}{
+\index{Matrix3@{Matrix3}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Matrix3@{Matrix3}}
+\subsubsection[{operator$<$$<$}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ std::ostream\& operator$<$$<$ (
+\begin{DoxyParamCaption}
+\item[{std::ostream \&}]{ lhs, }
+\item[{const {\bf Matrix3}$<$ T $>$ \&}]{ rhs}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}
+\label{class_matrix3_a281742a1b77b4a4bf76ac03f7b75ee74}
+
+
+Output to stream operator. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em lhs}]Left hand side argument of operator (commonly ostream instance). \item[{\em rhs}]Right hand side argument of operator. \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Left hand side argument -\/ the ostream object passed to operator. 
+\end{DoxyReturn}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{class_matrix3_ad0e5ea83502126b24d468ae8cc67255d}{
+\index{Matrix3@{Matrix3}!data@{data}}
+\index{data@{data}!Matrix3@{Matrix3}}
+\subsubsection[{data}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ T {\bf Matrix3}$<$ T $>$::{\bf data}\mbox{[}9\mbox{]}}}
+\label{class_matrix3_ad0e5ea83502126b24d468ae8cc67255d}
+
+
+Data stored in column major order. 
+
+
+
+The documentation for this class was generated from the following file:\begin{DoxyCompactItemize}
+\item 
+src/\hyperlink{vmath_8h}{vmath.h}\end{DoxyCompactItemize}

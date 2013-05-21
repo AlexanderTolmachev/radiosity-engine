@@ -1,0 +1,766 @@
+\hypertarget{class_vector2}{
+\section{Vector2$<$ T $>$ Class Template Reference}
+\label{class_vector2}\index{Vector2@{Vector2}}
+}
+
+
+Class for two dimensional vector.  
+
+
+
+
+{\ttfamily \#include $<$vmath.h$>$}
+
+
+
+Collaboration diagram for Vector2$<$ T $>$:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=162pt]{class_vector2__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_vector2_ae2f1223cb0d664aa73afb789086a4174}{Vector2} ()
+\begin{DoxyCompactList}\small\item\em Creates and sets to (0,0). \item\end{DoxyCompactList}\item 
+\hyperlink{class_vector2_a73dbb934192bdaffb43f4f472e62d1d7}{Vector2} (T nx, T ny)
+\begin{DoxyCompactList}\small\item\em Creates and sets to (x,y). \item\end{DoxyCompactList}\item 
+\hyperlink{class_vector2_a6942368710d42c4b66776538a583d6dc}{Vector2} (const \hyperlink{class_vector2}{Vector2}$<$ T $>$ \&src)
+\begin{DoxyCompactList}\small\item\em Copy constructor. \item\end{DoxyCompactList}\item 
+{\footnotesize template$<$class FromT $>$ }\\\hyperlink{class_vector2_a93286dc1ccd8e1f2deb49668076aa5dc}{Vector2} (const \hyperlink{class_vector2}{Vector2}$<$ FromT $>$ \&src)
+\begin{DoxyCompactList}\small\item\em Copy casting constructor. \item\end{DoxyCompactList}\item 
+{\footnotesize template$<$class FromT $>$ }\\\hyperlink{class_vector2}{Vector2}$<$ T $>$ \& \hyperlink{class_vector2_aa93d791f8624cf19ea3b2a7eed329b61}{operator=} (const \hyperlink{class_vector2}{Vector2}$<$ FromT $>$ \&rhs)
+\begin{DoxyCompactList}\small\item\em Copy casting operator. \item\end{DoxyCompactList}\item 
+\hyperlink{class_vector2}{Vector2}$<$ T $>$ \& \hyperlink{class_vector2_a63e1c003cecacae0b26296941b3fe44a}{operator=} (const \hyperlink{class_vector2}{Vector2}$<$ T $>$ \&rhs)
+\begin{DoxyCompactList}\small\item\em Copy operator. \item\end{DoxyCompactList}\item 
+T \& \hyperlink{class_vector2_a7d7e7b0abc5433808832147bfd58c171}{operator\mbox{[}$\,$\mbox{]}} (int n)
+\begin{DoxyCompactList}\small\item\em Array access operator. \item\end{DoxyCompactList}\item 
+const T \& \hyperlink{class_vector2_a33a7b603ccfa18de8524effcb18388df}{operator\mbox{[}$\,$\mbox{]}} (int n) const 
+\begin{DoxyCompactList}\small\item\em Constant array access operator. \item\end{DoxyCompactList}\item 
+\hyperlink{class_vector2}{Vector2}$<$ T $>$ \hyperlink{class_vector2_a481bea0de6a8060118b48a4f2516e329}{operator+} (const \hyperlink{class_vector2}{Vector2}$<$ T $>$ \&rhs) const 
+\begin{DoxyCompactList}\small\item\em Addition operator. \item\end{DoxyCompactList}\item 
+\hyperlink{class_vector2}{Vector2}$<$ T $>$ \hyperlink{class_vector2_acb95b5aa975ef2eccaafc9314ed31373}{operator-\/} (const \hyperlink{class_vector2}{Vector2}$<$ T $>$ \&rhs) const 
+\begin{DoxyCompactList}\small\item\em Subtraction operator. \item\end{DoxyCompactList}\item 
+\hyperlink{class_vector2}{Vector2}$<$ T $>$ \hyperlink{class_vector2_a400c2c32b1b54f5423ddcb6e24d90c6a}{operator$\ast$} (const \hyperlink{class_vector2}{Vector2}$<$ T $>$ \&rhs) const 
+\begin{DoxyCompactList}\small\item\em Multiplication operator. \item\end{DoxyCompactList}\item 
+\hyperlink{class_vector2}{Vector2}$<$ T $>$ \hyperlink{class_vector2_a7ca23b6847d15c9e0b8544071c08a0c9}{operator/} (const \hyperlink{class_vector2}{Vector2}$<$ T $>$ \&rhs) const 
+\begin{DoxyCompactList}\small\item\em Division operator. \item\end{DoxyCompactList}\item 
+\hyperlink{class_vector2}{Vector2}$<$ T $>$ \& \hyperlink{class_vector2_ac81fd06dc944404ab96e387a9c810d41}{operator+=} (const \hyperlink{class_vector2}{Vector2}$<$ T $>$ \&rhs)
+\begin{DoxyCompactList}\small\item\em Addition operator. \item\end{DoxyCompactList}\item 
+\hyperlink{class_vector2}{Vector2}$<$ T $>$ \& \hyperlink{class_vector2_adf7f03dd1b698850baaff61b21ec501f}{operator-\/=} (const \hyperlink{class_vector2}{Vector2}$<$ T $>$ \&rhs)
+\begin{DoxyCompactList}\small\item\em Substraction operator. \item\end{DoxyCompactList}\item 
+\hyperlink{class_vector2}{Vector2}$<$ T $>$ \& \hyperlink{class_vector2_aefae77616723d6c857a3e21dd5ea70e7}{operator$\ast$=} (const \hyperlink{class_vector2}{Vector2}$<$ T $>$ \&rhs)
+\begin{DoxyCompactList}\small\item\em Multiplication operator. \item\end{DoxyCompactList}\item 
+\hyperlink{class_vector2}{Vector2}$<$ T $>$ \& \hyperlink{class_vector2_a7cf62fe9339f503b680daaeacc71eb4c}{operator/=} (const \hyperlink{class_vector2}{Vector2}$<$ T $>$ \&rhs)
+\begin{DoxyCompactList}\small\item\em Division operator. \item\end{DoxyCompactList}\item 
+\hyperlink{class_vector2}{Vector2}$<$ T $>$ \hyperlink{class_vector2_a17527e8fe674085b892ccfcb42cd85b3}{operator+} (T rhs) const 
+\begin{DoxyCompactList}\small\item\em Addition operator. \item\end{DoxyCompactList}\item 
+\hyperlink{class_vector2}{Vector2}$<$ T $>$ \hyperlink{class_vector2_ac6729c8cb9d0eb0a5f1aeb3093c1669f}{operator-\/} (T rhs) const 
+\begin{DoxyCompactList}\small\item\em Subtraction operator. \item\end{DoxyCompactList}\item 
+\hyperlink{class_vector2}{Vector2}$<$ T $>$ \hyperlink{class_vector2_afe8640177b4a4114196b5d4f6a2ee597}{operator$\ast$} (T rhs) const 
+\begin{DoxyCompactList}\small\item\em Multiplication operator. \item\end{DoxyCompactList}\item 
+\hyperlink{class_vector2}{Vector2}$<$ T $>$ \hyperlink{class_vector2_a4c504fd30766b8d3f50a1871590147a8}{operator/} (T rhs) const 
+\begin{DoxyCompactList}\small\item\em Division operator. \item\end{DoxyCompactList}\item 
+\hyperlink{class_vector2}{Vector2}$<$ T $>$ \& \hyperlink{class_vector2_ac9fc3a535e3e2c4a001db064b0572a89}{operator+=} (T rhs)
+\begin{DoxyCompactList}\small\item\em Addition operator. \item\end{DoxyCompactList}\item 
+\hyperlink{class_vector2}{Vector2}$<$ T $>$ \& \hyperlink{class_vector2_afba0b8c23b74f538ab8cecf8c77d9a17}{operator-\/=} (T rhs)
+\begin{DoxyCompactList}\small\item\em Subtraction operator. \item\end{DoxyCompactList}\item 
+\hyperlink{class_vector2}{Vector2}$<$ T $>$ \& \hyperlink{class_vector2_ad71db03f38ea0f7b0794bf7c12d04c39}{operator$\ast$=} (T rhs)
+\begin{DoxyCompactList}\small\item\em Multiplication operator. \item\end{DoxyCompactList}\item 
+\hyperlink{class_vector2}{Vector2}$<$ T $>$ \& \hyperlink{class_vector2_ab50c18ba014384a42cc78be9a36a222c}{operator/=} (T rhs)
+\begin{DoxyCompactList}\small\item\em Division operator. \item\end{DoxyCompactList}\item 
+bool \hyperlink{class_vector2_af44452c8cd74b57249f334fe3a0e5212}{operator==} (const \hyperlink{class_vector2}{Vector2}$<$ T $>$ \&rhs) const 
+\begin{DoxyCompactList}\small\item\em Equality test operator. \item\end{DoxyCompactList}\item 
+bool \hyperlink{class_vector2_a0c69e0a4ef5fdfdd5800525c7a751f08}{operator!=} (const \hyperlink{class_vector2}{Vector2}$<$ T $>$ \&rhs) const 
+\begin{DoxyCompactList}\small\item\em Inequality test operator. \item\end{DoxyCompactList}\item 
+\hyperlink{class_vector2}{Vector2}$<$ T $>$ \hyperlink{class_vector2_aa1367fe9fa837cd5dab8c9b57de5db6a}{operator-\/} () const 
+\begin{DoxyCompactList}\small\item\em Unary negate operator. \item\end{DoxyCompactList}\item 
+T \hyperlink{class_vector2_a119c51f16f90ffb3b30ee59475e7fdf8}{length} () const 
+\begin{DoxyCompactList}\small\item\em Get length of vector. \item\end{DoxyCompactList}\item 
+void \hyperlink{class_vector2_ace2a626eaa79412e2946216e9c3e63c6}{normalize} ()
+\begin{DoxyCompactList}\small\item\em Normalize vector. \item\end{DoxyCompactList}\item 
+T \hyperlink{class_vector2_a54aeb0e64f05cb4eb6787b6ac9f9a468}{lengthSq} () const 
+\begin{DoxyCompactList}\small\item\em Return square of length. \item\end{DoxyCompactList}\item 
+\hyperlink{class_vector2}{Vector2}$<$ T $>$ \hyperlink{class_vector2_a1377e154f9f49724dbf28e2d6f43fe66}{lerp} (T fact, const \hyperlink{class_vector2}{Vector2}$<$ T $>$ \&r) const 
+\begin{DoxyCompactList}\small\item\em Linear interpolation of two vectors. \item\end{DoxyCompactList}\item 
+\hyperlink{class_vector2_a47ef81d7cef209446129a056b0d20099}{operator T $\ast$} ()
+\begin{DoxyCompactList}\small\item\em Conversion to pointer operator. \item\end{DoxyCompactList}\item 
+\hyperlink{class_vector2_a8da0db93360db67497ee7614e1152a4f}{operator const T $\ast$} () const 
+\begin{DoxyCompactList}\small\item\em Conversion to pointer operator. \item\end{DoxyCompactList}\item 
+std::string \hyperlink{class_vector2_a4c82882017e78c4d36aa1584b8c4aa69}{toString} () const 
+\begin{DoxyCompactList}\small\item\em Gets string representation. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+union \{\\
+\>T \hyperlink{class_vector2_a78fa1f2ed5e261c7fbeb8f3536a1ee34}{x}\\
+\>\>{\em First element of vector, alias for X-\/coordinate. }\\
+\>T \hyperlink{class_vector2_a4855e78bb8bc73048d7871e414047ecc}{s}\\
+\>\>{\em First element of vector, alias for S-\/coordinate. }\\
+\}; \\
+
+\end{tabbing}\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+union \{\\
+\>T \hyperlink{class_vector2_a6cfed8355591aa269f4dba43bd806ef9}{y}\\
+\>\>{\em Second element of vector, alias for Y-\/coordinate. }\\
+\>T \hyperlink{class_vector2_afdb6c2a84434bb86bd5e8a92a546c91a}{t}\\
+\>\>{\em Second element of vector, alias for T-\/coordinate. }\\
+\}; \\
+
+\end{tabbing}\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+std::ostream \& \hyperlink{class_vector2_a1d59d3600fcf2d9886c3664ae6a79fc9}{operator$<$$<$} (std::ostream \&lhs, const \hyperlink{class_vector2}{Vector2}$<$ T $>$ \&rhs)
+\begin{DoxyCompactList}\small\item\em Output to stream operator. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$class T$>$ class Vector2$<$ T $>$}
+
+Class for two dimensional vector. There are three ways of accessing vector components. Let's have {\ttfamily Vector2f v}, you can either: 
+\begin{DoxyItemize}
+\item access as position(x,y) --- {\ttfamily v.x = v.y = 3;} 
+\item access as texture coordinate (s,t) --- {\ttfamily v.s = v.t = 3;} 
+\item access via operator\mbox{[}\mbox{]} --- {\ttfamily v\mbox{[}0\mbox{]} = v\mbox{[}1\mbox{]} = 3;} 
+\end{DoxyItemize}
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_vector2_ae2f1223cb0d664aa73afb789086a4174}{
+\index{Vector2@{Vector2}!Vector2@{Vector2}}
+\index{Vector2@{Vector2}!Vector2@{Vector2}}
+\subsubsection[{Vector2}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ {\bf Vector2}$<$ T $>$::{\bf Vector2} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_vector2_ae2f1223cb0d664aa73afb789086a4174}
+
+
+Creates and sets to (0,0). 
+
+\hypertarget{class_vector2_a73dbb934192bdaffb43f4f472e62d1d7}{
+\index{Vector2@{Vector2}!Vector2@{Vector2}}
+\index{Vector2@{Vector2}!Vector2@{Vector2}}
+\subsubsection[{Vector2}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ {\bf Vector2}$<$ T $>$::{\bf Vector2} (
+\begin{DoxyParamCaption}
+\item[{T}]{ nx, }
+\item[{T}]{ ny}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_vector2_a73dbb934192bdaffb43f4f472e62d1d7}
+
+
+Creates and sets to (x,y). 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em nx}]initial x-\/coordinate value \item[{\em ny}]initial y-\/coordinate value \end{DoxyParams}
+\hypertarget{class_vector2_a6942368710d42c4b66776538a583d6dc}{
+\index{Vector2@{Vector2}!Vector2@{Vector2}}
+\index{Vector2@{Vector2}!Vector2@{Vector2}}
+\subsubsection[{Vector2}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ {\bf Vector2}$<$ T $>$::{\bf Vector2} (
+\begin{DoxyParamCaption}
+\item[{const {\bf Vector2}$<$ T $>$ \&}]{ src}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_vector2_a6942368710d42c4b66776538a583d6dc}
+
+
+Copy constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em src}]Source of data for new created instance. \end{DoxyParams}
+\hypertarget{class_vector2_a93286dc1ccd8e1f2deb49668076aa5dc}{
+\index{Vector2@{Vector2}!Vector2@{Vector2}}
+\index{Vector2@{Vector2}!Vector2@{Vector2}}
+\subsubsection[{Vector2}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ template$<$class FromT $>$ {\bf Vector2}$<$ T $>$::{\bf Vector2} (
+\begin{DoxyParamCaption}
+\item[{const {\bf Vector2}$<$ FromT $>$ \&}]{ src}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_vector2_a93286dc1ccd8e1f2deb49668076aa5dc}
+
+
+Copy casting constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em src}]Source of data for new created instance. \end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_vector2_a119c51f16f90ffb3b30ee59475e7fdf8}{
+\index{Vector2@{Vector2}!length@{length}}
+\index{length@{length}!Vector2@{Vector2}}
+\subsubsection[{length}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ T {\bf Vector2}$<$ T $>$::length (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_vector2_a119c51f16f90ffb3b30ee59475e7fdf8}
+
+
+Get length of vector. 
+
+\begin{DoxyReturn}{Returns}
+lenght of vector 
+\end{DoxyReturn}
+\hypertarget{class_vector2_a54aeb0e64f05cb4eb6787b6ac9f9a468}{
+\index{Vector2@{Vector2}!lengthSq@{lengthSq}}
+\index{lengthSq@{lengthSq}!Vector2@{Vector2}}
+\subsubsection[{lengthSq}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ T {\bf Vector2}$<$ T $>$::lengthSq (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_vector2_a54aeb0e64f05cb4eb6787b6ac9f9a468}
+
+
+Return square of length. 
+
+\begin{DoxyReturn}{Returns}
+length $^\wedge$ 2 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+This method is faster then \hyperlink{class_vector2_a119c51f16f90ffb3b30ee59475e7fdf8}{length()}. For comparison of length of two vector can be used just this value, instead of more expensive \hyperlink{class_vector2_a119c51f16f90ffb3b30ee59475e7fdf8}{length()} method. 
+\end{DoxyNote}
+\hypertarget{class_vector2_a1377e154f9f49724dbf28e2d6f43fe66}{
+\index{Vector2@{Vector2}!lerp@{lerp}}
+\index{lerp@{lerp}!Vector2@{Vector2}}
+\subsubsection[{lerp}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ {\bf Vector2}$<$T$>$ {\bf Vector2}$<$ T $>$::lerp (
+\begin{DoxyParamCaption}
+\item[{T}]{ fact, }
+\item[{const {\bf Vector2}$<$ T $>$ \&}]{ r}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_vector2_a1377e154f9f49724dbf28e2d6f43fe66}
+
+
+Linear interpolation of two vectors. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em fact}]Factor of interpolation. For translation from position of this vector to vector r, values of factor goes from 0.0 to 1.0. \item[{\em r}]Second Vector for interpolation \end{DoxyParams}
+\begin{DoxyNote}{Note}
+However values of fact parameter are reasonable only in interval \mbox{[}0.0 , 1.0\mbox{]}, you can pass also values outside of this interval and you can get result (extrapolation?) 
+\end{DoxyNote}
+\hypertarget{class_vector2_ace2a626eaa79412e2946216e9c3e63c6}{
+\index{Vector2@{Vector2}!normalize@{normalize}}
+\index{normalize@{normalize}!Vector2@{Vector2}}
+\subsubsection[{normalize}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ void {\bf Vector2}$<$ T $>$::normalize (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_vector2_ace2a626eaa79412e2946216e9c3e63c6}
+
+
+Normalize vector. 
+
+\hypertarget{class_vector2_a8da0db93360db67497ee7614e1152a4f}{
+\index{Vector2@{Vector2}!operator const T $\ast$@{operator const T $\ast$}}
+\index{operator const T $\ast$@{operator const T $\ast$}!Vector2@{Vector2}}
+\subsubsection[{operator const T $\ast$}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ {\bf Vector2}$<$ T $>$::operator const T $\ast$ (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_vector2_a8da0db93360db67497ee7614e1152a4f}
+
+
+Conversion to pointer operator. 
+
+\begin{DoxyReturn}{Returns}
+Constant Pointer to internally stored (in management of class Vector2$<$T$>$) used for passing Vector2$<$T$>$ values to gl$\ast$2\mbox{[}fd\mbox{]} functions. 
+\end{DoxyReturn}
+\hypertarget{class_vector2_a47ef81d7cef209446129a056b0d20099}{
+\index{Vector2@{Vector2}!operator T $\ast$@{operator T $\ast$}}
+\index{operator T $\ast$@{operator T $\ast$}!Vector2@{Vector2}}
+\subsubsection[{operator T $\ast$}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ {\bf Vector2}$<$ T $>$::operator T $\ast$ (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_vector2_a47ef81d7cef209446129a056b0d20099}
+
+
+Conversion to pointer operator. 
+
+\begin{DoxyReturn}{Returns}
+Pointer to internally stored (in management of class Vector2$<$T$>$) used for passing Vector2$<$T$>$ values to gl$\ast$2\mbox{[}fd\mbox{]} functions. 
+\end{DoxyReturn}
+\hypertarget{class_vector2_a0c69e0a4ef5fdfdd5800525c7a751f08}{
+\index{Vector2@{Vector2}!operator!=@{operator!=}}
+\index{operator!=@{operator!=}!Vector2@{Vector2}}
+\subsubsection[{operator!=}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ bool {\bf Vector2}$<$ T $>$::operator!= (
+\begin{DoxyParamCaption}
+\item[{const {\bf Vector2}$<$ T $>$ \&}]{ rhs}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_vector2_a0c69e0a4ef5fdfdd5800525c7a751f08}
+
+
+Inequality test operator. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em rhs}]Right hand side argument of binary operator. \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+not (lhs == rhs) :-\/P 
+\end{DoxyReturn}
+\hypertarget{class_vector2_a400c2c32b1b54f5423ddcb6e24d90c6a}{
+\index{Vector2@{Vector2}!operator$\ast$@{operator$\ast$}}
+\index{operator$\ast$@{operator$\ast$}!Vector2@{Vector2}}
+\subsubsection[{operator$\ast$}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ {\bf Vector2}$<$T$>$ {\bf Vector2}$<$ T $>$::operator$\ast$ (
+\begin{DoxyParamCaption}
+\item[{const {\bf Vector2}$<$ T $>$ \&}]{ rhs}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_vector2_a400c2c32b1b54f5423ddcb6e24d90c6a}
+
+
+Multiplication operator. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em rhs}]Right hand side argument of binary operator. \end{DoxyParams}
+\hypertarget{class_vector2_afe8640177b4a4114196b5d4f6a2ee597}{
+\index{Vector2@{Vector2}!operator$\ast$@{operator$\ast$}}
+\index{operator$\ast$@{operator$\ast$}!Vector2@{Vector2}}
+\subsubsection[{operator$\ast$}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ {\bf Vector2}$<$T$>$ {\bf Vector2}$<$ T $>$::operator$\ast$ (
+\begin{DoxyParamCaption}
+\item[{T}]{ rhs}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_vector2_afe8640177b4a4114196b5d4f6a2ee597}
+
+
+Multiplication operator. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em rhs}]Right hand side argument of binary operator. \end{DoxyParams}
+\hypertarget{class_vector2_ad71db03f38ea0f7b0794bf7c12d04c39}{
+\index{Vector2@{Vector2}!operator$\ast$=@{operator$\ast$=}}
+\index{operator$\ast$=@{operator$\ast$=}!Vector2@{Vector2}}
+\subsubsection[{operator$\ast$=}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ {\bf Vector2}$<$T$>$\& {\bf Vector2}$<$ T $>$::operator$\ast$= (
+\begin{DoxyParamCaption}
+\item[{T}]{ rhs}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_vector2_ad71db03f38ea0f7b0794bf7c12d04c39}
+
+
+Multiplication operator. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em rhs}]Right hand side argument of binary operator. \end{DoxyParams}
+\hypertarget{class_vector2_aefae77616723d6c857a3e21dd5ea70e7}{
+\index{Vector2@{Vector2}!operator$\ast$=@{operator$\ast$=}}
+\index{operator$\ast$=@{operator$\ast$=}!Vector2@{Vector2}}
+\subsubsection[{operator$\ast$=}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ {\bf Vector2}$<$T$>$\& {\bf Vector2}$<$ T $>$::operator$\ast$= (
+\begin{DoxyParamCaption}
+\item[{const {\bf Vector2}$<$ T $>$ \&}]{ rhs}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_vector2_aefae77616723d6c857a3e21dd5ea70e7}
+
+
+Multiplication operator. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em rhs}]Right hand side argument of binary operator. \end{DoxyParams}
+\hypertarget{class_vector2_a17527e8fe674085b892ccfcb42cd85b3}{
+\index{Vector2@{Vector2}!operator+@{operator+}}
+\index{operator+@{operator+}!Vector2@{Vector2}}
+\subsubsection[{operator+}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ {\bf Vector2}$<$T$>$ {\bf Vector2}$<$ T $>$::operator+ (
+\begin{DoxyParamCaption}
+\item[{T}]{ rhs}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_vector2_a17527e8fe674085b892ccfcb42cd85b3}
+
+
+Addition operator. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em rhs}]Right hand side argument of binary operator. \end{DoxyParams}
+\hypertarget{class_vector2_a481bea0de6a8060118b48a4f2516e329}{
+\index{Vector2@{Vector2}!operator+@{operator+}}
+\index{operator+@{operator+}!Vector2@{Vector2}}
+\subsubsection[{operator+}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ {\bf Vector2}$<$T$>$ {\bf Vector2}$<$ T $>$::operator+ (
+\begin{DoxyParamCaption}
+\item[{const {\bf Vector2}$<$ T $>$ \&}]{ rhs}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_vector2_a481bea0de6a8060118b48a4f2516e329}
+
+
+Addition operator. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em rhs}]Right hand side argument of binary operator. \end{DoxyParams}
+\hypertarget{class_vector2_ac9fc3a535e3e2c4a001db064b0572a89}{
+\index{Vector2@{Vector2}!operator+=@{operator+=}}
+\index{operator+=@{operator+=}!Vector2@{Vector2}}
+\subsubsection[{operator+=}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ {\bf Vector2}$<$T$>$\& {\bf Vector2}$<$ T $>$::operator+= (
+\begin{DoxyParamCaption}
+\item[{T}]{ rhs}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_vector2_ac9fc3a535e3e2c4a001db064b0572a89}
+
+
+Addition operator. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em rhs}]Right hand side argument of binary operator. \end{DoxyParams}
+\hypertarget{class_vector2_ac81fd06dc944404ab96e387a9c810d41}{
+\index{Vector2@{Vector2}!operator+=@{operator+=}}
+\index{operator+=@{operator+=}!Vector2@{Vector2}}
+\subsubsection[{operator+=}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ {\bf Vector2}$<$T$>$\& {\bf Vector2}$<$ T $>$::operator+= (
+\begin{DoxyParamCaption}
+\item[{const {\bf Vector2}$<$ T $>$ \&}]{ rhs}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_vector2_ac81fd06dc944404ab96e387a9c810d41}
+
+
+Addition operator. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em rhs}]Right hand side argument of binary operator. \end{DoxyParams}
+\hypertarget{class_vector2_aa1367fe9fa837cd5dab8c9b57de5db6a}{
+\index{Vector2@{Vector2}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!Vector2@{Vector2}}
+\subsubsection[{operator-\/}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ {\bf Vector2}$<$T$>$ {\bf Vector2}$<$ T $>$::operator-\/ (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_vector2_aa1367fe9fa837cd5dab8c9b57de5db6a}
+
+
+Unary negate operator. 
+
+\begin{DoxyReturn}{Returns}
+negated vector 
+\end{DoxyReturn}
+\hypertarget{class_vector2_ac6729c8cb9d0eb0a5f1aeb3093c1669f}{
+\index{Vector2@{Vector2}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!Vector2@{Vector2}}
+\subsubsection[{operator-\/}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ {\bf Vector2}$<$T$>$ {\bf Vector2}$<$ T $>$::operator-\/ (
+\begin{DoxyParamCaption}
+\item[{T}]{ rhs}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_vector2_ac6729c8cb9d0eb0a5f1aeb3093c1669f}
+
+
+Subtraction operator. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em rhs}]Right hand side argument of binary operator. \end{DoxyParams}
+\hypertarget{class_vector2_acb95b5aa975ef2eccaafc9314ed31373}{
+\index{Vector2@{Vector2}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!Vector2@{Vector2}}
+\subsubsection[{operator-\/}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ {\bf Vector2}$<$T$>$ {\bf Vector2}$<$ T $>$::operator-\/ (
+\begin{DoxyParamCaption}
+\item[{const {\bf Vector2}$<$ T $>$ \&}]{ rhs}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_vector2_acb95b5aa975ef2eccaafc9314ed31373}
+
+
+Subtraction operator. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em rhs}]Right hand side argument of binary operator. \end{DoxyParams}
+\hypertarget{class_vector2_afba0b8c23b74f538ab8cecf8c77d9a17}{
+\index{Vector2@{Vector2}!operator-\/=@{operator-\/=}}
+\index{operator-\/=@{operator-\/=}!Vector2@{Vector2}}
+\subsubsection[{operator-\/=}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ {\bf Vector2}$<$T$>$\& {\bf Vector2}$<$ T $>$::operator-\/= (
+\begin{DoxyParamCaption}
+\item[{T}]{ rhs}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_vector2_afba0b8c23b74f538ab8cecf8c77d9a17}
+
+
+Subtraction operator. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em rhs}]Right hand side argument of binary operator. \end{DoxyParams}
+\hypertarget{class_vector2_adf7f03dd1b698850baaff61b21ec501f}{
+\index{Vector2@{Vector2}!operator-\/=@{operator-\/=}}
+\index{operator-\/=@{operator-\/=}!Vector2@{Vector2}}
+\subsubsection[{operator-\/=}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ {\bf Vector2}$<$T$>$\& {\bf Vector2}$<$ T $>$::operator-\/= (
+\begin{DoxyParamCaption}
+\item[{const {\bf Vector2}$<$ T $>$ \&}]{ rhs}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_vector2_adf7f03dd1b698850baaff61b21ec501f}
+
+
+Substraction operator. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em rhs}]Right hand side argument of binary operator. \end{DoxyParams}
+\hypertarget{class_vector2_a4c504fd30766b8d3f50a1871590147a8}{
+\index{Vector2@{Vector2}!operator/@{operator/}}
+\index{operator/@{operator/}!Vector2@{Vector2}}
+\subsubsection[{operator/}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ {\bf Vector2}$<$T$>$ {\bf Vector2}$<$ T $>$::operator/ (
+\begin{DoxyParamCaption}
+\item[{T}]{ rhs}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_vector2_a4c504fd30766b8d3f50a1871590147a8}
+
+
+Division operator. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em rhs}]Right hand side argument of binary operator. \end{DoxyParams}
+\hypertarget{class_vector2_a7ca23b6847d15c9e0b8544071c08a0c9}{
+\index{Vector2@{Vector2}!operator/@{operator/}}
+\index{operator/@{operator/}!Vector2@{Vector2}}
+\subsubsection[{operator/}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ {\bf Vector2}$<$T$>$ {\bf Vector2}$<$ T $>$::operator/ (
+\begin{DoxyParamCaption}
+\item[{const {\bf Vector2}$<$ T $>$ \&}]{ rhs}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_vector2_a7ca23b6847d15c9e0b8544071c08a0c9}
+
+
+Division operator. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em rhs}]Right hand side argument of binary operator. \end{DoxyParams}
+\hypertarget{class_vector2_ab50c18ba014384a42cc78be9a36a222c}{
+\index{Vector2@{Vector2}!operator/=@{operator/=}}
+\index{operator/=@{operator/=}!Vector2@{Vector2}}
+\subsubsection[{operator/=}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ {\bf Vector2}$<$T$>$\& {\bf Vector2}$<$ T $>$::operator/= (
+\begin{DoxyParamCaption}
+\item[{T}]{ rhs}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_vector2_ab50c18ba014384a42cc78be9a36a222c}
+
+
+Division operator. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em rhs}]Right hand side argument of binary operator. \end{DoxyParams}
+\hypertarget{class_vector2_a7cf62fe9339f503b680daaeacc71eb4c}{
+\index{Vector2@{Vector2}!operator/=@{operator/=}}
+\index{operator/=@{operator/=}!Vector2@{Vector2}}
+\subsubsection[{operator/=}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ {\bf Vector2}$<$T$>$\& {\bf Vector2}$<$ T $>$::operator/= (
+\begin{DoxyParamCaption}
+\item[{const {\bf Vector2}$<$ T $>$ \&}]{ rhs}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_vector2_a7cf62fe9339f503b680daaeacc71eb4c}
+
+
+Division operator. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em rhs}]Right hand side argument of binary operator. \end{DoxyParams}
+\hypertarget{class_vector2_aa93d791f8624cf19ea3b2a7eed329b61}{
+\index{Vector2@{Vector2}!operator=@{operator=}}
+\index{operator=@{operator=}!Vector2@{Vector2}}
+\subsubsection[{operator=}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ template$<$class FromT $>$ {\bf Vector2}$<$T$>$\& {\bf Vector2}$<$ T $>$::operator= (
+\begin{DoxyParamCaption}
+\item[{const {\bf Vector2}$<$ FromT $>$ \&}]{ rhs}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_vector2_aa93d791f8624cf19ea3b2a7eed329b61}
+
+
+Copy casting operator. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em rhs}]Right hand side argument of binary operator. \end{DoxyParams}
+\hypertarget{class_vector2_a63e1c003cecacae0b26296941b3fe44a}{
+\index{Vector2@{Vector2}!operator=@{operator=}}
+\index{operator=@{operator=}!Vector2@{Vector2}}
+\subsubsection[{operator=}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ {\bf Vector2}$<$T$>$\& {\bf Vector2}$<$ T $>$::operator= (
+\begin{DoxyParamCaption}
+\item[{const {\bf Vector2}$<$ T $>$ \&}]{ rhs}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_vector2_a63e1c003cecacae0b26296941b3fe44a}
+
+
+Copy operator. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em rhs}]Right hand side argument of binary operator. \end{DoxyParams}
+\hypertarget{class_vector2_af44452c8cd74b57249f334fe3a0e5212}{
+\index{Vector2@{Vector2}!operator==@{operator==}}
+\index{operator==@{operator==}!Vector2@{Vector2}}
+\subsubsection[{operator==}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ bool {\bf Vector2}$<$ T $>$::operator== (
+\begin{DoxyParamCaption}
+\item[{const {\bf Vector2}$<$ T $>$ \&}]{ rhs}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_vector2_af44452c8cd74b57249f334fe3a0e5212}
+
+
+Equality test operator. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em rhs}]Right hand side argument of binary operator. \end{DoxyParams}
+\begin{DoxyNote}{Note}
+Test of equality is based of threshold EPSILON value. To be two values equal, must satisfy this condition $|$ lhs.x -\/ rhs.y $|$ $<$ EPSILON, same for y-\/coordinate. 
+\end{DoxyNote}
+\hypertarget{class_vector2_a33a7b603ccfa18de8524effcb18388df}{
+\index{Vector2@{Vector2}!operator\mbox{[}\mbox{]}@{operator[]}}
+\index{operator\mbox{[}\mbox{]}@{operator[]}!Vector2@{Vector2}}
+\subsubsection[{operator[]}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ const T\& {\bf Vector2}$<$ T $>$::operator\mbox{[}$\,$\mbox{]} (
+\begin{DoxyParamCaption}
+\item[{int}]{ n}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_vector2_a33a7b603ccfa18de8524effcb18388df}
+
+
+Constant array access operator. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em n}]Array index \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+For n = 0, reference to x coordinate, else reference to y y coordinate. 
+\end{DoxyReturn}
+\hypertarget{class_vector2_a7d7e7b0abc5433808832147bfd58c171}{
+\index{Vector2@{Vector2}!operator\mbox{[}\mbox{]}@{operator[]}}
+\index{operator\mbox{[}\mbox{]}@{operator[]}!Vector2@{Vector2}}
+\subsubsection[{operator[]}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ T\& {\bf Vector2}$<$ T $>$::operator\mbox{[}$\,$\mbox{]} (
+\begin{DoxyParamCaption}
+\item[{int}]{ n}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_vector2_a7d7e7b0abc5433808832147bfd58c171}
+
+
+Array access operator. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em n}]Array index \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+For n = 0, reference to x coordinate, else reference to y y coordinate. 
+\end{DoxyReturn}
+\hypertarget{class_vector2_a4c82882017e78c4d36aa1584b8c4aa69}{
+\index{Vector2@{Vector2}!toString@{toString}}
+\index{toString@{toString}!Vector2@{Vector2}}
+\subsubsection[{toString}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ std::string {\bf Vector2}$<$ T $>$::toString (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_vector2_a4c82882017e78c4d36aa1584b8c4aa69}
+
+
+Gets string representation. 
+
+
+
+\subsection{Friends And Related Function Documentation}
+\hypertarget{class_vector2_a1d59d3600fcf2d9886c3664ae6a79fc9}{
+\index{Vector2@{Vector2}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Vector2@{Vector2}}
+\subsubsection[{operator$<$$<$}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ std::ostream\& operator$<$$<$ (
+\begin{DoxyParamCaption}
+\item[{std::ostream \&}]{ lhs, }
+\item[{const {\bf Vector2}$<$ T $>$ \&}]{ rhs}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}
+\label{class_vector2_a1d59d3600fcf2d9886c3664ae6a79fc9}
+
+
+Output to stream operator. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em lhs}]Left hand side argument of operator (commonly ostream instance). \item[{\em rhs}]Right hand side argument of operator. \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Left hand side argument -\/ the ostream object passed to operator. 
+\end{DoxyReturn}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{class_vector2_a8bdebf8de631b7bbe921bbbfae68b576}{
+\subsubsection[{"@1}]{\setlength{\rightskip}{0pt plus 5cm}union \{ ... \} }}
+\label{class_vector2_a8bdebf8de631b7bbe921bbbfae68b576}
+\hypertarget{class_vector2_adcb8def47b076a4aa09b62adf6b2f60f}{
+\subsubsection[{"@3}]{\setlength{\rightskip}{0pt plus 5cm}union \{ ... \} }}
+\label{class_vector2_adcb8def47b076a4aa09b62adf6b2f60f}
+\hypertarget{class_vector2_a4855e78bb8bc73048d7871e414047ecc}{
+\index{Vector2@{Vector2}!s@{s}}
+\index{s@{s}!Vector2@{Vector2}}
+\subsubsection[{s}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ T {\bf Vector2}$<$ T $>$::{\bf s}}}
+\label{class_vector2_a4855e78bb8bc73048d7871e414047ecc}
+
+
+First element of vector, alias for S-\/coordinate. 
+
+For textures notation. \hypertarget{class_vector2_afdb6c2a84434bb86bd5e8a92a546c91a}{
+\index{Vector2@{Vector2}!t@{t}}
+\index{t@{t}!Vector2@{Vector2}}
+\subsubsection[{t}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ T {\bf Vector2}$<$ T $>$::{\bf t}}}
+\label{class_vector2_afdb6c2a84434bb86bd5e8a92a546c91a}
+
+
+Second element of vector, alias for T-\/coordinate. 
+
+For textures notation. \hypertarget{class_vector2_a78fa1f2ed5e261c7fbeb8f3536a1ee34}{
+\index{Vector2@{Vector2}!x@{x}}
+\index{x@{x}!Vector2@{Vector2}}
+\subsubsection[{x}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ T {\bf Vector2}$<$ T $>$::{\bf x}}}
+\label{class_vector2_a78fa1f2ed5e261c7fbeb8f3536a1ee34}
+
+
+First element of vector, alias for X-\/coordinate. 
+
+\hypertarget{class_vector2_a6cfed8355591aa269f4dba43bd806ef9}{
+\index{Vector2@{Vector2}!y@{y}}
+\index{y@{y}!Vector2@{Vector2}}
+\subsubsection[{y}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ T {\bf Vector2}$<$ T $>$::{\bf y}}}
+\label{class_vector2_a6cfed8355591aa269f4dba43bd806ef9}
+
+
+Second element of vector, alias for Y-\/coordinate. 
+
+
+
+The documentation for this class was generated from the following file:\begin{DoxyCompactItemize}
+\item 
+src/\hyperlink{vmath_8h}{vmath.h}\end{DoxyCompactItemize}

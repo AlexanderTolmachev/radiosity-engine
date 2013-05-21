@@ -1,0 +1,674 @@
+\hypertarget{class_quaternion}{
+\section{Quaternion$<$ T $>$ Class Template Reference}
+\label{class_quaternion}\index{Quaternion@{Quaternion}}
+}
+
+
+\hyperlink{class_quaternion}{Quaternion} class implementing some quaternion algebra operations.  
+
+
+
+
+{\ttfamily \#include $<$vmath.h$>$}
+
+
+
+Collaboration diagram for Quaternion$<$ T $>$:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=178pt]{class_quaternion__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_quaternion_ad5008dba83ccdf61b2e66ac1bfb709f3}{Quaternion} ()
+\begin{DoxyCompactList}\small\item\em \hyperlink{class_quaternion}{Quaternion} constructor, sets quaternion to (0 + 0i + 0j + 0k). \item\end{DoxyCompactList}\item 
+\hyperlink{class_quaternion_a1737dd209659babb0a71b386dbb63314}{Quaternion} (const \hyperlink{class_quaternion}{Quaternion}$<$ T $>$ \&q)
+\begin{DoxyCompactList}\small\item\em Copy constructor. \item\end{DoxyCompactList}\item 
+{\footnotesize template$<$class FromT $>$ }\\\hyperlink{class_quaternion_a5e0472cfdc4928db4071c78b1656fe4e}{Quaternion} (const \hyperlink{class_quaternion}{Quaternion}$<$ FromT $>$ \&q)
+\begin{DoxyCompactList}\small\item\em Copy casting constructor. \item\end{DoxyCompactList}\item 
+\hyperlink{class_quaternion_a6a703f9bd81ff8cb1dac6e5cfebacf5a}{Quaternion} (T w\_\-, const \hyperlink{class_vector3}{Vector3}$<$ T $>$ \&v\_\-)
+\begin{DoxyCompactList}\small\item\em Creates quaternion object from real part w\_\- and complex part v\_\-. \item\end{DoxyCompactList}\item 
+\hyperlink{class_quaternion_a4d214b9f82b3f74dc7311f584a1eae73}{Quaternion} (T w\_\-, T x, T y, T z)
+\begin{DoxyCompactList}\small\item\em Creates quaternion object from value (w\_\- + xi + yj + zk). \item\end{DoxyCompactList}\item 
+\hyperlink{class_quaternion}{Quaternion}$<$ T $>$ \& \hyperlink{class_quaternion_ac76403b6bd79b91d21f8d17f3ac938bd}{operator=} (const \hyperlink{class_quaternion}{Quaternion}$<$ T $>$ \&rhs)
+\begin{DoxyCompactList}\small\item\em Copy operator. \item\end{DoxyCompactList}\item 
+{\footnotesize template$<$class FromT $>$ }\\\hyperlink{class_quaternion}{Quaternion}$<$ T $>$ \& \hyperlink{class_quaternion_ae61051568c9fb1742cb2dc9ad34132c1}{operator=} (const \hyperlink{class_quaternion}{Quaternion}$<$ FromT $>$ \&rhs)
+\begin{DoxyCompactList}\small\item\em Copy convert operator. \item\end{DoxyCompactList}\item 
+\hyperlink{class_quaternion}{Quaternion}$<$ T $>$ \hyperlink{class_quaternion_a006d553d3e85f86a6426aee06b52e3ac}{operator+} (const \hyperlink{class_quaternion}{Quaternion}$<$ T $>$ \&rhs) const 
+\begin{DoxyCompactList}\small\item\em Addition operator. \item\end{DoxyCompactList}\item 
+\hyperlink{class_quaternion}{Quaternion}$<$ T $>$ \hyperlink{class_quaternion_ab5b6d22e938709b43398f0bde1a056c8}{operator$\ast$} (const \hyperlink{class_quaternion}{Quaternion}$<$ T $>$ \&rhs) const 
+\begin{DoxyCompactList}\small\item\em Multiplication operator. \item\end{DoxyCompactList}\item 
+\hyperlink{class_quaternion}{Quaternion}$<$ T $>$ \hyperlink{class_quaternion_ad553f18f44e0466a0f68d60085ba09f7}{operator$\ast$} (T rhs) const 
+\begin{DoxyCompactList}\small\item\em Multiplication operator. \item\end{DoxyCompactList}\item 
+\hyperlink{class_quaternion}{Quaternion}$<$ T $>$ \hyperlink{class_quaternion_af1dcfe83f758752458d329fa3367b9bd}{operator-\/} (const \hyperlink{class_quaternion}{Quaternion}$<$ T $>$ \&rhs) const 
+\begin{DoxyCompactList}\small\item\em Subtraction operator. \item\end{DoxyCompactList}\item 
+\hyperlink{class_quaternion}{Quaternion}$<$ T $>$ \& \hyperlink{class_quaternion_a2567e2242703dbb3f82571f47410e553}{operator+=} (const \hyperlink{class_quaternion}{Quaternion}$<$ T $>$ \&rhs)
+\begin{DoxyCompactList}\small\item\em Addition operator. \item\end{DoxyCompactList}\item 
+\hyperlink{class_quaternion}{Quaternion}$<$ T $>$ \& \hyperlink{class_quaternion_a2d5c3cdfa00f6f978d29dde5de55f067}{operator-\/=} (const \hyperlink{class_quaternion}{Quaternion}$<$ T $>$ \&rhs)
+\begin{DoxyCompactList}\small\item\em Subtraction operator. \item\end{DoxyCompactList}\item 
+\hyperlink{class_quaternion}{Quaternion}$<$ T $>$ \& \hyperlink{class_quaternion_ac1674c5911091daed8266b997d5a3bdd}{operator$\ast$=} (const \hyperlink{class_quaternion}{Quaternion}$<$ T $>$ \&rhs)
+\begin{DoxyCompactList}\small\item\em Multiplication operator. \item\end{DoxyCompactList}\item 
+\hyperlink{class_quaternion}{Quaternion}$<$ T $>$ \& \hyperlink{class_quaternion_a25cccfb4a4738744cba0b4b4b47c82ed}{operator$\ast$=} (T rhs)
+\begin{DoxyCompactList}\small\item\em Multiplication operator. \item\end{DoxyCompactList}\item 
+bool \hyperlink{class_quaternion_ab044ab0bf000fd1ed6937e4861b039e2}{operator==} (const \hyperlink{class_quaternion}{Quaternion}$<$ T $>$ \&rhs) const 
+\begin{DoxyCompactList}\small\item\em Equality test operator. \item\end{DoxyCompactList}\item 
+bool \hyperlink{class_quaternion_a11892ce300a6e2d830314d795066ee1c}{operator!=} (const \hyperlink{class_quaternion}{Quaternion}$<$ T $>$ \&rhs) const 
+\begin{DoxyCompactList}\small\item\em Inequality test operator. \item\end{DoxyCompactList}\item 
+\hyperlink{class_quaternion}{Quaternion}$<$ T $>$ \hyperlink{class_quaternion_a2514c9e4a32f140cbac8bb7958d9b855}{operator-\/} () const 
+\begin{DoxyCompactList}\small\item\em Unary negate operator. \item\end{DoxyCompactList}\item 
+\hyperlink{class_quaternion}{Quaternion}$<$ T $>$ \hyperlink{class_quaternion_ab0393616ac07e35b9808f20bd1740fd5}{operator$\sim$} () const 
+\begin{DoxyCompactList}\small\item\em Unary conjugate operator. \item\end{DoxyCompactList}\item 
+T \hyperlink{class_quaternion_a47b0bf40eb963350af7c0585c840de0d}{length} () const 
+\begin{DoxyCompactList}\small\item\em Get lenght of quaternion. \item\end{DoxyCompactList}\item 
+T \hyperlink{class_quaternion_a4e9c538c1c9e2b28ee2399a26efdcbb6}{lengthSq} () const 
+\begin{DoxyCompactList}\small\item\em Return square of length. \item\end{DoxyCompactList}\item 
+void \hyperlink{class_quaternion_ac27752c31f3bb3620cb757fa3d07cd67}{normalize} ()
+\begin{DoxyCompactList}\small\item\em Normalize quaternion. \item\end{DoxyCompactList}\item 
+\hyperlink{class_matrix3}{Matrix3}$<$ T $>$ \hyperlink{class_quaternion_a1d74ff2d4fe84758f70b396de5b3f749}{rotMatrix} ()
+\begin{DoxyCompactList}\small\item\em Converts quaternion into rotation matrix. \item\end{DoxyCompactList}\item 
+\hyperlink{class_matrix4}{Matrix4}$<$ T $>$ \hyperlink{class_quaternion_a00298e05ea5d74c7a25d072b88e20399}{transform} () const 
+\begin{DoxyCompactList}\small\item\em Converts quaternion into transformation matrix. \item\end{DoxyCompactList}\item 
+\hyperlink{class_quaternion}{Quaternion}$<$ T $>$ \hyperlink{class_quaternion_a8e8e63deaa3c53c63f9dad8556ec1612}{lerp} (T fact, const \hyperlink{class_quaternion}{Quaternion}$<$ T $>$ \&rhs) const 
+\begin{DoxyCompactList}\small\item\em Linear interpolation of two quaternions. \item\end{DoxyCompactList}\item 
+std::string \hyperlink{class_quaternion_a48b3e7bf721bb2d451dd5845e29f96f2}{toString} () const 
+\begin{DoxyCompactList}\small\item\em Gets string representation. \item\end{DoxyCompactList}\item 
+\hyperlink{class_quaternion}{Quaternion}$<$ T $>$ \hyperlink{class_quaternion_a6772ea8a4dee0d24913e26c88dc1d3c8}{slerp} (T r, const \hyperlink{class_quaternion}{Quaternion}$<$ T $>$ \&q2) const 
+\begin{DoxyCompactList}\small\item\em Computes spherical interpolation between quaternions (this, q2) using coefficient of interpolation r (in \mbox{[}0, 1\mbox{]}). \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{class_quaternion}{Quaternion}$<$ T $>$ \hyperlink{class_quaternion_ab7409771454937a4d18e5c65ec237af7}{fromEulerAngles} (T x, T y, T z)
+\begin{DoxyCompactList}\small\item\em Creates quaternion for eulers angles. \item\end{DoxyCompactList}\item 
+static \hyperlink{class_quaternion}{Quaternion}$<$ T $>$ \hyperlink{class_quaternion_ae1853336ac63f00a63249167ee3b86bd}{fromAxisRot} (\hyperlink{class_vector3}{Vector3}$<$ T $>$ axis, float angleDeg)
+\begin{DoxyCompactList}\small\item\em Creates quaternion as rotation around axis. \item\end{DoxyCompactList}\item 
+static \hyperlink{class_quaternion}{Quaternion}$<$ T $>$ \hyperlink{class_quaternion_a6444beef0766cd0351408efe45b2a312}{fromMatrix} (const \hyperlink{class_matrix4}{Matrix4}$<$ T $>$ \&m)
+\begin{DoxyCompactList}\small\item\em Creates quaternion from transform matrix. \item\end{DoxyCompactList}\item 
+static \hyperlink{class_quaternion}{Quaternion}$<$ T $>$ \hyperlink{class_quaternion_a9782ce0b6a21cd183d2c4c6cccbdccb7}{fromMatrix} (const \hyperlink{class_matrix3}{Matrix3}$<$ T $>$ \&m)
+\begin{DoxyCompactList}\small\item\em Creates quaternion from rotation matrix. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+T \hyperlink{class_quaternion_ab3d38cb2d28ba85f00f48768f8fa2815}{w}
+\begin{DoxyCompactList}\small\item\em Real part of quaternion. \item\end{DoxyCompactList}\item 
+\hyperlink{class_vector3}{Vector3}$<$ T $>$ \hyperlink{class_quaternion_a14b395e80f7c6a1687a824f2adb1eb9b}{v}
+\begin{DoxyCompactList}\small\item\em Imaginary part of quaternion. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+std::ostream \& \hyperlink{class_quaternion_a871c9e237d4b87d722a3e6495f377c23}{operator$<$$<$} (std::ostream \&oss, const \hyperlink{class_quaternion}{Quaternion}$<$ T $>$ \&q)
+\begin{DoxyCompactList}\small\item\em Provides output to standard output stream. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$class T$>$ class Quaternion$<$ T $>$}
+
+\hyperlink{class_quaternion}{Quaternion} class implementing some quaternion algebra operations. \hyperlink{class_quaternion}{Quaternion} is kind of complex number it consists of its real part (w) and its complex part v. This complex part has three elements, so we can express it as xi + yj + zk . Note that coordinates of (x,y,z) are hold inside v field. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_quaternion_ad5008dba83ccdf61b2e66ac1bfb709f3}{
+\index{Quaternion@{Quaternion}!Quaternion@{Quaternion}}
+\index{Quaternion@{Quaternion}!Quaternion@{Quaternion}}
+\subsubsection[{Quaternion}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ {\bf Quaternion}$<$ T $>$::{\bf Quaternion} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_quaternion_ad5008dba83ccdf61b2e66ac1bfb709f3}
+
+
+\hyperlink{class_quaternion}{Quaternion} constructor, sets quaternion to (0 + 0i + 0j + 0k). 
+
+\hypertarget{class_quaternion_a1737dd209659babb0a71b386dbb63314}{
+\index{Quaternion@{Quaternion}!Quaternion@{Quaternion}}
+\index{Quaternion@{Quaternion}!Quaternion@{Quaternion}}
+\subsubsection[{Quaternion}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ {\bf Quaternion}$<$ T $>$::{\bf Quaternion} (
+\begin{DoxyParamCaption}
+\item[{const {\bf Quaternion}$<$ T $>$ \&}]{ q}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_quaternion_a1737dd209659babb0a71b386dbb63314}
+
+
+Copy constructor. 
+
+\hypertarget{class_quaternion_a5e0472cfdc4928db4071c78b1656fe4e}{
+\index{Quaternion@{Quaternion}!Quaternion@{Quaternion}}
+\index{Quaternion@{Quaternion}!Quaternion@{Quaternion}}
+\subsubsection[{Quaternion}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ template$<$class FromT $>$ {\bf Quaternion}$<$ T $>$::{\bf Quaternion} (
+\begin{DoxyParamCaption}
+\item[{const {\bf Quaternion}$<$ FromT $>$ \&}]{ q}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_quaternion_a5e0472cfdc4928db4071c78b1656fe4e}
+
+
+Copy casting constructor. 
+
+\hypertarget{class_quaternion_a6a703f9bd81ff8cb1dac6e5cfebacf5a}{
+\index{Quaternion@{Quaternion}!Quaternion@{Quaternion}}
+\index{Quaternion@{Quaternion}!Quaternion@{Quaternion}}
+\subsubsection[{Quaternion}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ {\bf Quaternion}$<$ T $>$::{\bf Quaternion} (
+\begin{DoxyParamCaption}
+\item[{T}]{ w\_\-, }
+\item[{const {\bf Vector3}$<$ T $>$ \&}]{ v\_\-}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_quaternion_a6a703f9bd81ff8cb1dac6e5cfebacf5a}
+
+
+Creates quaternion object from real part w\_\- and complex part v\_\-. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em w\_\-}]Real part of quaternion. \item[{\em v\_\-}]Complex part of quaternion (xi + yj + zk). \end{DoxyParams}
+\hypertarget{class_quaternion_a4d214b9f82b3f74dc7311f584a1eae73}{
+\index{Quaternion@{Quaternion}!Quaternion@{Quaternion}}
+\index{Quaternion@{Quaternion}!Quaternion@{Quaternion}}
+\subsubsection[{Quaternion}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ {\bf Quaternion}$<$ T $>$::{\bf Quaternion} (
+\begin{DoxyParamCaption}
+\item[{T}]{ w\_\-, }
+\item[{T}]{ x, }
+\item[{T}]{ y, }
+\item[{T}]{ z}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_quaternion_a4d214b9f82b3f74dc7311f584a1eae73}
+
+
+Creates quaternion object from value (w\_\- + xi + yj + zk). 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em w\_\-}]Real part of quaternion. \item[{\em x}]Complex coefficient for i complex constant. \item[{\em y}]Complex coefficient for j complex constant. \item[{\em z}]Complex coefficient for k complex constant. \end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_quaternion_ae1853336ac63f00a63249167ee3b86bd}{
+\index{Quaternion@{Quaternion}!fromAxisRot@{fromAxisRot}}
+\index{fromAxisRot@{fromAxisRot}!Quaternion@{Quaternion}}
+\subsubsection[{fromAxisRot}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ static {\bf Quaternion}$<$T$>$ {\bf Quaternion}$<$ T $>$::fromAxisRot (
+\begin{DoxyParamCaption}
+\item[{{\bf Vector3}$<$ T $>$}]{ axis, }
+\item[{float}]{ angleDeg}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline, static\mbox{]}}}}
+\label{class_quaternion_ae1853336ac63f00a63249167ee3b86bd}
+
+
+Creates quaternion as rotation around axis. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em axis}]Unit vector expressing axis of rotation. \item[{\em angleDeg}]Angle of rotation around axis (in degrees). \end{DoxyParams}
+\hypertarget{class_quaternion_ab7409771454937a4d18e5c65ec237af7}{
+\index{Quaternion@{Quaternion}!fromEulerAngles@{fromEulerAngles}}
+\index{fromEulerAngles@{fromEulerAngles}!Quaternion@{Quaternion}}
+\subsubsection[{fromEulerAngles}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ static {\bf Quaternion}$<$T$>$ {\bf Quaternion}$<$ T $>$::fromEulerAngles (
+\begin{DoxyParamCaption}
+\item[{T}]{ x, }
+\item[{T}]{ y, }
+\item[{T}]{ z}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline, static\mbox{]}}}}
+\label{class_quaternion_ab7409771454937a4d18e5c65ec237af7}
+
+
+Creates quaternion for eulers angles. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em x}]Rotation around x axis (in degrees). \item[{\em y}]Rotation around y axis (in degrees). \item[{\em z}]Rotation around z axis (in degrees). \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\hyperlink{class_quaternion}{Quaternion} object representing transformation. 
+\end{DoxyReturn}
+\hypertarget{class_quaternion_a6444beef0766cd0351408efe45b2a312}{
+\index{Quaternion@{Quaternion}!fromMatrix@{fromMatrix}}
+\index{fromMatrix@{fromMatrix}!Quaternion@{Quaternion}}
+\subsubsection[{fromMatrix}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ static {\bf Quaternion}$<$T$>$ {\bf Quaternion}$<$ T $>$::fromMatrix (
+\begin{DoxyParamCaption}
+\item[{const {\bf Matrix4}$<$ T $>$ \&}]{ m}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline, static\mbox{]}}}}
+\label{class_quaternion_a6444beef0766cd0351408efe45b2a312}
+
+
+Creates quaternion from transform matrix. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em m}]Transform matrix used to compute quaternion. \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\hyperlink{class_quaternion}{Quaternion} representing rotation of matrix m. 
+\end{DoxyReturn}
+\hypertarget{class_quaternion_a9782ce0b6a21cd183d2c4c6cccbdccb7}{
+\index{Quaternion@{Quaternion}!fromMatrix@{fromMatrix}}
+\index{fromMatrix@{fromMatrix}!Quaternion@{Quaternion}}
+\subsubsection[{fromMatrix}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ static {\bf Quaternion}$<$T$>$ {\bf Quaternion}$<$ T $>$::fromMatrix (
+\begin{DoxyParamCaption}
+\item[{const {\bf Matrix3}$<$ T $>$ \&}]{ m}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline, static\mbox{]}}}}
+\label{class_quaternion_a9782ce0b6a21cd183d2c4c6cccbdccb7}
+
+
+Creates quaternion from rotation matrix. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em m}]Rotation matrix used to compute quaternion. \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\hyperlink{class_quaternion}{Quaternion} representing rotation of matrix m. 
+\end{DoxyReturn}
+\hypertarget{class_quaternion_a47b0bf40eb963350af7c0585c840de0d}{
+\index{Quaternion@{Quaternion}!length@{length}}
+\index{length@{length}!Quaternion@{Quaternion}}
+\subsubsection[{length}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ T {\bf Quaternion}$<$ T $>$::length (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_quaternion_a47b0bf40eb963350af7c0585c840de0d}
+
+
+Get lenght of quaternion. 
+
+\begin{DoxyReturn}{Returns}
+Length of quaternion. 
+\end{DoxyReturn}
+\hypertarget{class_quaternion_a4e9c538c1c9e2b28ee2399a26efdcbb6}{
+\index{Quaternion@{Quaternion}!lengthSq@{lengthSq}}
+\index{lengthSq@{lengthSq}!Quaternion@{Quaternion}}
+\subsubsection[{lengthSq}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ T {\bf Quaternion}$<$ T $>$::lengthSq (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_quaternion_a4e9c538c1c9e2b28ee2399a26efdcbb6}
+
+
+Return square of length. 
+
+\begin{DoxyReturn}{Returns}
+length $^\wedge$ 2 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+This method is faster then \hyperlink{class_quaternion_a47b0bf40eb963350af7c0585c840de0d}{length()}. For comparison of length of two quaternion can be used just this value, instead of more expensive \hyperlink{class_quaternion_a47b0bf40eb963350af7c0585c840de0d}{length()} method. 
+\end{DoxyNote}
+\hypertarget{class_quaternion_a8e8e63deaa3c53c63f9dad8556ec1612}{
+\index{Quaternion@{Quaternion}!lerp@{lerp}}
+\index{lerp@{lerp}!Quaternion@{Quaternion}}
+\subsubsection[{lerp}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ {\bf Quaternion}$<$T$>$ {\bf Quaternion}$<$ T $>$::lerp (
+\begin{DoxyParamCaption}
+\item[{T}]{ fact, }
+\item[{const {\bf Quaternion}$<$ T $>$ \&}]{ rhs}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_quaternion_a8e8e63deaa3c53c63f9dad8556ec1612}
+
+
+Linear interpolation of two quaternions. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em fact}]Factor of interpolation. For translation from position of this vector to quaternion rhs, values of factor goes from 0.0 to 1.0. \item[{\em rhs}]Second \hyperlink{class_quaternion}{Quaternion} for interpolation \end{DoxyParams}
+\begin{DoxyNote}{Note}
+However values of fact parameter are reasonable only in interval \mbox{[}0.0 , 1.0\mbox{]}, you can pass also values outside of this interval and you can get result (extrapolation?) 
+\end{DoxyNote}
+\hypertarget{class_quaternion_ac27752c31f3bb3620cb757fa3d07cd67}{
+\index{Quaternion@{Quaternion}!normalize@{normalize}}
+\index{normalize@{normalize}!Quaternion@{Quaternion}}
+\subsubsection[{normalize}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ void {\bf Quaternion}$<$ T $>$::normalize (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_quaternion_ac27752c31f3bb3620cb757fa3d07cd67}
+
+
+Normalize quaternion. 
+
+\hypertarget{class_quaternion_a11892ce300a6e2d830314d795066ee1c}{
+\index{Quaternion@{Quaternion}!operator!=@{operator!=}}
+\index{operator!=@{operator!=}!Quaternion@{Quaternion}}
+\subsubsection[{operator!=}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ bool {\bf Quaternion}$<$ T $>$::operator!= (
+\begin{DoxyParamCaption}
+\item[{const {\bf Quaternion}$<$ T $>$ \&}]{ rhs}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_quaternion_a11892ce300a6e2d830314d795066ee1c}
+
+
+Inequality test operator. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em rhs}]Right hand side argument of binary operator. \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+not (lhs == rhs) :-\/P 
+\end{DoxyReturn}
+\hypertarget{class_quaternion_ad553f18f44e0466a0f68d60085ba09f7}{
+\index{Quaternion@{Quaternion}!operator$\ast$@{operator$\ast$}}
+\index{operator$\ast$@{operator$\ast$}!Quaternion@{Quaternion}}
+\subsubsection[{operator$\ast$}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ {\bf Quaternion}$<$T$>$ {\bf Quaternion}$<$ T $>$::operator$\ast$ (
+\begin{DoxyParamCaption}
+\item[{T}]{ rhs}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_quaternion_ad553f18f44e0466a0f68d60085ba09f7}
+
+
+Multiplication operator. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em rhs}]Right hand side argument of binary operator. \end{DoxyParams}
+\hypertarget{class_quaternion_ab5b6d22e938709b43398f0bde1a056c8}{
+\index{Quaternion@{Quaternion}!operator$\ast$@{operator$\ast$}}
+\index{operator$\ast$@{operator$\ast$}!Quaternion@{Quaternion}}
+\subsubsection[{operator$\ast$}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ {\bf Quaternion}$<$T$>$ {\bf Quaternion}$<$ T $>$::operator$\ast$ (
+\begin{DoxyParamCaption}
+\item[{const {\bf Quaternion}$<$ T $>$ \&}]{ rhs}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_quaternion_ab5b6d22e938709b43398f0bde1a056c8}
+
+
+Multiplication operator. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em rhs}]Right hand side argument of binary operator. \end{DoxyParams}
+\hypertarget{class_quaternion_ac1674c5911091daed8266b997d5a3bdd}{
+\index{Quaternion@{Quaternion}!operator$\ast$=@{operator$\ast$=}}
+\index{operator$\ast$=@{operator$\ast$=}!Quaternion@{Quaternion}}
+\subsubsection[{operator$\ast$=}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ {\bf Quaternion}$<$T$>$\& {\bf Quaternion}$<$ T $>$::operator$\ast$= (
+\begin{DoxyParamCaption}
+\item[{const {\bf Quaternion}$<$ T $>$ \&}]{ rhs}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_quaternion_ac1674c5911091daed8266b997d5a3bdd}
+
+
+Multiplication operator. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em rhs}]Right hand side argument of binary operator. \end{DoxyParams}
+\hypertarget{class_quaternion_a25cccfb4a4738744cba0b4b4b47c82ed}{
+\index{Quaternion@{Quaternion}!operator$\ast$=@{operator$\ast$=}}
+\index{operator$\ast$=@{operator$\ast$=}!Quaternion@{Quaternion}}
+\subsubsection[{operator$\ast$=}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ {\bf Quaternion}$<$T$>$\& {\bf Quaternion}$<$ T $>$::operator$\ast$= (
+\begin{DoxyParamCaption}
+\item[{T}]{ rhs}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_quaternion_a25cccfb4a4738744cba0b4b4b47c82ed}
+
+
+Multiplication operator. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em rhs}]Right hand side argument of binary operator. \end{DoxyParams}
+\hypertarget{class_quaternion_a006d553d3e85f86a6426aee06b52e3ac}{
+\index{Quaternion@{Quaternion}!operator+@{operator+}}
+\index{operator+@{operator+}!Quaternion@{Quaternion}}
+\subsubsection[{operator+}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ {\bf Quaternion}$<$T$>$ {\bf Quaternion}$<$ T $>$::operator+ (
+\begin{DoxyParamCaption}
+\item[{const {\bf Quaternion}$<$ T $>$ \&}]{ rhs}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_quaternion_a006d553d3e85f86a6426aee06b52e3ac}
+
+
+Addition operator. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em rhs}]Right hand side argument of binary operator. \end{DoxyParams}
+\hypertarget{class_quaternion_a2567e2242703dbb3f82571f47410e553}{
+\index{Quaternion@{Quaternion}!operator+=@{operator+=}}
+\index{operator+=@{operator+=}!Quaternion@{Quaternion}}
+\subsubsection[{operator+=}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ {\bf Quaternion}$<$T$>$\& {\bf Quaternion}$<$ T $>$::operator+= (
+\begin{DoxyParamCaption}
+\item[{const {\bf Quaternion}$<$ T $>$ \&}]{ rhs}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_quaternion_a2567e2242703dbb3f82571f47410e553}
+
+
+Addition operator. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em rhs}]Right hand side argument of binary operator. \end{DoxyParams}
+\hypertarget{class_quaternion_a2514c9e4a32f140cbac8bb7958d9b855}{
+\index{Quaternion@{Quaternion}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!Quaternion@{Quaternion}}
+\subsubsection[{operator-\/}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ {\bf Quaternion}$<$T$>$ {\bf Quaternion}$<$ T $>$::operator-\/ (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_quaternion_a2514c9e4a32f140cbac8bb7958d9b855}
+
+
+Unary negate operator. 
+
+\begin{DoxyReturn}{Returns}
+negated quaternion 
+\end{DoxyReturn}
+\hypertarget{class_quaternion_af1dcfe83f758752458d329fa3367b9bd}{
+\index{Quaternion@{Quaternion}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!Quaternion@{Quaternion}}
+\subsubsection[{operator-\/}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ {\bf Quaternion}$<$T$>$ {\bf Quaternion}$<$ T $>$::operator-\/ (
+\begin{DoxyParamCaption}
+\item[{const {\bf Quaternion}$<$ T $>$ \&}]{ rhs}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_quaternion_af1dcfe83f758752458d329fa3367b9bd}
+
+
+Subtraction operator. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em rhs}]Right hand side argument of binary operator. \end{DoxyParams}
+\hypertarget{class_quaternion_a2d5c3cdfa00f6f978d29dde5de55f067}{
+\index{Quaternion@{Quaternion}!operator-\/=@{operator-\/=}}
+\index{operator-\/=@{operator-\/=}!Quaternion@{Quaternion}}
+\subsubsection[{operator-\/=}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ {\bf Quaternion}$<$T$>$\& {\bf Quaternion}$<$ T $>$::operator-\/= (
+\begin{DoxyParamCaption}
+\item[{const {\bf Quaternion}$<$ T $>$ \&}]{ rhs}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_quaternion_a2d5c3cdfa00f6f978d29dde5de55f067}
+
+
+Subtraction operator. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em rhs}]Right hand side argument of binary operator. \end{DoxyParams}
+\hypertarget{class_quaternion_ae61051568c9fb1742cb2dc9ad34132c1}{
+\index{Quaternion@{Quaternion}!operator=@{operator=}}
+\index{operator=@{operator=}!Quaternion@{Quaternion}}
+\subsubsection[{operator=}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ template$<$class FromT $>$ {\bf Quaternion}$<$T$>$\& {\bf Quaternion}$<$ T $>$::operator= (
+\begin{DoxyParamCaption}
+\item[{const {\bf Quaternion}$<$ FromT $>$ \&}]{ rhs}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_quaternion_ae61051568c9fb1742cb2dc9ad34132c1}
+
+
+Copy convert operator. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em rhs}]Right hand side argument of binary operator. \end{DoxyParams}
+\hypertarget{class_quaternion_ac76403b6bd79b91d21f8d17f3ac938bd}{
+\index{Quaternion@{Quaternion}!operator=@{operator=}}
+\index{operator=@{operator=}!Quaternion@{Quaternion}}
+\subsubsection[{operator=}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ {\bf Quaternion}$<$T$>$\& {\bf Quaternion}$<$ T $>$::operator= (
+\begin{DoxyParamCaption}
+\item[{const {\bf Quaternion}$<$ T $>$ \&}]{ rhs}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_quaternion_ac76403b6bd79b91d21f8d17f3ac938bd}
+
+
+Copy operator. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em rhs}]Right hand side argument of binary operator. \end{DoxyParams}
+\hypertarget{class_quaternion_ab044ab0bf000fd1ed6937e4861b039e2}{
+\index{Quaternion@{Quaternion}!operator==@{operator==}}
+\index{operator==@{operator==}!Quaternion@{Quaternion}}
+\subsubsection[{operator==}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ bool {\bf Quaternion}$<$ T $>$::operator== (
+\begin{DoxyParamCaption}
+\item[{const {\bf Quaternion}$<$ T $>$ \&}]{ rhs}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_quaternion_ab044ab0bf000fd1ed6937e4861b039e2}
+
+
+Equality test operator. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em rhs}]Right hand side argument of binary operator. \end{DoxyParams}
+\begin{DoxyNote}{Note}
+Test of equality is based of threshold EPSILON value. To be two values equal, must satisfy this condition $|$ lhs -\/ rhs $|$ $<$ EPSILON, for all quaternion coordinates. 
+\end{DoxyNote}
+\hypertarget{class_quaternion_ab0393616ac07e35b9808f20bd1740fd5}{
+\index{Quaternion@{Quaternion}!operator$\sim$@{operator$\sim$}}
+\index{operator$\sim$@{operator$\sim$}!Quaternion@{Quaternion}}
+\subsubsection[{operator$\sim$}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ {\bf Quaternion}$<$T$>$ {\bf Quaternion}$<$ T $>$::operator$\sim$ (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_quaternion_ab0393616ac07e35b9808f20bd1740fd5}
+
+
+Unary conjugate operator. 
+
+\begin{DoxyReturn}{Returns}
+conjugated quaternion 
+\end{DoxyReturn}
+\hypertarget{class_quaternion_a1d74ff2d4fe84758f70b396de5b3f749}{
+\index{Quaternion@{Quaternion}!rotMatrix@{rotMatrix}}
+\index{rotMatrix@{rotMatrix}!Quaternion@{Quaternion}}
+\subsubsection[{rotMatrix}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ {\bf Matrix3}$<$T$>$ {\bf Quaternion}$<$ T $>$::rotMatrix (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_quaternion_a1d74ff2d4fe84758f70b396de5b3f749}
+
+
+Converts quaternion into rotation matrix. 
+
+\begin{DoxyReturn}{Returns}
+Rotation matrix expressing this quaternion. 
+\end{DoxyReturn}
+\hypertarget{class_quaternion_a6772ea8a4dee0d24913e26c88dc1d3c8}{
+\index{Quaternion@{Quaternion}!slerp@{slerp}}
+\index{slerp@{slerp}!Quaternion@{Quaternion}}
+\subsubsection[{slerp}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ {\bf Quaternion}$<$T$>$ {\bf Quaternion}$<$ T $>$::slerp (
+\begin{DoxyParamCaption}
+\item[{T}]{ r, }
+\item[{const {\bf Quaternion}$<$ T $>$ \&}]{ q2}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_quaternion_a6772ea8a4dee0d24913e26c88dc1d3c8}
+
+
+Computes spherical interpolation between quaternions (this, q2) using coefficient of interpolation r (in \mbox{[}0, 1\mbox{]}). 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em r}]The ratio of interpolation form this (r = 0) to q2 (r = 1). \item[{\em q2}]Second quaternion for interpolation. \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Result of interpolation. 
+\end{DoxyReturn}
+\hypertarget{class_quaternion_a48b3e7bf721bb2d451dd5845e29f96f2}{
+\index{Quaternion@{Quaternion}!toString@{toString}}
+\index{toString@{toString}!Quaternion@{Quaternion}}
+\subsubsection[{toString}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ std::string {\bf Quaternion}$<$ T $>$::toString (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_quaternion_a48b3e7bf721bb2d451dd5845e29f96f2}
+
+
+Gets string representation. 
+
+\hypertarget{class_quaternion_a00298e05ea5d74c7a25d072b88e20399}{
+\index{Quaternion@{Quaternion}!transform@{transform}}
+\index{transform@{transform}!Quaternion@{Quaternion}}
+\subsubsection[{transform}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ {\bf Matrix4}$<$T$>$ {\bf Quaternion}$<$ T $>$::transform (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_quaternion_a00298e05ea5d74c7a25d072b88e20399}
+
+
+Converts quaternion into transformation matrix. 
+
+\begin{DoxyNote}{Note}
+This method performs same operation as \hyperlink{class_quaternion_a1d74ff2d4fe84758f70b396de5b3f749}{rotMatrix()} conversion method. But returns Matrix of 4x4 elements. 
+\end{DoxyNote}
+\begin{DoxyReturn}{Returns}
+Transformation matrix expressing this quaternion. 
+\end{DoxyReturn}
+
+
+\subsection{Friends And Related Function Documentation}
+\hypertarget{class_quaternion_a871c9e237d4b87d722a3e6495f377c23}{
+\index{Quaternion@{Quaternion}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Quaternion@{Quaternion}}
+\subsubsection[{operator$<$$<$}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ std::ostream\& operator$<$$<$ (
+\begin{DoxyParamCaption}
+\item[{std::ostream \&}]{ oss, }
+\item[{const {\bf Quaternion}$<$ T $>$ \&}]{ q}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}
+\label{class_quaternion_a871c9e237d4b87d722a3e6495f377c23}
+
+
+Provides output to standard output stream. 
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{class_quaternion_a14b395e80f7c6a1687a824f2adb1eb9b}{
+\index{Quaternion@{Quaternion}!v@{v}}
+\index{v@{v}!Quaternion@{Quaternion}}
+\subsubsection[{v}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ {\bf Vector3}$<$T$>$ {\bf Quaternion}$<$ T $>$::{\bf v}}}
+\label{class_quaternion_a14b395e80f7c6a1687a824f2adb1eb9b}
+
+
+Imaginary part of quaternion. 
+
+\hypertarget{class_quaternion_ab3d38cb2d28ba85f00f48768f8fa2815}{
+\index{Quaternion@{Quaternion}!w@{w}}
+\index{w@{w}!Quaternion@{Quaternion}}
+\subsubsection[{w}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ T {\bf Quaternion}$<$ T $>$::{\bf w}}}
+\label{class_quaternion_ab3d38cb2d28ba85f00f48768f8fa2815}
+
+
+Real part of quaternion. 
+
+
+
+The documentation for this class was generated from the following file:\begin{DoxyCompactItemize}
+\item 
+src/\hyperlink{vmath_8h}{vmath.h}\end{DoxyCompactItemize}

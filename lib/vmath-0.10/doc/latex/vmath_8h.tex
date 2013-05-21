@@ -1,0 +1,270 @@
+\hypertarget{vmath_8h}{
+\section{src/vmath.h File Reference}
+\label{vmath_8h}\index{src/vmath.h@{src/vmath.h}}
+}
+{\ttfamily \#include $<$cmath$>$}\par
+{\ttfamily \#include $<$cstring$>$}\par
+{\ttfamily \#include $<$iostream$>$}\par
+{\ttfamily \#include $<$sstream$>$}\par
+{\ttfamily \#include $<$string$>$}\par
+{\ttfamily \#include $<$cassert$>$}\par
+Include dependency graph for vmath.h:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=400pt]{vmath_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=168pt]{vmath_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{class_vector2}{Vector2$<$ T $>$}
+\begin{DoxyCompactList}\small\item\em Class for two dimensional vector. \item\end{DoxyCompactList}\item 
+class \hyperlink{class_vector3}{Vector3$<$ T $>$}
+\begin{DoxyCompactList}\small\item\em Class for three dimensional vector. \item\end{DoxyCompactList}\item 
+class \hyperlink{class_vector4}{Vector4$<$ T $>$}
+\begin{DoxyCompactList}\small\item\em Class for four dimensional vector. \item\end{DoxyCompactList}\item 
+class \hyperlink{class_matrix3}{Matrix3$<$ T $>$}
+\begin{DoxyCompactList}\small\item\em Class for matrix 3x3. \item\end{DoxyCompactList}\item 
+class \hyperlink{class_matrix4}{Matrix4$<$ T $>$}
+\begin{DoxyCompactList}\small\item\em Class for matrix 4x4. \item\end{DoxyCompactList}\item 
+class \hyperlink{class_quaternion}{Quaternion$<$ T $>$}
+\begin{DoxyCompactList}\small\item\em \hyperlink{class_quaternion}{Quaternion} class implementing some quaternion algebra operations. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Defines}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{vmath_8h_ae71449b1cc6e6250b91f539153a7a0d3}{M\_\-PI}~3.14159265358979323846
+\item 
+\#define \hyperlink{vmath_8h_a2b4f9c3a8b58ecc8e9a6cda26417ba00}{DEG2RAD}(x)~((x $\ast$ M\_\-PI) / 180.0)
+\item 
+\#define \hyperlink{vmath_8h_a002b2f4894492820fe708b1b7e7c5e70}{EPSILON}~\hyperlink{vmath_8h_ac29df3dcbefa1ce189e5990bde994025}{epsilon}
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef class \hyperlink{class_vector2}{Vector2}$<$ float $>$ \hyperlink{vmath_8h_ad3bb0ec940392ad40277673a25d7d99e}{Vector2f}
+\begin{DoxyCompactList}\small\item\em Two dimensional Vector of floats. \item\end{DoxyCompactList}\item 
+typedef class \hyperlink{class_vector2}{Vector2}$<$ double $>$ \hyperlink{vmath_8h_ae98713ced2b133072ea124b46df07b26}{Vector2d}
+\begin{DoxyCompactList}\small\item\em Two dimensional Vector of doubles. \item\end{DoxyCompactList}\item 
+typedef class \hyperlink{class_vector2}{Vector2}$<$ int $>$ \hyperlink{vmath_8h_a69ae23b6f5cac98abb0d42436001307c}{Vector2i}
+\begin{DoxyCompactList}\small\item\em Two dimensional Vector of ints. \item\end{DoxyCompactList}\item 
+typedef \hyperlink{class_vector3}{Vector3}$<$ float $>$ \hyperlink{vmath_8h_af345ad77ba5e240c7ab72b4b2077e754}{Vector3f}
+\begin{DoxyCompactList}\small\item\em Three dimensional Vector of floats. \item\end{DoxyCompactList}\item 
+typedef \hyperlink{class_vector3}{Vector3}$<$ double $>$ \hyperlink{vmath_8h_a1f05093f5ee1a9ecdd54476792e4c206}{Vector3d}
+\begin{DoxyCompactList}\small\item\em Three dimensional Vector of doubles. \item\end{DoxyCompactList}\item 
+typedef \hyperlink{class_vector3}{Vector3}$<$ int $>$ \hyperlink{vmath_8h_a6951accbbf6263a1ac8019bf718ae31c}{Vector3i}
+\begin{DoxyCompactList}\small\item\em Three dimensional Vector of ints. \item\end{DoxyCompactList}\item 
+typedef \hyperlink{class_vector4}{Vector4}$<$ float $>$ \hyperlink{vmath_8h_a2e950d4be17eed0a7d6f24353b04c8f5}{Vector4f}
+\begin{DoxyCompactList}\small\item\em Three dimensional Vector of floats. \item\end{DoxyCompactList}\item 
+typedef \hyperlink{class_vector4}{Vector4}$<$ double $>$ \hyperlink{vmath_8h_ad0b18996675624521849970fa6bf09c3}{Vector4d}
+\begin{DoxyCompactList}\small\item\em Three dimensional Vector of doubles. \item\end{DoxyCompactList}\item 
+typedef \hyperlink{class_vector4}{Vector4}$<$ int $>$ \hyperlink{vmath_8h_a270bbc7b96b874207992bb5456218a48}{Vector4i}
+\begin{DoxyCompactList}\small\item\em Three dimensional Vector of ints. \item\end{DoxyCompactList}\item 
+typedef \hyperlink{class_matrix3}{Matrix3}$<$ float $>$ \hyperlink{vmath_8h_ae5a673b3d27428dc13b294596cc53a5d}{Matrix3f}
+\begin{DoxyCompactList}\small\item\em Matrix 3x3 of floats. \item\end{DoxyCompactList}\item 
+typedef \hyperlink{class_matrix3}{Matrix3}$<$ double $>$ \hyperlink{vmath_8h_a86e6f4c9798f85f6b09c74b4b60d2376}{Matrix3d}
+\begin{DoxyCompactList}\small\item\em Matrix 3x3 of doubles. \item\end{DoxyCompactList}\item 
+typedef \hyperlink{class_matrix3}{Matrix3}$<$ int $>$ \hyperlink{vmath_8h_a968bc4736fac5af106094c63c24ac6ca}{Matrix3i}
+\begin{DoxyCompactList}\small\item\em Matrix 3x3 of int. \item\end{DoxyCompactList}\item 
+typedef \hyperlink{class_matrix4}{Matrix4}$<$ float $>$ \hyperlink{vmath_8h_a5b7721ab7216c91a40538beaa9e6ee1f}{Matrix4f}
+\begin{DoxyCompactList}\small\item\em Matrix 4x4 of floats. \item\end{DoxyCompactList}\item 
+typedef \hyperlink{class_matrix4}{Matrix4}$<$ double $>$ \hyperlink{vmath_8h_afe7ea008ee9e656fb34621264a42e04a}{Matrix4d}
+\begin{DoxyCompactList}\small\item\em Matrix 4x4 of doubles. \item\end{DoxyCompactList}\item 
+typedef \hyperlink{class_matrix4}{Matrix4}$<$ int $>$ \hyperlink{vmath_8h_a21a14a0a49d405a9014fa9e11af3425e}{Matrix4i}
+\begin{DoxyCompactList}\small\item\em Matrix 4x4 of int. \item\end{DoxyCompactList}\item 
+typedef \hyperlink{class_quaternion}{Quaternion}$<$ float $>$ \hyperlink{vmath_8h_a00cefb008ef0f3f16cf6e001b4f62b8c}{Quatf}
+\item 
+typedef \hyperlink{class_quaternion}{Quaternion}$<$ double $>$ \hyperlink{vmath_8h_a37eb0465222e99d52254e9822b999480}{Quatd}
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const double \hyperlink{vmath_8h_ac29df3dcbefa1ce189e5990bde994025}{epsilon} = 4.37114e-\/05
+\end{DoxyCompactItemize}
+
+
+\subsection{Define Documentation}
+\hypertarget{vmath_8h_a2b4f9c3a8b58ecc8e9a6cda26417ba00}{
+\index{vmath.h@{vmath.h}!DEG2RAD@{DEG2RAD}}
+\index{DEG2RAD@{DEG2RAD}!vmath.h@{vmath.h}}
+\subsubsection[{DEG2RAD}]{\setlength{\rightskip}{0pt plus 5cm}\#define DEG2RAD(
+\begin{DoxyParamCaption}
+\item[{}]{x}
+\end{DoxyParamCaption}
+)~((x $\ast$ M\_\-PI) / 180.0)}}
+\label{vmath_8h_a2b4f9c3a8b58ecc8e9a6cda26417ba00}
+\hypertarget{vmath_8h_a002b2f4894492820fe708b1b7e7c5e70}{
+\index{vmath.h@{vmath.h}!EPSILON@{EPSILON}}
+\index{EPSILON@{EPSILON}!vmath.h@{vmath.h}}
+\subsubsection[{EPSILON}]{\setlength{\rightskip}{0pt plus 5cm}\#define EPSILON~{\bf epsilon}}}
+\label{vmath_8h_a002b2f4894492820fe708b1b7e7c5e70}
+\hypertarget{vmath_8h_ae71449b1cc6e6250b91f539153a7a0d3}{
+\index{vmath.h@{vmath.h}!M\_\-PI@{M\_\-PI}}
+\index{M\_\-PI@{M\_\-PI}!vmath.h@{vmath.h}}
+\subsubsection[{M\_\-PI}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\_\-PI~3.14159265358979323846}}
+\label{vmath_8h_ae71449b1cc6e6250b91f539153a7a0d3}
+
+
+\subsection{Typedef Documentation}
+\hypertarget{vmath_8h_a86e6f4c9798f85f6b09c74b4b60d2376}{
+\index{vmath.h@{vmath.h}!Matrix3d@{Matrix3d}}
+\index{Matrix3d@{Matrix3d}!vmath.h@{vmath.h}}
+\subsubsection[{Matrix3d}]{\setlength{\rightskip}{0pt plus 5cm}typedef {\bf Matrix3}$<$double$>$ {\bf Matrix3d}}}
+\label{vmath_8h_a86e6f4c9798f85f6b09c74b4b60d2376}
+
+
+Matrix 3x3 of doubles. 
+
+\hypertarget{vmath_8h_ae5a673b3d27428dc13b294596cc53a5d}{
+\index{vmath.h@{vmath.h}!Matrix3f@{Matrix3f}}
+\index{Matrix3f@{Matrix3f}!vmath.h@{vmath.h}}
+\subsubsection[{Matrix3f}]{\setlength{\rightskip}{0pt plus 5cm}typedef {\bf Matrix3}$<$float$>$ {\bf Matrix3f}}}
+\label{vmath_8h_ae5a673b3d27428dc13b294596cc53a5d}
+
+
+Matrix 3x3 of floats. 
+
+\hypertarget{vmath_8h_a968bc4736fac5af106094c63c24ac6ca}{
+\index{vmath.h@{vmath.h}!Matrix3i@{Matrix3i}}
+\index{Matrix3i@{Matrix3i}!vmath.h@{vmath.h}}
+\subsubsection[{Matrix3i}]{\setlength{\rightskip}{0pt plus 5cm}typedef {\bf Matrix3}$<$int$>$ {\bf Matrix3i}}}
+\label{vmath_8h_a968bc4736fac5af106094c63c24ac6ca}
+
+
+Matrix 3x3 of int. 
+
+\hypertarget{vmath_8h_afe7ea008ee9e656fb34621264a42e04a}{
+\index{vmath.h@{vmath.h}!Matrix4d@{Matrix4d}}
+\index{Matrix4d@{Matrix4d}!vmath.h@{vmath.h}}
+\subsubsection[{Matrix4d}]{\setlength{\rightskip}{0pt plus 5cm}typedef {\bf Matrix4}$<$double$>$ {\bf Matrix4d}}}
+\label{vmath_8h_afe7ea008ee9e656fb34621264a42e04a}
+
+
+Matrix 4x4 of doubles. 
+
+\hypertarget{vmath_8h_a5b7721ab7216c91a40538beaa9e6ee1f}{
+\index{vmath.h@{vmath.h}!Matrix4f@{Matrix4f}}
+\index{Matrix4f@{Matrix4f}!vmath.h@{vmath.h}}
+\subsubsection[{Matrix4f}]{\setlength{\rightskip}{0pt plus 5cm}typedef {\bf Matrix4}$<$float$>$ {\bf Matrix4f}}}
+\label{vmath_8h_a5b7721ab7216c91a40538beaa9e6ee1f}
+
+
+Matrix 4x4 of floats. 
+
+\hypertarget{vmath_8h_a21a14a0a49d405a9014fa9e11af3425e}{
+\index{vmath.h@{vmath.h}!Matrix4i@{Matrix4i}}
+\index{Matrix4i@{Matrix4i}!vmath.h@{vmath.h}}
+\subsubsection[{Matrix4i}]{\setlength{\rightskip}{0pt plus 5cm}typedef {\bf Matrix4}$<$int$>$ {\bf Matrix4i}}}
+\label{vmath_8h_a21a14a0a49d405a9014fa9e11af3425e}
+
+
+Matrix 4x4 of int. 
+
+\hypertarget{vmath_8h_a37eb0465222e99d52254e9822b999480}{
+\index{vmath.h@{vmath.h}!Quatd@{Quatd}}
+\index{Quatd@{Quatd}!vmath.h@{vmath.h}}
+\subsubsection[{Quatd}]{\setlength{\rightskip}{0pt plus 5cm}typedef {\bf Quaternion}$<$double$>$ {\bf Quatd}}}
+\label{vmath_8h_a37eb0465222e99d52254e9822b999480}
+\hypertarget{vmath_8h_a00cefb008ef0f3f16cf6e001b4f62b8c}{
+\index{vmath.h@{vmath.h}!Quatf@{Quatf}}
+\index{Quatf@{Quatf}!vmath.h@{vmath.h}}
+\subsubsection[{Quatf}]{\setlength{\rightskip}{0pt plus 5cm}typedef {\bf Quaternion}$<$float$>$ {\bf Quatf}}}
+\label{vmath_8h_a00cefb008ef0f3f16cf6e001b4f62b8c}
+\hypertarget{vmath_8h_ae98713ced2b133072ea124b46df07b26}{
+\index{vmath.h@{vmath.h}!Vector2d@{Vector2d}}
+\index{Vector2d@{Vector2d}!vmath.h@{vmath.h}}
+\subsubsection[{Vector2d}]{\setlength{\rightskip}{0pt plus 5cm}typedef class {\bf Vector2}$<$ double $>$ {\bf Vector2d}}}
+\label{vmath_8h_ae98713ced2b133072ea124b46df07b26}
+
+
+Two dimensional Vector of doubles. 
+
+\hypertarget{vmath_8h_ad3bb0ec940392ad40277673a25d7d99e}{
+\index{vmath.h@{vmath.h}!Vector2f@{Vector2f}}
+\index{Vector2f@{Vector2f}!vmath.h@{vmath.h}}
+\subsubsection[{Vector2f}]{\setlength{\rightskip}{0pt plus 5cm}typedef class {\bf Vector2}$<$ float $>$ {\bf Vector2f}}}
+\label{vmath_8h_ad3bb0ec940392ad40277673a25d7d99e}
+
+
+Two dimensional Vector of floats. 
+
+\hypertarget{vmath_8h_a69ae23b6f5cac98abb0d42436001307c}{
+\index{vmath.h@{vmath.h}!Vector2i@{Vector2i}}
+\index{Vector2i@{Vector2i}!vmath.h@{vmath.h}}
+\subsubsection[{Vector2i}]{\setlength{\rightskip}{0pt plus 5cm}typedef class {\bf Vector2}$<$ int $>$ {\bf Vector2i}}}
+\label{vmath_8h_a69ae23b6f5cac98abb0d42436001307c}
+
+
+Two dimensional Vector of ints. 
+
+\hypertarget{vmath_8h_a1f05093f5ee1a9ecdd54476792e4c206}{
+\index{vmath.h@{vmath.h}!Vector3d@{Vector3d}}
+\index{Vector3d@{Vector3d}!vmath.h@{vmath.h}}
+\subsubsection[{Vector3d}]{\setlength{\rightskip}{0pt plus 5cm}typedef {\bf Vector3}$<$double$>$ {\bf Vector3d}}}
+\label{vmath_8h_a1f05093f5ee1a9ecdd54476792e4c206}
+
+
+Three dimensional Vector of doubles. 
+
+\hypertarget{vmath_8h_af345ad77ba5e240c7ab72b4b2077e754}{
+\index{vmath.h@{vmath.h}!Vector3f@{Vector3f}}
+\index{Vector3f@{Vector3f}!vmath.h@{vmath.h}}
+\subsubsection[{Vector3f}]{\setlength{\rightskip}{0pt plus 5cm}typedef {\bf Vector3}$<$float$>$ {\bf Vector3f}}}
+\label{vmath_8h_af345ad77ba5e240c7ab72b4b2077e754}
+
+
+Three dimensional Vector of floats. 
+
+\hypertarget{vmath_8h_a6951accbbf6263a1ac8019bf718ae31c}{
+\index{vmath.h@{vmath.h}!Vector3i@{Vector3i}}
+\index{Vector3i@{Vector3i}!vmath.h@{vmath.h}}
+\subsubsection[{Vector3i}]{\setlength{\rightskip}{0pt plus 5cm}typedef {\bf Vector3}$<$int$>$ {\bf Vector3i}}}
+\label{vmath_8h_a6951accbbf6263a1ac8019bf718ae31c}
+
+
+Three dimensional Vector of ints. 
+
+\hypertarget{vmath_8h_ad0b18996675624521849970fa6bf09c3}{
+\index{vmath.h@{vmath.h}!Vector4d@{Vector4d}}
+\index{Vector4d@{Vector4d}!vmath.h@{vmath.h}}
+\subsubsection[{Vector4d}]{\setlength{\rightskip}{0pt plus 5cm}typedef {\bf Vector4}$<$double$>$ {\bf Vector4d}}}
+\label{vmath_8h_ad0b18996675624521849970fa6bf09c3}
+
+
+Three dimensional Vector of doubles. 
+
+\hypertarget{vmath_8h_a2e950d4be17eed0a7d6f24353b04c8f5}{
+\index{vmath.h@{vmath.h}!Vector4f@{Vector4f}}
+\index{Vector4f@{Vector4f}!vmath.h@{vmath.h}}
+\subsubsection[{Vector4f}]{\setlength{\rightskip}{0pt plus 5cm}typedef {\bf Vector4}$<$float$>$ {\bf Vector4f}}}
+\label{vmath_8h_a2e950d4be17eed0a7d6f24353b04c8f5}
+
+
+Three dimensional Vector of floats. 
+
+\hypertarget{vmath_8h_a270bbc7b96b874207992bb5456218a48}{
+\index{vmath.h@{vmath.h}!Vector4i@{Vector4i}}
+\index{Vector4i@{Vector4i}!vmath.h@{vmath.h}}
+\subsubsection[{Vector4i}]{\setlength{\rightskip}{0pt plus 5cm}typedef {\bf Vector4}$<$int$>$ {\bf Vector4i}}}
+\label{vmath_8h_a270bbc7b96b874207992bb5456218a48}
+
+
+Three dimensional Vector of ints. 
+
+
+
+\subsection{Variable Documentation}
+\hypertarget{vmath_8h_ac29df3dcbefa1ce189e5990bde994025}{
+\index{vmath.h@{vmath.h}!epsilon@{epsilon}}
+\index{epsilon@{epsilon}!vmath.h@{vmath.h}}
+\subsubsection[{epsilon}]{\setlength{\rightskip}{0pt plus 5cm}const double {\bf epsilon} = 4.37114e-\/05}}
+\label{vmath_8h_ac29df3dcbefa1ce189e5990bde994025}

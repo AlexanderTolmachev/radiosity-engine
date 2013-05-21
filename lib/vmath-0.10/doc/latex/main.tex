@@ -1,0 +1,68 @@
+Vector mathematics for computer graphics \hypertarget{main_Features}{}\section{Features}\label{main_Features}
+
+\begin{DoxyItemize}
+\item basic arithmetic operations -\/ using operators  
+\item basic linear algebra operations -\/ such as transpose, dot product, etc.  
+\item aliases for vertex coordinates -\/ it means: 
+\begin{DoxyPre}
+  Vector3f v;
+  // use vertex coordinates
+  v.x = 1; v.y = 2; v.z = -1;\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  // use texture coordinates
+  v.s = 0; v.t = 1; v.u = 0.5;
+  // use color coordinates
+  v.r = 1; v.g = 0.5; v.b = 0;
+    \end{DoxyPre}
+  
+\item conversion constructor and assign operators -\/ so you can assign a value of \hyperlink{class_vector3}{Vector3}$<$T1$>$ type to a variable of \hyperlink{class_vector3}{Vector3}$<$T2$>$ type for any convertible T1, T2 type pairs. In other words, you can do this: 
+\begin{DoxyPre}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  Vector3f f3; Vector3d d3 = f3;
+  ...
+  f3 = d3;
+    \end{DoxyPre}
+  
+\end{DoxyItemize}\hypertarget{main_Predefined}{}\section{types}\label{main_Predefined}
+
+\begin{DoxyItemize}
+\item (\hyperlink{class_vector2}{Vector2}) Two dimensional vector 
+\begin{DoxyItemize}
+\item float --- Vector2f 
+\item double --- Vector2d 
+\item int --- Vector2i 
+\end{DoxyItemize}
+\item (\hyperlink{class_vector3}{Vector3}) Three dimensional vector 
+\begin{DoxyItemize}
+\item float --- Vector3f 
+\item double --- Vector3d 
+\item int --- Vector3i 
+\end{DoxyItemize}
+\item (\hyperlink{class_vector4}{Vector4}) Four dimensional vector 
+\begin{DoxyItemize}
+\item float --- Vector4f 
+\item double --- Vector4d 
+\item int --- Vector4i 
+\end{DoxyItemize}
+\item (\hyperlink{class_matrix3}{Matrix3}) Matrix 3x3 
+\begin{DoxyItemize}
+\item float --- Matrix3f 
+\item double --- Matrix3d 
+\item int --- Matrix3i 
+\end{DoxyItemize}
+\item (\hyperlink{class_matrix4}{Matrix4}) Matrix 4x4 
+\begin{DoxyItemize}
+\item float --- Matrix4f 
+\item double --- Matrix4d 
+\item int --- Matrix4i 
+\end{DoxyItemize}
+\item \hyperlink{class_quaternion}{Quaternion} 
+\begin{DoxyItemize}
+\item float --- Quatf 
+\item double --- Quatd 
+\end{DoxyItemize}
+\end{DoxyItemize}
