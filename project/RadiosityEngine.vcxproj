@@ -90,7 +90,9 @@
     <ClCompile Include="..\src\camera.cpp" />
     <ClCompile Include="..\src\inputparameters.cpp" />
     <ClCompile Include="..\src\main.cpp" />
-    <ClCompile Include="..\src\quadshape.cpp" />
+    <ClCompile Include="..\src\patch.cpp" />
+    <ClCompile Include="..\src\quad.cpp" />
+    <ClCompile Include="..\src\quadpatch.cpp" />
     <ClCompile Include="..\src\radiosityengine.cpp" />
     <ClCompile Include="..\src\scene.cpp" />
     <ClCompile Include="..\src\sceneloader.cpp" />
@@ -99,7 +101,9 @@
     <ClInclude Include="..\src\camera.h" />
     <ClInclude Include="..\src\inputparameters.h" />
     <ClInclude Include="..\src\material.h" />
-    <ClInclude Include="..\src\quadshape.h" />
+    <ClInclude Include="..\src\patch.h" />
+    <ClInclude Include="..\src\quad.h" />
+    <ClInclude Include="..\src\quadpatch.h" />
     <ClInclude Include="..\src\radiosityengine.h" />
     <ClInclude Include="..\src\scene.h" />
     <ClInclude Include="..\src\sceneloader.h" />

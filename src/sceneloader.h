@@ -11,7 +11,7 @@
 #include "scene.h"
 #include "types.h"
 #include "shape.h"
-#include "quadshape.h"
+#include "quad.h"
 
 class SceneLoader {
   public:

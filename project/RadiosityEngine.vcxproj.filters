@@ -66,8 +66,14 @@
     <ClCompile Include="..\src\radiosityengine.cpp">
       <Filter>Source Files\Radiosity</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\quadshape.cpp">
+    <ClCompile Include="..\src\quad.cpp">
       <Filter>Source Files\Shapes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\patch.cpp">
+      <Filter>Source Files\Radiosity</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\quadpatch.cpp">
+      <Filter>Source Files\Radiosity</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -95,8 +101,14 @@
     <ClInclude Include="..\src\material.h">
       <Filter>Header Files\Radiosity</Filter>
     </ClInclude>
-    <ClInclude Include="..\src\quadshape.h">
+    <ClInclude Include="..\src\patch.h">
+      <Filter>Header Files\Radiosity</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\quad.h">
       <Filter>Header Files\Shapes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\quadpatch.h">
+      <Filter>Header Files\Radiosity</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
