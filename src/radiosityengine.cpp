@@ -21,6 +21,7 @@ void RadiosityEngine::setImageResolution(int width, int height) {
 
 void RadiosityEngine::calculateIllumination(int interationsNumber, float patchSize) {
   PatchCollectionPointer scenePatches = mScene->splitIntoPatches(patchSize);
+  std::cout << "Total patches number: " << scenePatches->size() << std::endl;
 
   for (int iteration = 0; iteration < interationsNumber; ++iteration) {
     std::cout << "Iteration: " << iteration << std::endl;
