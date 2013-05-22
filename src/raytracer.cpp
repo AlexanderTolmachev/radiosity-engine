@@ -65,9 +65,7 @@ Color RayTracer::traceRay(const Ray &ray) {
     return Color();
   }
 
-  PatchPointer patch = intersection.patch;
-
-  return patch->getExcidentLight();
+  return intersection.patch->getAccumulatedColor();
 }
 
 RayIntersection RayTracer::calculateNearestIntersectionWithPatch(const Ray &ray) const {

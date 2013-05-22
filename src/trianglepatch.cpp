@@ -6,10 +6,13 @@ TrianglePatch::TrianglePatch(Vector vertex0, Vector vertex1, Vector vertex2, Mat
     mVertex0(vertex0),
     mVertex1(vertex1),
     mVertex2(vertex2) {
+  // Precalculate triangle normal
   Vector e1 = vertex1 - vertex0;
   Vector e2 = vertex2 - vertex0;
   mNormal = e1.crossProduct(e2);
   mNormal.normalize();
+  // Precalculate triangle area
+  mArea = 0.5f * (mVertex1 - mVertex0).crossProduct(mVertex2 - mVertex0).length();
 }
 
 TrianglePatch::~TrianglePatch() {
@@ -25,7 +28,7 @@ float TrianglePatch::getSize() const {
 }
 
 float TrianglePatch::getArea() const {
-  return 0.5f * (mVertex1 - mVertex0).crossProduct(mVertex2 - mVertex0).length();
+  return mArea;
 }
 
 PatchCollectionPointer TrianglePatch::split() const {

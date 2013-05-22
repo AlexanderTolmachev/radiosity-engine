@@ -8,7 +8,6 @@
 #include "patch.h"
 #include "types.h"
 
-
 class TrianglePatch;
 
 typedef QSharedPointer<TrianglePatch> TrianglePatchPointer;
@@ -26,8 +25,12 @@ class TrianglePatch : public Patch {
     // virtual Vector getNormal(const Ray &ray, float distance) const;
 
   private:
+    // Triangle vertices
     Vector mVertex0;
     Vector mVertex1;
     Vector mVertex2;
+    // Precalculated normal
     Vector mNormal;
+    // Precalculated area
+    float mArea;
 };

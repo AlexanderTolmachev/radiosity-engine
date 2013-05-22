@@ -19,6 +19,12 @@ public:
 
 private:
   void initialize();
+  void processIteration();
+  void shootRadiosity(PatchPointer sourcePatch);
+  
+  PatchCollectionPointer getSourcePatches() const;
+  PatchCollectionPointer getVisiblePatches(PatchPointer patch) const;
+  float getFormFactor(PatchPointer sourcePatch, PatchPointer visiblePatch) const;
 
 private:
   ScenePointer mScene;

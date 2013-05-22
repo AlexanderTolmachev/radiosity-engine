@@ -157,8 +157,7 @@ MaterialPointer SceneLoader::readMaterial(const QDomElement &element) const {
 
   MaterialPointer material = MaterialPointer(new Material());
   if (readChildElementAsColor(materialElement, "emission", material->emmission) &&
-    readChildElementAsColor(materialElement, "reflectance", material->reflectance) &&
-    readChildElementAsColor(materialElement, "color", material->color)) {
+      readChildElementAsColor(materialElement, "reflectance", material->reflectance)) {
       return material;
   }
 

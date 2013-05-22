@@ -5,7 +5,6 @@
 #include "material.h"
 #include "ray.h"
 
-
 class Patch;
 struct RayIntersection;
 
@@ -24,14 +23,23 @@ class Patch {
     virtual RayIntersection intersectWithRay(const Ray &ray) const = 0;
 
     const MaterialPointer& getMaterial() const; 
-    const Color& getIncidentLight() const;
-    const Color& getExcidentLight() const;
+    const Color& getAccumulatedColor() const;
+    const Color& getResidualColor() const;
+    
+    Color getEmissionEnergy() const;
+    float getEmissionEnergyValue() const;
 
-    void setIncidentLight(const Color &incidentLight);
-    void setExcidentLight(const Color &excidentLight);
+    void setAccumulatedColor(const Color &incidentLight);
+    void setResidualColor(const Color &excidentLight);
 
   private:
+    // Patch material
     MaterialPointer mMaterial;
-    Color mIncidentLight;
-    Color mExcidentLight;
+    /* Values used to calculate result color, names according to http://http.developer.nvidia.com/GPUGems2/gpugems2_chapter39.html */
+    // Already accumulated color
+    Color mAccumulatedColor;
+    // Color to be shot from patch
+    Color mResidualColor;
 };
+
+bool comparePatchesByEmissionEmergy(const PatchPointer &patch1, const PatchPointer &patch2);
