@@ -19,6 +19,7 @@ class Patch {
     virtual ~Patch();
 
     virtual float getSize() const = 0;
+    virtual float getArea() const = 0;
     virtual PatchCollectionPointer split() const = 0;
     virtual RayIntersection intersectWithRay(const Ray &ray) const = 0;
 

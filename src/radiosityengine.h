@@ -18,6 +18,14 @@ public:
   void saveRenderedImageToFile(const QString &filePath);
 
 private:
+  void initialize();
+
+private:
   ScenePointer mScene;
   RayTracer mRayTracer;
+
+  PatchCollectionPointer mScenePatches;
+  float mTotalPatchesArea;
+  Color mAvarageReflectanceProgressionSum;
+  Color mAmbientIlluminationValue;
 };

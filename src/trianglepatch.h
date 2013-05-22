@@ -19,6 +19,7 @@ class TrianglePatch : public Patch {
     virtual ~TrianglePatch();
     
     virtual float getSize() const;
+    virtual float getArea() const;
     virtual PatchCollectionPointer split() const;
     
     virtual RayIntersection intersectWithRay(const Ray &ray) const;    

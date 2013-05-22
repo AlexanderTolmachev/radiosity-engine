@@ -15,18 +15,23 @@ TrianglePatch::TrianglePatch(Vector vertex0, Vector vertex1, Vector vertex2, Mat
 TrianglePatch::~TrianglePatch() {
 }
 
+
 float TrianglePatch::getSize() const {
   // TODO: Maybe area is better?
   float edgeLength1 = (mVertex1 - mVertex0).length();
   float edgeLength2 = (mVertex2 - mVertex0).length();
   float edgeLength3 = (mVertex2 - mVertex1).length();  
-  return (edgeLength1 + edgeLength2 + edgeLength3) / 3.0;
+  return (edgeLength1 + edgeLength2 + edgeLength3) / 3.0f;
+}
+
+float TrianglePatch::getArea() const {
+  return 0.5f * (mVertex1 - mVertex0).crossProduct(mVertex2 - mVertex0).length();
 }
 
 PatchCollectionPointer TrianglePatch::split() const {
-  Vector edgeCenter0 = (mVertex0 + mVertex1) * 0.5;
-  Vector edgeCenter1 = (mVertex1 + mVertex2) * 0.5;
-  Vector edgeCenter2 = (mVertex0 + mVertex2) * 0.5;
+  Vector edgeCenter0 = (mVertex0 + mVertex1) * 0.5f;
+  Vector edgeCenter1 = (mVertex1 + mVertex2) * 0.5f;
+  Vector edgeCenter2 = (mVertex0 + mVertex2) * 0.5f;
 
   PatchCollectionPointer newPatches = PatchCollectionPointer(new PatchCollection());
   newPatches->push_back(TrianglePatchPointer(new TrianglePatch(mVertex0, edgeCenter0, edgeCenter2, getMaterial())));
@@ -51,14 +56,14 @@ RayIntersection TrianglePatch::intersectWithRay(const Ray &ray) const {
     return RayIntersection();
   }
 
-  const float invertedDeterminant = 1.0 / determinant;
+  const float invertedDeterminant = 1.0f / determinant;
 
   Vector tvec	= rayOrigin - mVertex0;
   float	lambda = tvec.dotProduct(pvector);
 
   lambda *= invertedDeterminant;
 
-  if (lambda < 0.0 || lambda > 1.0) {
+  if (lambda < 0.0f || lambda > 1.0f) {
     return RayIntersection();
   }
 
@@ -67,7 +72,7 @@ RayIntersection TrianglePatch::intersectWithRay(const Ray &ray) const {
 
   mue *= invertedDeterminant;
 
-  if (mue < 0.f || mue + lambda > 1.f) {
+  if (mue < 0.0f || mue + lambda > 1.0f) {
     return RayIntersection();
   }
 
