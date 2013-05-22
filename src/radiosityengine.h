@@ -2,9 +2,13 @@
 
 #include <QString>
 #include <QImage>
+#include <QHash>
 
 #include "scene.h"
 #include "raytracer.h"
+
+typedef std::vector<std::pair<PatchPointer, float>> PatchesAndFactorsCollection;
+typedef QSharedPointer<PatchesAndFactorsCollection> PatchesAndFactorsCollectionPointer;
 
 class RadiosityEngine {
 public:
@@ -23,8 +27,8 @@ private:
   void shootRadiosity(PatchPointer sourcePatch);
   
   PatchCollectionPointer getSourcePatches() const;
-  PatchCollectionPointer getVisiblePatches(PatchPointer patch) const;
-  float getFormFactor(PatchPointer sourcePatch, PatchPointer visiblePatch) const;
+  PatchesAndFactorsCollectionPointer getVisiblePatchesWithFormFactors(PatchPointer patch);
+  PatchesAndFactorsCollectionPointer calculateVisiblePatchesWithFormFactors(PatchPointer patch);
 
 private:
   ScenePointer mScene;
@@ -34,4 +38,7 @@ private:
   float mTotalPatchesArea;
   Color mAvarageReflectanceProgressionSum;
   Color mAmbientIlluminationValue;
+  QHash<PatchPointer, PatchesAndFactorsCollectionPointer> mPatchToVisiblePatchesAndFormFactorsHash;
 };
+
+uint qHash (const PatchPointer &patch);

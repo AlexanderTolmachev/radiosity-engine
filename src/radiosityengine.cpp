@@ -83,12 +83,17 @@ void RadiosityEngine::shootRadiosity(PatchPointer sourcePatch) {
   Color patchReflectedRadiosity = sourcePatch->getMaterial()->reflectance * sourcePatch->getResidualColor() * sourcePatch->getArea();
 
   // Shoot radiosity
-  PatchCollectionPointer visiblePatches = getVisiblePatches(sourcePatch);
-  for each (auto visiblePatch in *visiblePatches) {
+  PatchesAndFactorsCollectionPointer visiblePatchesWithFormFactors = getVisiblePatchesWithFormFactors(sourcePatch);
+
+  //PatchCollectionPointer visiblePatches = getVisiblePatches(sourcePatch);
+  for each (auto visiblePatchWithFormFactor in *visiblePatchesWithFormFactors) {
+    PatchPointer visiblePatch = visiblePatchWithFormFactor.first;
+    float formFactor = visiblePatchWithFormFactor.second;
+
     Color previousAccumulatedColor = visiblePatch->getAccumulatedColor();
     Color previousResidualColor = visiblePatch->getAccumulatedColor();
 
-    Color radiosityDelta = patchReflectedRadiosity * getFormFactor(sourcePatch, visiblePatch) / visiblePatch->getArea();
+    Color radiosityDelta = patchReflectedRadiosity * formFactor / visiblePatch->getArea();
     visiblePatch->setAccumulatedColor(previousAccumulatedColor + radiosityDelta);
     visiblePatch->setResidualColor(previousResidualColor + radiosityDelta);
 
@@ -120,12 +125,25 @@ PatchCollectionPointer RadiosityEngine::getSourcePatches() const {
   return sourcePatches;
 }
 
-PatchCollectionPointer RadiosityEngine::getVisiblePatches(PatchPointer patch) const {
-  // TODO: implement
-  return PatchCollectionPointer(new PatchCollection());
+PatchesAndFactorsCollectionPointer RadiosityEngine::getVisiblePatchesWithFormFactors(PatchPointer patch) {
+  if (mPatchToVisiblePatchesAndFormFactorsHash.contains(patch)) {
+    return mPatchToVisiblePatchesAndFormFactorsHash.value(patch);
+  }
+
+  PatchesAndFactorsCollectionPointer patchesAndFormFactors = calculateVisiblePatchesWithFormFactors(patch);
+  mPatchToVisiblePatchesAndFormFactorsHash.insert(patch, patchesAndFormFactors);
+  return patchesAndFormFactors;
 }
 
-float RadiosityEngine::getFormFactor(PatchPointer sourcePatch, PatchPointer visiblePatch) const {
-  // TODO: implement
-  return 0.0f;
+PatchesAndFactorsCollectionPointer RadiosityEngine::calculateVisiblePatchesWithFormFactors(PatchPointer patch) {
+  PatchesAndFactorsCollectionPointer patchesWithFormFactors = PatchesAndFactorsCollectionPointer(new PatchesAndFactorsCollection());
+
+  // TODO: Shoot rays, find intersections and calculate form factors;
+
+  return patchesWithFormFactors;
 }
+
+// TODO: Improve, not good solution
+uint qHash (const PatchPointer &patch) {
+  return qHash(patch.data());
+};
