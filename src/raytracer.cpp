@@ -84,20 +84,3 @@ Color RayTracer::traceRay(const Ray &ray) {
 
   return intersection.patch->getAccumulatedColor();
 }
-
-//RayIntersection RayTracer::calculateNearestIntersectionWithPatch(const Ray &ray) const {
-//  RayIntersection nearestIntersection;
-//
-//  for each (auto patch in *mScenePatches) {
-//    RayIntersection intersection = patch->intersectWithRay(ray);
-//    if (!intersection.rayIntersectsWithPatch) {
-//      continue;
-//    }
-//
-//    if (intersection.distanceFromRayOrigin < nearestIntersection.distanceFromRayOrigin) {
-//      nearestIntersection = intersection;
-//    }
-//  }
-//
-//  return nearestIntersection;
-//}

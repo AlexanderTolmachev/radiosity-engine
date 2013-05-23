@@ -26,9 +26,7 @@ class RayTracer {
 
   private:
     void render();
-
     Color traceRay(const Ray &ray);
-    //RayIntersection calculateNearestIntersectionWithPatch(const Ray &ray) const;
 
   private:
     CameraPointer mCamera;

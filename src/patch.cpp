@@ -34,9 +34,8 @@ Color Patch::getEmissionEnergy() const {
   return mResidualColor * getArea();
 }
 
-float Patch::getEmissionEnergyValue() const {
-  Color energyVector = getEmissionEnergy();
-  return energyVector.r + energyVector.g + energyVector.b;
+float Patch::getEmissionEnergyValue() const {  
+  return getEmissionEnergy().length();
 }
 
 void Patch::updateAccumulatedColor(const Color &colorDelta) {

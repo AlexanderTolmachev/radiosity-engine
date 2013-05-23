@@ -30,8 +30,8 @@ private:
   PatchesAndFactorsCollectionPointer getVisiblePatchesWithFormFactors(const PatchPointer &patch);
   PatchesAndFactorsCollectionPointer calculateVisiblePatchesWithFormFactors(const PatchPointer &patch);
 
-  bool isPatchVisibleFromSourcePatch(const PatchPointer &sourcePatch, const PatchPointer &patch) const;
-  float calculateFormFactor(const PatchPointer &sourcePatch, const PatchPointer &visiblePatch) const;
+  //bool isPatchVisibleFromSourcePatch(const PatchPointer &sourcePatch, const PatchPointer &patch) const;
+  //float calculateFormFactor(const PatchPointer &sourcePatch, const PatchPointer &visiblePatch) const;
 
 private:
   ScenePointer mScene;
@@ -44,5 +44,3 @@ private:
   QHash<unsigned int, PatchesAndFactorsCollectionPointer> mPatchToVisiblePatchesAndFormFactorsHash;
   int mSamplePointsNumberPerPatch;
 };
-
-//uint qHash (const PatchPointer &patch);
