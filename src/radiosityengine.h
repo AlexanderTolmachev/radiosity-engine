@@ -25,23 +25,21 @@ private:
   void initialize();
   void processIteration();
   void shootRadiosity(PatchPointer sourcePatch);
+  void postProcess();
   
   PatchCollectionPointer getSourcePatches() const;
   PatchesAndFactorsCollectionPointer getVisiblePatchesWithFormFactors(const PatchPointer &patch);
   PatchesAndFactorsCollectionPointer calculateVisiblePatchesWithFormFactors(const PatchPointer &patch);
 
-  //bool isPatchVisibleFromSourcePatch(const PatchPointer &sourcePatch, const PatchPointer &patch) const;
-  //float calculateFormFactor(const PatchPointer &sourcePatch, const PatchPointer &visiblePatch) const;
-
 private:
   ScenePointer mScene;
   RayTracer mRayTracer;
-
   PatchCollectionPointer mScenePatches;
-  QHash<unsigned int, PatchPointer> mScenePatchesHash;
-  float mTotalPatchesArea;
-  Color mAvarageReflectanceProgressionSum;
-  Color mAmbientIlluminationValue;
-  QHash<unsigned int, PatchesAndFactorsCollectionPointer> mPatchToVisiblePatchesAndFormFactorsHash;
+
   int mSamplePointsNumberPerPatch;
+  float mTotalPatchesArea;
+  Color mTotalReflectance;
+
+  QHash<unsigned int, PatchPointer> mScenePatchesHash;
+  QHash<unsigned int, PatchesAndFactorsCollectionPointer> mPatchToVisiblePatchesAndFormFactorsHash;
 };

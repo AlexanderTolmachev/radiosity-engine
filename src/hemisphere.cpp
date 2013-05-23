@@ -1,5 +1,7 @@
 #include <cmath>
 
+#include <QtDebug>
+
 #include "hemisphere.h"
 #include "numbergenerator.h"
 
@@ -37,10 +39,18 @@ Vector Hemisphere::getViewDirection() const {
 Vector Hemisphere::getRandomCirclePointProjectedToSurface() const {
   Vector pointOnBase = getRandomPointOnBaseCircle();
   float distanceToCenter = pointOnBase.length();
+
+  qDebug() << "Dist - radius: " << distanceToCenter - mRadius;
+  assert (distanceToCenter <= mRadius);
+
   float offsetValue = sqrt(mRadius * mRadius - distanceToCenter * distanceToCenter);
   Vector pointAtSurface = pointOnBase + mZAxis * offsetValue;
 
-  assert ( abs(pointAtSurface.length() - mRadius) <= FLOAT_ZERO );
+  qDebug() << "abs(pointAtSurface.length() - mRadius): " << abs(pointAtSurface.length() - mRadius);
+  assert ( abs(pointAtSurface.length() - mRadius) <= EPS );
+
+  qDebug() << "pointAtSurface.dotProduct(mZAxis): " << pointAtSurface.dotProduct(mZAxis);
+  assert ( pointAtSurface.dotProduct(mZAxis) >= 0.0f );
 
   return pointAtSurface + mCenter;
 }
@@ -55,8 +65,9 @@ Vector Hemisphere::getRandomPointOnBaseCircle() const {
   float u = NumberGenerator::getInstance().generateRamdomNumberBetweenZeroAndOne() + NumberGenerator::getInstance().generateRamdomNumberBetweenZeroAndOne();
   float r = (u > 1.0f) ? (2.0f - u) : u;
   
-  float xCoord = r * cos(t) * mRadius;
-  float yCoord = r * sin(t) * mRadius;
+  float radius = mRadius - FLOAT_ZERO; // Decrease radius to avoid exceeding the bounds of circle
+  float xCoord = r * cos(t) * radius;
+  float yCoord = r * sin(t) * radius;
 
   return mXAxis * xCoord + mYAxis * yCoord;
 }

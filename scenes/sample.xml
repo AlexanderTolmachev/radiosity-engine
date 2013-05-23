@@ -10,13 +10,13 @@
 
     <!-- Light on the ceiling -->
     <object type="quad">
-        <v0 x="1.00" y="6.90" z="6.00"/>
-        <v1 x="1.00" y="6.90" z="8.00"/>
-        <v2 x="-1.00" y="6.90" z="8.00"/>
-        <v3 x="-1.00" y="6.90" z="6.00"/>
+        <v0 x="3.00" y="6.50" z="2.00"/>
+        <v1 x="3.00" y="6.50" z="8.00"/>
+        <v2 x="-3.00" y="6.50" z="8.00"/>
+        <v3 x="-3.00" y="6.50" z="2.00"/>
         <material>
-            <emission r="1.00" g="1.00" b="1.00"/>
-            <reflectance r="1.00" g="1.00" b="1.00"/>
+            <emission r="2.00" g="2.00" b="2.00"/>
+            <reflectance r="0.00" g="0.00" b="0.00"/>
         </material>		
     </object>
     <!-- Back wall -->
@@ -27,7 +27,7 @@
         <v3 x="12.00" y="7.00" z="0.00"/>
         <material>
             <emission r="0.00" g="0.00" b="0.00"/>
-            <reflectance r="0.50" g="0.50" b="0.50"/>
+            <reflectance r="1.00" g="1.00" b="1.00"/>
         </material>		
     </object>
     <!-- Left wall -->
@@ -38,7 +38,7 @@
         <v3 x="-12.00" y="-7.00" z="10.00"/>
         <material>
             <emission r="0.00" g="0.00" b="0.00"/>
-            <reflectance r="0.50" g="0.00" b="0.00"/>
+            <reflectance r="1.00" g="0.00" b="0.00"/>
         </material>		
     </object>
     <!-- Right wall -->
@@ -49,7 +49,7 @@
         <v3 x="12.00" y="7.00" z="0.00"/>
         <material>
             <emission r="0.00" g="0.00" b="0.00"/>
-            <reflectance r="0.00" g="0.50" b="0.00"/>
+            <reflectance r="0.00" g="1.00" b="0.00"/>
         </material>		
     </object>
     <!-- Ceiling -->
@@ -60,7 +60,7 @@
         <v3 x="-12.00" y="7.00" z="10.00"/>
         <material>
             <emission r="0.00" g="0.00" b="0.00"/>
-            <reflectance r="0.50" g="0.50" b="0.50"/>
+            <reflectance r="1.00" g="1.00" b="1.00"/>
         </material>		
     </object>
     <!-- Floor -->
@@ -71,7 +71,7 @@
         <v3 x="12.00" y="-7.00" z="10.00"/>
         <material>
             <emission r="0.00" g="0.00" b="0.00"/>
-            <reflectance r="0.50" g="0.50" b="0.50"/>
+            <reflectance r="1.00" g="1.00" b="1.00"/>
         </material>		
     </object>
 

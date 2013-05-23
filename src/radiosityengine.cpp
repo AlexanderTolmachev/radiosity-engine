@@ -38,7 +38,7 @@ void RadiosityEngine::calculateIllumination(int interationsNumber, float patchSi
     processIteration();
   }
 
-
+  postProcess();
 }
 
 void RadiosityEngine::renderScene() {
@@ -64,17 +64,32 @@ void RadiosityEngine::initialize() {
     float patchArea = patch->getArea();
     mTotalPatchesArea += patchArea;
     averageReflectance += patch->getMaterial()->reflectance * patchArea;
-    mAmbientIlluminationValue += patch->getResidualColor() * patchArea;
   }
 
   averageReflectance /= mTotalPatchesArea;
-  mAvarageReflectanceProgressionSum = Color(1.0f / (1.0f - averageReflectance.r), 1.0f / (1.0f - averageReflectance.g), 1.0f / (1.0f - averageReflectance.b));
-  mAmbientIlluminationValue *= mAvarageReflectanceProgressionSum / mTotalPatchesArea;
+  mTotalReflectance = Color(1.0f / (1.0f - averageReflectance.r), 1.0f / (1.0f - averageReflectance.g), 1.0f / (1.0f - averageReflectance.b));
 
   std::cout << "Total patches area: " << mTotalPatchesArea << std::endl;
   std::cout << "Average reflectance: " << averageReflectance << std::endl;
-  std::cout << "Average reflectance progression sum: " << mAvarageReflectanceProgressionSum << std::endl;
-  std::cout << "Ambient illumination value: " << mAmbientIlluminationValue << std::endl;
+  std::cout << "Total reflectance: " << mTotalReflectance << std::endl;
+}
+
+void RadiosityEngine::postProcess() {
+  // Compute total unshot radiosity
+  Color totalUnshotRadiosity;
+  for each (auto patch in *mScenePatches) {
+    totalUnshotRadiosity += patch->getResidualColor() * patch->getArea();
+  }
+  totalUnshotRadiosity /= mTotalPatchesArea;
+
+  // Update patches color with estimated ambient component
+  Color ambientRadiosity = totalUnshotRadiosity * mTotalReflectance;
+  
+  std::cout << "Ambient component: " << ambientRadiosity << std::endl;  
+  
+  for each (auto patch in *mScenePatches) {
+    patch->updateAccumulatedColor(patch->getMaterial()->reflectance * ambientRadiosity);
+  }
 }
 
 void RadiosityEngine::processIteration() {
@@ -88,8 +103,6 @@ void RadiosityEngine::processIteration() {
 }
 
 void RadiosityEngine::shootRadiosity(PatchPointer sourcePatch) {
-  Color energyDelta = sourcePatch->getEmissionEnergy();
-  //Color patchRadiosity = sourcePatch->getMaterial()->reflectance * sourcePatch->getResidualColor() * sourcePatch->getArea();
   Color sourcePatchRadiosity = sourcePatch->getResidualColor();
   
   // Shoot radiosity
@@ -98,24 +111,12 @@ void RadiosityEngine::shootRadiosity(PatchPointer sourcePatch) {
     PatchPointer visiblePatch = visiblePatchWithFormFactor.first;
     float formFactor = visiblePatchWithFormFactor.second;
 
-//    Color emissedRadiosityDelta = sourcePatchRadiosity * formFactor * (sourcePatch->getArea() / visiblePatch->getArea());
-    Color emissedRadiosityDelta = sourcePatchRadiosity * formFactor;
-    Color reseivedRadiosityDelta = emissedRadiosityDelta * visiblePatch->getMaterial()->reflectance;
-    visiblePatch->updateAccumulatedColor(reseivedRadiosityDelta);
-    visiblePatch->updateResidualColor(reseivedRadiosityDelta);  
-
-    energyDelta -= emissedRadiosityDelta * visiblePatch->getArea();
-  }
-
-  // Update
-  for each (auto patch in *mScenePatches) {
-    Color accumulatedColor = patch->getAccumulatedColor();
-    Color ambientDelta = patch->getMaterial()->reflectance * mAmbientIlluminationValue;
-    patch->updateAccumulatedColor(ambientDelta);
+    Color radiosityDelta = visiblePatch->getMaterial()->reflectance * sourcePatchRadiosity * formFactor * (sourcePatch->getArea() / visiblePatch->getArea());
+    visiblePatch->updateAccumulatedColor(radiosityDelta);
+    visiblePatch->updateResidualColor(radiosityDelta);  
   }
 
   sourcePatch->resetResidualColor();
-  mAmbientIlluminationValue -= energyDelta * (mAvarageReflectanceProgressionSum / mTotalPatchesArea);
 }
 
 PatchCollectionPointer RadiosityEngine::getSourcePatches() const {
@@ -158,28 +159,20 @@ PatchesAndFactorsCollectionPointer RadiosityEngine::calculateVisiblePatchesWithF
     }
 
     unsigned int hitPatchId = intersection.patch->getId();
-
-    assert (hitPatchId != sourcePatch->getId());
-
     if (!patchesIdToRayHitsCoutHash.contains(hitPatchId)) {
       // Patch is hit at the first time
       patchesIdToRayHitsCoutHash.insert(hitPatchId, 1);
     } else {
       // Update hits count
       patchesIdToRayHitsCoutHash[hitPatchId] += 1;
-      //int hitsCount = patchesIdToRayHitsCoutHash.value(hitPatchId);
-      //patchesIdToRayHitsCoutHash.insert(hitPatchId, hitsCount + 1);
     }
   }
 
-  PatchesAndFactorsCollectionPointer visiblePatchesWithFormFactors = PatchesAndFactorsCollectionPointer(new PatchesAndFactorsCollection());
-  
-  QHash<unsigned int, int>::Iterator it;
+  PatchesAndFactorsCollectionPointer visiblePatchesWithFormFactors = PatchesAndFactorsCollectionPointer(new PatchesAndFactorsCollection());    
+  QHash<unsigned int, int>::Iterator it;  
   for (it = patchesIdToRayHitsCoutHash.begin(); it != patchesIdToRayHitsCoutHash.end(); ++it) {
     unsigned int patchId = it.key();
     int hitsCount = it.value();
-
-    assert (mScenePatchesHash.contains(patchId));
 
     PatchPointer patch = mScenePatchesHash.value(patchId);
     float formFactor = ((float) hitsCount) / mSamplePointsNumberPerPatch;
@@ -188,68 +181,3 @@ PatchesAndFactorsCollectionPointer RadiosityEngine::calculateVisiblePatchesWithF
 
   return visiblePatchesWithFormFactors;
 }
-
-
-//PatchesAndFactorsCollectionPointer RadiosityEngine::calculateVisiblePatchesWithFormFactors(const PatchPointer &sourcePatch) {
-//  PatchesAndFactorsCollectionPointer visiblePatchesWithFormFactors = PatchesAndFactorsCollectionPointer(new PatchesAndFactorsCollection());
-//
-//  for each (auto patch in *mScenePatches) {
-//    if (patch->getId() == sourcePatch->getId() || !isPatchVisibleFromSourcePatch(sourcePatch, patch)) {
-//      continue;
-//    }
-//
-//    float formFactor = calculateFormFactor(sourcePatch, patch);
-//    visiblePatchesWithFormFactors->push_back(std::make_pair(patch, formFactor));
-//    // TODO: add reverse form factor for optimization?
-//  }  
-//
-//  return visiblePatchesWithFormFactors;
-//}
-
-// Shoot ray from source patch center to tested patch center ans assume that 
-// if ray is not reaching tested patch then it's not visible
-//bool RadiosityEngine::isPatchVisibleFromSourcePatch(const PatchPointer &sourcePatch, const PatchPointer &patch) const {
-//  Vector rayDirection = patch->getCenter() - sourcePatch->getCenter();
-//  Ray rayToPatch = Ray(sourcePatch->getCenter() + sourcePatch->getNormal() * EPS, rayDirection);
-//  RayIntersection intersection = RayTracer::calculateNearestIntersectionWithPatch(rayToPatch, mScenePatches);    
-//
-//  if (!intersection.rayIntersectsWithPatch) {
-//    return false;
-//  }
-//
-//  PatchPointer intersectsWith = intersection.patch;
-//  if (intersectsWith->getId() != patch->getId()) {
-//    return false;
-//  }
-//
-//  return true;
-//}
-//
-//// Calculate form factor with area-to-area Monte Carlo algorithm
-//// See Michael F. Cohen and John R. Wallace "Radiosity and Realistic Image Synthesis", section 4.10.1, p 94.
-//float RadiosityEngine::calculateFormFactor(const PatchPointer &sourcePatch, const PatchPointer &visiblePatch) const {
-//  float formFactor = 0.0f;
-//  float visiblePatchArea = visiblePatch->getArea();
-//  float visiblePatchAreaDivNumPoints = visiblePatchArea / mSamplePointsNumberPerPatch;
-//
-//  for (int i = 0; i < mSamplePointsNumberPerPatch; ++i) {
-//    Vector sourcePatchPoint = sourcePatch->getRandomPoint();
-//    Vector visiblePatchPoint = visiblePatch->getRandomPoint();
-//    
-//    Vector directionToVisiblePatch = visiblePatchPoint - sourcePatchPoint;
-//    float squaredDistance = directionToVisiblePatch.length() * directionToVisiblePatch.length();
-//    directionToVisiblePatch.normalize();
-//
-//    float sourcePatchAngleCosine = sourcePatch->getNormal().dotProduct(directionToVisiblePatch);
-//    float visiblePatchAngleCosine = visiblePatch->getNormal().dotProduct(-directionToVisiblePatch);
-//
-//    float factorDelta = (sourcePatchAngleCosine * visiblePatchAngleCosine) / (M_PI * squaredDistance + visiblePatchAreaDivNumPoints);
-//    if (factorDelta > 0.0f) {
-//      formFactor += factorDelta;
-//    }
-//  }
-//
-//  formFactor *= visiblePatchAreaDivNumPoints;
-//
-//  return formFactor;
-//}
