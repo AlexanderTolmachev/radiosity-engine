@@ -7,8 +7,8 @@ Patch::Patch(MaterialPointer material)
   // Generate patch id
   mId = NumberGenerator::getInstance().generateNextId();
   // Initialize patch with emission light
-  mResidualColor = mMaterial->emmission;
-  mAccumulatedColor = mMaterial->emmission;
+  mResidualColor = mMaterial->emmissionColor * mMaterial->emissionFactor;
+  mAccumulatedColor = mMaterial->emmissionColor;
 }
 
 Patch::~Patch() {

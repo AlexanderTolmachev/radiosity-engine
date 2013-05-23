@@ -14,6 +14,8 @@ struct Material;
 typedef QSharedPointer<Material> MaterialPointer;
 
 struct Material { 
-  Color emmission;
-  Color reflectance;
+  Color emmissionColor;
+  Color reflectanceColor;
+  float emissionFactor;
+  float reflectanceFactor;
 };

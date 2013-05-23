@@ -63,7 +63,7 @@ void RadiosityEngine::initialize() {
     // Calculate factors for ambient illumination estimation
     float patchArea = patch->getArea();
     mTotalPatchesArea += patchArea;
-    averageReflectance += patch->getMaterial()->reflectance * patchArea;
+    averageReflectance += patch->getMaterial()->reflectanceColor * patch->getMaterial()->reflectanceFactor * patchArea;
   }
 
   averageReflectance /= mTotalPatchesArea;
@@ -88,7 +88,7 @@ void RadiosityEngine::postProcess() {
   std::cout << "Ambient component: " << ambientRadiosity << std::endl;  
   
   for each (auto patch in *mScenePatches) {
-    patch->updateAccumulatedColor(patch->getMaterial()->reflectance * ambientRadiosity);
+    patch->updateAccumulatedColor(patch->getMaterial()->reflectanceColor * ambientRadiosity);
   }
 }
 
@@ -111,9 +111,9 @@ void RadiosityEngine::shootRadiosity(PatchPointer sourcePatch) {
     PatchPointer visiblePatch = visiblePatchWithFormFactor.first;
     float formFactor = visiblePatchWithFormFactor.second;
 
-    Color radiosityDelta = visiblePatch->getMaterial()->reflectance * sourcePatchRadiosity * formFactor * (sourcePatch->getArea() / visiblePatch->getArea());
+    Color radiosityDelta = visiblePatch->getMaterial()->reflectanceColor * sourcePatchRadiosity * formFactor * (sourcePatch->getArea() / visiblePatch->getArea());
     visiblePatch->updateAccumulatedColor(radiosityDelta);
-    visiblePatch->updateResidualColor(radiosityDelta);  
+    visiblePatch->updateResidualColor(radiosityDelta * visiblePatch->getMaterial()->reflectanceFactor);  
   }
 
   sourcePatch->resetResidualColor();

@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <scene>
     <camera>
-        <pos x="0.00" y="0.00" z="25.00"/>
+        <pos x="0.00" y="0.00" z="33.00"/>
         <up  x="0.00" y="1.00" z="0.00"/>
         <look_at x="0.00" y="0.00" z="0.00"/>
         <fov angle="60.00"/>
@@ -10,68 +10,80 @@
 
     <!-- Light on the ceiling -->
     <object type="quad">
-        <v0 x="3.00" y="6.50" z="2.00"/>
-        <v1 x="3.00" y="6.50" z="8.00"/>
-        <v2 x="-3.00" y="6.50" z="8.00"/>
-        <v3 x="-3.00" y="6.50" z="2.00"/>
+        <v0 x="2.00" y="9.80" z="5.50"/>
+        <v1 x="2.00" y="9.80" z="9.50"/>
+        <v2 x="-2.00" y="9.80" z="9.50"/>
+        <v3 x="-2.00" y="9.80" z="5.50"/>
         <material>
-            <emission r="2.00" g="2.00" b="2.00"/>
-            <reflectance r="0.00" g="0.00" b="0.00"/>
+            <emission_color r="1.00" g="1.00" b="1.00"/>
+            <emission_factor value="10.0"/>
+            <reflectance_color r="1.00" g="1.00" b="1.00"/>
+            <reflectance_factor value="0.0"/>
         </material>		
     </object>
     <!-- Back wall -->
     <object type="quad">
-        <v0 x="-12.00" y="7.00" z="0.00"/>
-        <v1 x="-12.00" y="-7.00" z="0.00"/>
-        <v2 x="12.00" y="-7.00" z="0.00"/>
-        <v3 x="12.00" y="7.00" z="0.00"/>
+        <v0 x="-10.00" y="10.00" z="0.00"/>
+        <v1 x="-10.00" y="-10.00" z="0.00"/>
+        <v2 x="10.00" y="-10.00" z="0.00"/>
+        <v3 x="10.00" y="10.00" z="0.00"/>
         <material>
-            <emission r="0.00" g="0.00" b="0.00"/>
-            <reflectance r="1.00" g="1.00" b="1.00"/>
+            <emission_color r="0.00" g="0.00" b="0.00"/>
+            <emission_factor value="0.0"/>
+            <reflectance_color r="1.00" g="1.00" b="1.00"/>
+            <reflectance_factor value="1.0"/>
         </material>		
     </object>
     <!-- Left wall -->
     <object type="quad">
-        <v0 x="-12.00" y="-7.00" z="0.00"/>
-        <v1 x="-12.00" y="7.00" z="0.00"/>
-        <v2 x="-12.00" y="7.00" z="10.00"/>
-        <v3 x="-12.00" y="-7.00" z="10.00"/>
+        <v0 x="-10.00" y="-10.00" z="0.00"/>
+        <v1 x="-10.00" y="10.00" z="0.00"/>
+        <v2 x="-10.00" y="10.00" z="15.00"/>
+        <v3 x="-10.00" y="-10.00" z="15.00"/>
         <material>
-            <emission r="0.00" g="0.00" b="0.00"/>
-            <reflectance r="1.00" g="0.00" b="0.00"/>
+            <emission_color r="0.00" g="0.00" b="0.00"/>
+            <emission_factor value="0.0"/>
+            <reflectance_color r="1.00" g="0.00" b="0.00"/>
+            <reflectance_factor value="0.5"/>
         </material>		
     </object>
     <!-- Right wall -->
     <object type="quad">
-        <v0 x="12.00" y="-7.00" z="0.00"/>
-        <v1 x="12.00" y="-7.00" z="10.00"/>
-        <v2 x="12.00" y="7.00" z="10.00"/>
-        <v3 x="12.00" y="7.00" z="0.00"/>
+        <v0 x="10.00" y="-10.00" z="0.00"/>
+        <v1 x="10.00" y="-10.00" z="15.00"/>
+        <v2 x="10.00" y="10.00" z="15.00"/>
+        <v3 x="10.00" y="10.00" z="0.00"/>
         <material>
-            <emission r="0.00" g="0.00" b="0.00"/>
-            <reflectance r="0.00" g="1.00" b="0.00"/>
+            <emission_color r="0.00" g="0.00" b="0.00"/>
+            <emission_factor value="0.0"/>
+            <reflectance_color r="0.00" g="1.00" b="0.00"/>
+            <reflectance_factor value="0.5"/>
         </material>		
     </object>
     <!-- Ceiling -->
     <object type="quad">
-        <v0 x="-12.00" y="7.00" z="0.00"/>
-        <v1 x="12.00" y="7.00" z="0.00"/>
-        <v2 x="12.00" y="7.00" z="10.00"/>
-        <v3 x="-12.00" y="7.00" z="10.00"/>
+        <v0 x="-10.00" y="10.00" z="0.00"/>
+        <v1 x="10.00" y="10.00" z="0.00"/>
+        <v2 x="10.00" y="10.00" z="15.00"/>
+        <v3 x="-10.00" y="10.00" z="15.00"/>
         <material>
-            <emission r="0.00" g="0.00" b="0.00"/>
-            <reflectance r="1.00" g="1.00" b="1.00"/>
+            <emission_color r="0.00" g="0.00" b="0.00"/>
+            <emission_factor value="0.0"/>
+            <reflectance_color r="1.00" g="1.00" b="1.00"/>
+            <reflectance_factor value="1.0"/>
         </material>		
     </object>
     <!-- Floor -->
     <object type="quad">
-        <v0 x="12.00" y="-7.00" z="0.00"/>
-        <v1 x="-12.00" y="-7.00" z="0.00"/>
-        <v2 x="-12.00" y="-7.00" z="10.00"/>
-        <v3 x="12.00" y="-7.00" z="10.00"/>
+        <v0 x="10.00" y="-10.00" z="0.00"/>
+        <v1 x="-10.00" y="-10.00" z="0.00"/>
+        <v2 x="-10.00" y="-10.00" z="15.00"/>
+        <v3 x="10.00" y="-10.00" z="15.00"/>
         <material>
-            <emission r="0.00" g="0.00" b="0.00"/>
-            <reflectance r="1.00" g="1.00" b="1.00"/>
+            <emission_color r="0.00" g="0.00" b="0.00"/>
+            <emission_factor value="0.0"/>
+            <reflectance_color r="1.00" g="1.00" b="1.00"/>
+            <reflectance_factor value="1.0"/>
         </material>		
     </object>
 
