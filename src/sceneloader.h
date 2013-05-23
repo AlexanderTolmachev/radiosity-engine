@@ -12,6 +12,7 @@
 #include "types.h"
 #include "shape.h"
 #include "quad.h"
+#include "box.h"
 
 class SceneLoader {
   public:
@@ -28,6 +29,7 @@ class SceneLoader {
     MaterialPointer readMaterial(const QDomElement &element) const;
 
     QuadPointer readQuad(const QDomElement &element, MaterialPointer material) const;
+    BoxPointer readBox(const QDomElement &element, MaterialPointer material) const;
 
     bool readVector(const QDomElement &element, Vector &vector) const;
     bool readColor(const QDomElement &element, Color &color) const;

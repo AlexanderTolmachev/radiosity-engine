@@ -126,6 +126,9 @@ ShapePointer SceneLoader::readShape(const QDomElement &element) const {
   if (shapeType == "quad") {
     return readQuad(element, shapeMaterial);
   }
+  if (shapeType == "box") {
+    return readBox(element, shapeMaterial);
+  }
 
   std::cerr << "Scene parsing error: unknown shape type '" << shapeType.toUtf8().constData() << "'" << std::endl;
   return ShapePointer(NULL);
@@ -138,14 +141,31 @@ QuadPointer SceneLoader::readQuad(const QDomElement &element, MaterialPointer ma
   Vector vertex3;
 
   if (readChildElementAsVector(element, "v0", vertex0) &&
-    readChildElementAsVector(element, "v1", vertex1) &&
-    readChildElementAsVector(element, "v2", vertex2) &&
-    readChildElementAsVector(element, "v3", vertex3)) {
+      readChildElementAsVector(element, "v1", vertex1) &&
+      readChildElementAsVector(element, "v2", vertex2) &&
+      readChildElementAsVector(element, "v3", vertex3)) {
       return QuadPointer(new Quad(vertex0, vertex1, vertex2, vertex3, material));
   }
 
   return QuadPointer(NULL);
 }
+
+BoxPointer SceneLoader::readBox(const QDomElement &element, MaterialPointer material) const {
+  Vector center;
+  float width;
+  float height;
+  float depth;
+
+  if (readChildElementAsVector(element, "center", center) &&
+      readChildElementAsFloat(element, "width", "value", width) &&
+      readChildElementAsFloat(element, "height", "value", height) &&
+      readChildElementAsFloat(element, "depth", "value", depth)) {
+    return BoxPointer(new Box(center, width, height, depth, material));
+  }
+
+  return BoxPointer(NULL);
+}
+
 
 MaterialPointer SceneLoader::readMaterial(const QDomElement &element) const {
   QDomElement materialElement = element.firstChildElement("material");
