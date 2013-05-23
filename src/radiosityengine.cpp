@@ -137,6 +137,7 @@ PatchesAndFactorsCollectionPointer RadiosityEngine::getVisiblePatchesWithFormFac
 PatchesAndFactorsCollectionPointer RadiosityEngine::calculateVisiblePatchesWithFormFactors(const PatchPointer &sourcePatch) {
   PatchesAndFactorsCollectionPointer visiblePatchesWithFormFactors = PatchesAndFactorsCollectionPointer(new PatchesAndFactorsCollection());
 
+  Hemisphere hemisphere = sourcePatch->getHemisphere();
   for (int i = 0; i < mSamplePointsNumberPerPatch; ++i) {
 
   }

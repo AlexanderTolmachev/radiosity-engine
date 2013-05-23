@@ -2,11 +2,21 @@
 
 #include "types.h"
 
-struct Hemisphere {
-  Vector center;
-  float radius;
+class Hemisphere {
+public:
+  Hemisphere(const Vector &cener, float radius, const Vector &viewDirection, const Vector &xAxisDirecion);
+  virtual ~Hemisphere();
+
+  Vector getRandomCirclePointProjectedToSurface() const;
+
+private:
+  Vector getRandomPointOnBaseCircle() const;
+
+private:
+  Vector mCenter;
+  float mRadius;
   // Hemisphere internal 
-  Vector xAxis;
-  Vector yAxis;
-  Vector zAxis; // View direction
+  Vector mXAxis;
+  Vector mYAxis;
+  Vector mZAxis; // View direction
 };

@@ -54,13 +54,9 @@ Vector TrianglePatch::getRandomPoint() const {
 }
 
 Hemisphere TrianglePatch::getHemisphere() const {
-  Hemisphere hemisphere;
-  hemisphere.center = mCenter;
-  hemisphere.radius = sqrt(mArea / M_PI);
-  hemisphere.zAxis = mNormal;
-  hemisphere.xAxis = mVertex0 - mCenter;
-  hemisphere.yAxis = hemisphere.zAxis.crossProduct(hemisphere.xAxis);
-  return hemisphere;
+  float radius = sqrt(mArea / M_PI);
+  Vector xAxisDirection = mVertex0 - mCenter;
+  return Hemisphere(mCenter, radius, mNormal, xAxisDirection);
 }
 
 
