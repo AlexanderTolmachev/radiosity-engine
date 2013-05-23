@@ -53,6 +53,17 @@ Vector TrianglePatch::getRandomPoint() const {
   return mVertex0 * (1 - r1sqrt) + mVertex1 * (r1sqrt * (1 - r2)) + mVertex2 * (r1sqrt * r2);
 }
 
+Hemisphere TrianglePatch::getHemisphere() const {
+  Hemisphere hemisphere;
+  hemisphere.center = mCenter;
+  hemisphere.radius = sqrt(mArea / M_PI);
+  hemisphere.zAxis = mNormal;
+  hemisphere.xAxis = mVertex0 - mCenter;
+  hemisphere.yAxis = hemisphere.zAxis.crossProduct(hemisphere.xAxis);
+  return hemisphere;
+}
+
+
 PatchCollectionPointer TrianglePatch::split() const {
   Vector edgeCenter0 = (mVertex0 + mVertex1) * 0.5f;
   Vector edgeCenter1 = (mVertex1 + mVertex2) * 0.5f;

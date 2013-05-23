@@ -137,7 +137,9 @@ PatchesAndFactorsCollectionPointer RadiosityEngine::getVisiblePatchesWithFormFac
 PatchesAndFactorsCollectionPointer RadiosityEngine::calculateVisiblePatchesWithFormFactors(const PatchPointer &sourcePatch) {
   PatchesAndFactorsCollectionPointer visiblePatchesWithFormFactors = PatchesAndFactorsCollectionPointer(new PatchesAndFactorsCollection());
 
+  for (int i = 0; i < mSamplePointsNumberPerPatch; ++i) {
 
+  }
 
   return visiblePatchesWithFormFactors;
 }

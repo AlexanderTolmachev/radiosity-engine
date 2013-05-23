@@ -143,5 +143,8 @@
     <ClInclude Include="..\src\numbergenerator.h">
       <Filter>Header Files\Commons</Filter>
     </ClInclude>
+    <ClInclude Include="..\src\hemisphere.h">
+      <Filter>Header Files\Radiosity</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

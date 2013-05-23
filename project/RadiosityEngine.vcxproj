@@ -103,6 +103,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\camera.h" />
+    <ClInclude Include="..\src\hemisphere.h" />
     <ClInclude Include="..\src\inputparameters.h" />
     <ClInclude Include="..\src\material.h" />
     <ClInclude Include="..\src\numbergenerator.h" />

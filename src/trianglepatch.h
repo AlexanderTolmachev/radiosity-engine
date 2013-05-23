@@ -22,6 +22,7 @@ class TrianglePatch : public Patch {
     virtual Vector getCenter() const;
     virtual Vector getNormal() const;
     virtual Vector getRandomPoint() const;
+    virtual Hemisphere getHemisphere() const;
 
     virtual PatchCollectionPointer split() const;    
     virtual RayIntersection intersectWithRay(const Ray &ray) const;    

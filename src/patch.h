@@ -4,6 +4,7 @@
 
 #include "material.h"
 #include "ray.h"
+#include "hemisphere.h"
 
 class Patch;
 struct RayIntersection;
@@ -22,6 +23,7 @@ class Patch {
     virtual Vector getCenter() const = 0;
     virtual Vector getNormal() const = 0;
     virtual Vector getRandomPoint() const = 0;
+    virtual Hemisphere getHemisphere() const = 0;
     
     virtual PatchCollectionPointer split() const = 0;
     virtual RayIntersection intersectWithRay(const Ray &ray) const = 0;
