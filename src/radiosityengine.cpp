@@ -84,20 +84,23 @@ void RadiosityEngine::processIteration() {
 
 void RadiosityEngine::shootRadiosity(PatchPointer sourcePatch) {
   Color energyDelta = sourcePatch->getEmissionEnergy();
-  Color patchReflectedRadiosity = sourcePatch->getMaterial()->reflectance * sourcePatch->getResidualColor() * sourcePatch->getArea();
-
+  //Color patchReflectedRadiosity = sourcePatch->getMaterial()->reflectance * sourcePatch->getResidualColor() * sourcePatch->getArea();
+  Color patchRadiosity = sourcePatch->getResidualColor();
+  
   // Shoot radiosity
   PatchesAndFactorsCollectionPointer visiblePatchesWithFormFactors = getVisiblePatchesWithFormFactors(sourcePatch);
   for each (auto visiblePatchWithFormFactor in *visiblePatchesWithFormFactors) {
     PatchPointer visiblePatch = visiblePatchWithFormFactor.first;
     float formFactor = visiblePatchWithFormFactor.second;
 
-    Color previousAccumulatedColor = visiblePatch->getAccumulatedColor();
-    Color previousResidualColor = visiblePatch->getResidualColor();
+    //Color previousAccumulatedColor = visiblePatch->getAccumulatedColor();
+    //Color previousResidualColor = visiblePatch->getResidualColor();
 
-    Color radiosityDelta = patchReflectedRadiosity * formFactor / visiblePatch->getArea();
-    visiblePatch->setAccumulatedColor(previousAccumulatedColor + radiosityDelta);
-    visiblePatch->setResidualColor(previousResidualColor + radiosityDelta * visiblePatch->getMaterial()->reflectance);
+    Color radiosityDelta = visiblePatch->getMaterial()->reflectance * patchRadiosity * formFactor * (sourcePatch->getArea() / visiblePatch->getArea());
+    visiblePatch->updateAccumulatedColor(radiosityDelta);
+    visiblePatch->updateResidualColor(radiosityDelta);  
+    //visiblePatch->setAccumulatedColor(previousAccumulatedColor + radiosityDelta);
+    //visiblePatch->setResidualColor(previousResidualColor + radiosityDelta * visiblePatch->getMaterial()->reflectance);
 
     energyDelta -= radiosityDelta * visiblePatch->getArea();
   }
@@ -106,10 +109,11 @@ void RadiosityEngine::shootRadiosity(PatchPointer sourcePatch) {
   for each (auto patch in *mScenePatches) {
     Color accumulatedColor = patch->getAccumulatedColor();
     Color ambientDelta = patch->getMaterial()->reflectance * mAmbientIlluminationValue;
-    patch->setAccumulatedColor(accumulatedColor + ambientDelta);
+    patch->updateAccumulatedColor(ambientDelta);
+//    patch->setAccumulatedColor(accumulatedColor + ambientDelta);
   }
 
-  sourcePatch->setResidualColor(Color());
+  sourcePatch->resetResidualColor();
   mAmbientIlluminationValue -= energyDelta * (mAvarageReflectanceProgressionSum / mTotalPatchesArea);
 }
 

@@ -39,13 +39,25 @@ float Patch::getEmissionEnergyValue() const {
   return energyVector.r + energyVector.g + energyVector.b;
 }
 
-void Patch::setAccumulatedColor(const Color &incidentLight) {
-  mAccumulatedColor = incidentLight;
+void Patch::updateAccumulatedColor(const Color &colorDelta) {
+  mAccumulatedColor += colorDelta;
 }
 
-void Patch::setResidualColor(const Color &excidentLight) {
-  mResidualColor = excidentLight;
+void Patch::updateResidualColor(const Color &colorDelta) {
+  mResidualColor += colorDelta;
 }
+
+void Patch::resetResidualColor() {
+  mResidualColor = Color(0.0f, 0.0f, 0.0f);
+}
+
+//void Patch::setAccumulatedColor(const Color &incidentLight) {
+//  mAccumulatedColor = incidentLight;
+//}
+//
+//void Patch::setResidualColor(const Color &excidentLight) {
+//  mResidualColor = excidentLight;
+//}
 
 bool comparePatchesByEmissionEmergy(const PatchPointer &patch1, const PatchPointer &patch2) {
   if (patch1->getEmissionEnergyValue() < patch2->getEmissionEnergyValue()) {

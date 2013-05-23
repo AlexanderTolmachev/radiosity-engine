@@ -34,8 +34,12 @@ class Patch {
     Color getEmissionEnergy() const;
     float getEmissionEnergyValue() const;
 
-    void setAccumulatedColor(const Color &incidentLight);
-    void setResidualColor(const Color &excidentLight);
+    void updateAccumulatedColor(const Color &colorDelta);
+    void updateResidualColor(const Color &colorDelta);
+    void resetResidualColor();
+
+    //void setAccumulatedColor(const Color &incidentLight);
+    //void setResidualColor(const Color &excidentLight);
 
   private:
     // Patch id
