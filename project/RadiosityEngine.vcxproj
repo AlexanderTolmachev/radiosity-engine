@@ -87,6 +87,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\src\box.cpp" />
     <ClCompile Include="..\src\camera.cpp" />
     <ClCompile Include="..\src\hemisphere.cpp" />
     <ClCompile Include="..\src\inputparameters.cpp" />
@@ -103,6 +104,7 @@
     <ClCompile Include="..\src\trianglepatch.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\src\box.h" />
     <ClInclude Include="..\src\camera.h" />
     <ClInclude Include="..\src\hemisphere.h" />
     <ClInclude Include="..\src\inputparameters.h" />
