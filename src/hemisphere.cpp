@@ -22,12 +22,27 @@ Hemisphere::Hemisphere(const Vector &cener, float radius, const Vector &viewDire
 Hemisphere::~Hemisphere() {
 }
 
+Vector Hemisphere::getCenter() const {
+  return mCenter;
+}
+
+float Hemisphere::getRadius() const {
+  return mRadius;
+}
+
+Vector Hemisphere::getViewDirection() const {
+  return mZAxis;
+}
+
 Vector Hemisphere::getRandomCirclePointProjectedToSurface() const {
   Vector pointOnBase = getRandomPointOnBaseCircle();
   float distanceToCenter = pointOnBase.length();
   float offsetValue = sqrt(mRadius * mRadius - distanceToCenter * distanceToCenter);
+  Vector pointAtSurface = pointOnBase + mZAxis * offsetValue;
 
-  Vector point = pointOnBase + mZAxis * offsetValue + mCenter;
+  assert ( abs(pointAtSurface.length() - mRadius) <= FLOAT_ZERO );
+
+  return pointAtSurface + mCenter;
 }
 
 /**

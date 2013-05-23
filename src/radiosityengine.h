@@ -38,6 +38,7 @@ private:
   RayTracer mRayTracer;
 
   PatchCollectionPointer mScenePatches;
+  QHash<unsigned int, PatchPointer> mScenePatchesHash;
   float mTotalPatchesArea;
   Color mAvarageReflectanceProgressionSum;
   Color mAmbientIlluminationValue;

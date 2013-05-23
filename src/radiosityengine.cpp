@@ -37,6 +37,8 @@ void RadiosityEngine::calculateIllumination(int interationsNumber, float patchSi
     std::cout << "Processing iteration " << iteration << "..." << std::endl;
     processIteration();
   }
+
+
 }
 
 void RadiosityEngine::renderScene() {
@@ -56,6 +58,9 @@ void RadiosityEngine::initialize() {
   Color averageReflectance;
 
   for each (auto patch in *mScenePatches) {
+    // Fill patches hash
+    mScenePatchesHash.insert(patch->getId(), patch);
+    // Calculate factors for ambient illumination estimation
     float patchArea = patch->getArea();
     mTotalPatchesArea += patchArea;
     averageReflectance += patch->getMaterial()->reflectance * patchArea;
@@ -85,7 +90,7 @@ void RadiosityEngine::processIteration() {
 void RadiosityEngine::shootRadiosity(PatchPointer sourcePatch) {
   Color energyDelta = sourcePatch->getEmissionEnergy();
   //Color patchRadiosity = sourcePatch->getMaterial()->reflectance * sourcePatch->getResidualColor() * sourcePatch->getArea();
-  Color patchRadiosity = sourcePatch->getResidualColor();
+  Color sourcePatchRadiosity = sourcePatch->getResidualColor();
   
   // Shoot radiosity
   PatchesAndFactorsCollectionPointer visiblePatchesWithFormFactors = getVisiblePatchesWithFormFactors(sourcePatch);
@@ -93,11 +98,13 @@ void RadiosityEngine::shootRadiosity(PatchPointer sourcePatch) {
     PatchPointer visiblePatch = visiblePatchWithFormFactor.first;
     float formFactor = visiblePatchWithFormFactor.second;
 
-    Color radiosityDelta = visiblePatch->getMaterial()->reflectance * patchRadiosity * formFactor * (sourcePatch->getArea() / visiblePatch->getArea());
-    visiblePatch->updateAccumulatedColor(radiosityDelta);
-    visiblePatch->updateResidualColor(radiosityDelta);  
+//    Color emissedRadiosityDelta = sourcePatchRadiosity * formFactor * (sourcePatch->getArea() / visiblePatch->getArea());
+    Color emissedRadiosityDelta = sourcePatchRadiosity * formFactor;
+    Color reseivedRadiosityDelta = emissedRadiosityDelta * visiblePatch->getMaterial()->reflectance;
+    visiblePatch->updateAccumulatedColor(reseivedRadiosityDelta);
+    visiblePatch->updateResidualColor(reseivedRadiosityDelta);  
 
-    energyDelta -= radiosityDelta * visiblePatch->getArea();
+    energyDelta -= emissedRadiosityDelta * visiblePatch->getArea();
   }
 
   // Update
@@ -135,11 +142,48 @@ PatchesAndFactorsCollectionPointer RadiosityEngine::getVisiblePatchesWithFormFac
 }
 
 PatchesAndFactorsCollectionPointer RadiosityEngine::calculateVisiblePatchesWithFormFactors(const PatchPointer &sourcePatch) {
-  PatchesAndFactorsCollectionPointer visiblePatchesWithFormFactors = PatchesAndFactorsCollectionPointer(new PatchesAndFactorsCollection());
+  QHash<unsigned int, int> patchesIdToRayHitsCoutHash;
 
   Hemisphere hemisphere = sourcePatch->getHemisphere();
   for (int i = 0; i < mSamplePointsNumberPerPatch; ++i) {
+    Vector hemispherePoint = hemisphere.getRandomCirclePointProjectedToSurface();
+    Vector rayDirection = hemispherePoint - hemisphere.getCenter();
+    Vector rayOrigin = sourcePatch->getCenter() + sourcePatch->getNormal() * EPS;
 
+    Ray ray = Ray(rayOrigin, rayDirection);
+    RayIntersection intersection = RayTracer::calculateNearestIntersectionWithPatch(ray, mScenePatches);
+    
+    if (!intersection.rayIntersectsWithPatch) {
+      continue;
+    }
+
+    unsigned int hitPatchId = intersection.patch->getId();
+
+    assert (hitPatchId != sourcePatch->getId());
+
+    if (!patchesIdToRayHitsCoutHash.contains(hitPatchId)) {
+      // Patch is hit at the first time
+      patchesIdToRayHitsCoutHash.insert(hitPatchId, 1);
+    } else {
+      // Update hits count
+      patchesIdToRayHitsCoutHash[hitPatchId] += 1;
+      //int hitsCount = patchesIdToRayHitsCoutHash.value(hitPatchId);
+      //patchesIdToRayHitsCoutHash.insert(hitPatchId, hitsCount + 1);
+    }
+  }
+
+  PatchesAndFactorsCollectionPointer visiblePatchesWithFormFactors = PatchesAndFactorsCollectionPointer(new PatchesAndFactorsCollection());
+  
+  QHash<unsigned int, int>::Iterator it;
+  for (it = patchesIdToRayHitsCoutHash.begin(); it != patchesIdToRayHitsCoutHash.end(); ++it) {
+    unsigned int patchId = it.key();
+    int hitsCount = it.value();
+
+    assert (mScenePatchesHash.contains(patchId));
+
+    PatchPointer patch = mScenePatchesHash.value(patchId);
+    float formFactor = ((float) hitsCount) / mSamplePointsNumberPerPatch;
+    visiblePatchesWithFormFactors->push_back(std::make_pair(patch, formFactor));
   }
 
   return visiblePatchesWithFormFactors;

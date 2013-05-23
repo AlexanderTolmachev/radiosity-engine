@@ -7,6 +7,10 @@ public:
   Hemisphere(const Vector &cener, float radius, const Vector &viewDirection, const Vector &xAxisDirecion);
   virtual ~Hemisphere();
 
+  Vector getCenter() const;
+  float getRadius() const;
+  Vector getViewDirection() const;
+
   Vector getRandomCirclePointProjectedToSurface() const;
 
 private:
