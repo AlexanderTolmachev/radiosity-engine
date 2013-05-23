@@ -22,11 +22,13 @@ class RayTracer {
     void renderScene();
     void saveRenderedImageToFile(const QString &filePath);
 
+    static RayIntersection calculateNearestIntersectionWithPatch(const Ray &ray, const PatchCollectionPointer &patches);
+
   private:
     void render();
 
     Color traceRay(const Ray &ray);
-    RayIntersection calculateNearestIntersectionWithPatch(const Ray &ray) const;
+    //RayIntersection calculateNearestIntersectionWithPatch(const Ray &ray) const;
 
   private:
     CameraPointer mCamera;

@@ -19,10 +19,12 @@ class TrianglePatch : public Patch {
     
     virtual float getSize() const;
     virtual float getArea() const;
-    virtual PatchCollectionPointer split() const;
-    
+    virtual Vector getCenter() const;
+    virtual Vector getNormal() const;
+    virtual Vector getRandomPoint() const;
+
+    virtual PatchCollectionPointer split() const;    
     virtual RayIntersection intersectWithRay(const Ray &ray) const;    
-    // virtual Vector getNormal(const Ray &ray, float distance) const;
 
   private:
     // Triangle vertices
@@ -33,4 +35,6 @@ class TrianglePatch : public Patch {
     Vector mNormal;
     // Precalculated area
     float mArea;
+    // Precalculated center
+    Vector mCenter;
 };

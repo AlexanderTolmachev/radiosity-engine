@@ -90,6 +90,7 @@
     <ClCompile Include="..\src\camera.cpp" />
     <ClCompile Include="..\src\inputparameters.cpp" />
     <ClCompile Include="..\src\main.cpp" />
+    <ClCompile Include="..\src\numbergenerator.cpp" />
     <ClCompile Include="..\src\patch.cpp" />
     <ClCompile Include="..\src\quad.cpp" />
     <ClCompile Include="..\src\radiosityengine.cpp" />
@@ -104,6 +105,7 @@
     <ClInclude Include="..\src\camera.h" />
     <ClInclude Include="..\src\inputparameters.h" />
     <ClInclude Include="..\src\material.h" />
+    <ClInclude Include="..\src\numbergenerator.h" />
     <ClInclude Include="..\src\patch.h" />
     <ClInclude Include="..\src\quad.h" />
     <ClInclude Include="..\src\radiosityengine.h" />

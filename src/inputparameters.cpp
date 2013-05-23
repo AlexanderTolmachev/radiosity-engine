@@ -14,6 +14,7 @@ std::ostream& operator<< (std::ostream &out, const InputParameters &parameters) 
   out << "Image height: " << parameters.yResolution << std::endl;
   out << "Iterations number: " << parameters.iterationsNumber << std::endl;
   out << "Patch size: " << parameters.patchSize << std::endl;
+  out << "Sample points number per patch: " << parameters.samplePointsNumberPerPatch << std::endl;
   return out;
 }
 
@@ -23,7 +24,8 @@ InputParametersParser::InputParametersParser()
     mXResolutionArgumentRegex("--resolution_x=(\\d+)"),
     mYResolutionArgumentRegex("--resolution_y=(\\d+)"),
     mIterationsNumberArgumentRegex("--num_iterations=(\\d+)"),
-    mPatchSizeArgumentRegex("--patch_size=(\\d+(\\.\\d+)?$)") {
+    mPatchSizeArgumentRegex("--patch_size=(\\d+(\\.\\d+)?$)"),
+    mSamplePointsNumberPerPatchArgumentRegex("--num_points_per_patch=(\\d+)") {
 }
 
 InputParametersParser::~InputParametersParser() {
@@ -37,6 +39,7 @@ InputParametersPointer InputParametersParser::parseInputParameters(QStringList a
   bool isYResolutionParameterInitialized = false;
   bool isIterationsNumberParameterInitialized = false;
   bool isPatchSizeParameterInitialized = false;
+  bool isSamplePointsNumberPerPatchParameterInitialized = false;
 
   for (int i = 1; i < args.size(); ++i) {
     if (mSceneArgumentRegex.indexIn(args.at(i)) != -1) {
@@ -81,6 +84,13 @@ InputParametersPointer InputParametersParser::parseInputParameters(QStringList a
       }
       inputParameters->patchSize = mPatchSizeArgumentRegex.cap(1).toFloat();
       isPatchSizeParameterInitialized = true;    
+    } else if (mSamplePointsNumberPerPatchArgumentRegex.indexIn(args.at(i)) != -1) {
+      if (isSamplePointsNumberPerPatchParameterInitialized) {
+        std::cerr << "Input arguments parse error: 'num_points_per_patch' argument occurred twice" << std::endl;
+        return InputParametersPointer(NULL);
+      }
+      inputParameters->samplePointsNumberPerPatch = mSamplePointsNumberPerPatchArgumentRegex.cap(1).toInt();
+      isSamplePointsNumberPerPatchParameterInitialized = true;
     } else {
       std::cerr << "Input arguments parse error: unknown argument " << args.at(i).toUtf8().constData() << std::endl;
       return InputParametersPointer(NULL);
@@ -109,6 +119,10 @@ InputParametersPointer InputParametersParser::parseInputParameters(QStringList a
   }
   if (!isPatchSizeParameterInitialized) {
     std::cerr << "Input arguments parse error: 'patch_size' argument is not specified" << std::endl;
+    return InputParametersPointer(NULL);
+  }
+  if (!isSamplePointsNumberPerPatchParameterInitialized) {
+    std::cerr << "Input arguments parse error: 'num_points_per_patch' argument is not specified" << std::endl;
     return InputParametersPointer(NULL);
   }
 

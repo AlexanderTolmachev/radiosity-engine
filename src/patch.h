@@ -19,9 +19,14 @@ class Patch {
 
     virtual float getSize() const = 0;
     virtual float getArea() const = 0;
+    virtual Vector getCenter() const = 0;
+    virtual Vector getNormal() const = 0;
+    virtual Vector getRandomPoint() const = 0;
+    
     virtual PatchCollectionPointer split() const = 0;
     virtual RayIntersection intersectWithRay(const Ray &ray) const = 0;
 
+    unsigned int getId() const;
     const MaterialPointer& getMaterial() const; 
     const Color& getAccumulatedColor() const;
     const Color& getResidualColor() const;
@@ -33,6 +38,8 @@ class Patch {
     void setResidualColor(const Color &excidentLight);
 
   private:
+    // Patch id
+    unsigned int mId;
     // Patch material
     MaterialPointer mMaterial;
     /* Values used to calculate result color, names according to http://http.developer.nvidia.com/GPUGems2/gpugems2_chapter39.html */

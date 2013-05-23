@@ -22,6 +22,7 @@ struct InputParameters {
   int yResolution;
   int iterationsNumber;
   float patchSize;
+  int samplePointsNumberPerPatch;
 };
 
 std::ostream& operator<< (std::ostream &out, const InputParameters &parameters);
@@ -40,4 +41,5 @@ class InputParametersParser {
     QRegExp mYResolutionArgumentRegex;
     QRegExp mIterationsNumberArgumentRegex;
     QRegExp mPatchSizeArgumentRegex;
+    QRegExp mSamplePointsNumberPerPatchArgumentRegex;
 };

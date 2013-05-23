@@ -17,7 +17,7 @@ public:
 
   void setScene(ScenePointer scene);
   void setImageResolution(int width, int height);
-  void calculateIllumination(int interationsNumber, float patchSize);
+  void calculateIllumination(int interationsNumber, float patchSize, int samplePointsNumberPerPatch);
   void renderScene();
   void saveRenderedImageToFile(const QString &filePath);
 
@@ -27,8 +27,11 @@ private:
   void shootRadiosity(PatchPointer sourcePatch);
   
   PatchCollectionPointer getSourcePatches() const;
-  PatchesAndFactorsCollectionPointer getVisiblePatchesWithFormFactors(PatchPointer patch);
-  PatchesAndFactorsCollectionPointer calculateVisiblePatchesWithFormFactors(PatchPointer patch);
+  PatchesAndFactorsCollectionPointer getVisiblePatchesWithFormFactors(const PatchPointer &patch);
+  PatchesAndFactorsCollectionPointer calculateVisiblePatchesWithFormFactors(const PatchPointer &patch);
+
+  bool isPatchVisibleFromSourcePatch(const PatchPointer &sourcePatch, const PatchPointer &patch) const;
+  float calculateFormFactor(const PatchPointer &sourcePatch, const PatchPointer &visiblePatch) const;
 
 private:
   ScenePointer mScene;
@@ -38,7 +41,8 @@ private:
   float mTotalPatchesArea;
   Color mAvarageReflectanceProgressionSum;
   Color mAmbientIlluminationValue;
-  QHash<PatchPointer, PatchesAndFactorsCollectionPointer> mPatchToVisiblePatchesAndFormFactorsHash;
+  QHash<unsigned int, PatchesAndFactorsCollectionPointer> mPatchToVisiblePatchesAndFormFactorsHash;
+  int mSamplePointsNumberPerPatch;
 };
 
-uint qHash (const PatchPointer &patch);
+//uint qHash (const PatchPointer &patch);

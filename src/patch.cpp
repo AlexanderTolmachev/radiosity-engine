@@ -1,13 +1,21 @@
 #include "patch.h"
+#include "numbergenerator.h"
 
 Patch::Patch(MaterialPointer material) 
-  : mMaterial(material) {
+  : mMaterial(material),
+    mId(0) {
+  // Generate patch id
+  mId = NumberGenerator::getInstance().generateNextId();
   // Initialize patch with emission light
   mResidualColor = mMaterial->emmission;
   mAccumulatedColor = mMaterial->emmission;
 }
 
 Patch::~Patch() {
+}
+
+unsigned int Patch::getId() const {
+  return mId;
 }
 
 const MaterialPointer& Patch::getMaterial() const {

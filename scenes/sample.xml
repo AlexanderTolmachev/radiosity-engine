@@ -7,7 +7,18 @@
         <fov angle="60.00"/>
         <dist_to_near_plane dist="1.00"/>
     </camera>
-    
+
+    <!-- Light on the ceiling -->
+    <object type="quad">
+        <v0 x="1.00" y="6.90" z="6.00"/>
+        <v1 x="1.00" y="6.90" z="8.00"/>
+        <v2 x="-1.00" y="6.90" z="8.00"/>
+        <v3 x="-1.00" y="6.90" z="6.00"/>
+        <material>
+            <emission r="1.00" g="1.00" b="1.00"/>
+            <reflectance r="1.00" g="1.00" b="1.00"/>
+        </material>		
+    </object>
     <!-- Back wall -->
     <object type="quad">
         <v0 x="-12.00" y="7.00" z="0.00"/>
@@ -27,7 +38,7 @@
         <v3 x="-12.00" y="-7.00" z="10.00"/>
         <material>
             <emission r="0.00" g="0.00" b="0.00"/>
-            <reflectance r="1.00" g="0.00" b="0.00"/>
+            <reflectance r="0.50" g="0.00" b="0.00"/>
         </material>		
     </object>
     <!-- Right wall -->
@@ -38,7 +49,7 @@
         <v3 x="12.00" y="7.00" z="0.00"/>
         <material>
             <emission r="0.00" g="0.00" b="0.00"/>
-            <reflectance r="0.00" g="1.00" b="0.00"/>
+            <reflectance r="0.00" g="0.50" b="0.00"/>
         </material>		
     </object>
     <!-- Ceiling -->
@@ -61,17 +72,6 @@
         <material>
             <emission r="0.00" g="0.00" b="0.00"/>
             <reflectance r="0.50" g="0.50" b="0.50"/>
-        </material>		
-    </object>
-    <!-- Light on the ceiling -->
-    <object type="quad">
-        <v0 x="1.00" y="6.90" z="6.00"/>
-        <v1 x="1.00" y="6.90" z="7.00"/>
-        <v2 x="-1.00" y="6.90" z="7.00"/>
-        <v3 x="-1.00" y="6.90" z="6.00"/>
-        <material>
-            <emission r="1.00" g="1.00" b="1.00"/>
-            <reflectance r="1.00" g="1.00" b="1.00"/>
         </material>		
     </object>
 

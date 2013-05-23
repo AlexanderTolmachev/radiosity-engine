@@ -40,9 +40,6 @@
     <Filter Include="Source Files\Shapes">
       <UniqueIdentifier>{6a60f70b-b168-4ffc-991f-a602ca0a7a17}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Radiosity">
-      <UniqueIdentifier>{cfc1bd6b-9a60-46fb-853a-58c9f5f43233}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\Radiosity">
       <UniqueIdentifier>{746c9f13-bc50-477d-ba12-337806d09091}</UniqueIdentifier>
     </Filter>
@@ -51,6 +48,12 @@
     </Filter>
     <Filter Include="Source Files\Tracer">
       <UniqueIdentifier>{7c806c15-7662-4134-8d17-e8711bd31bc3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Radiosity">
+      <UniqueIdentifier>{cfc1bd6b-9a60-46fb-853a-58c9f5f43233}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Commons">
+      <UniqueIdentifier>{1ebad4e2-aab7-4cec-ae35-e892d329d737}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -89,6 +92,9 @@
     </ClCompile>
     <ClCompile Include="..\src\shape.cpp">
       <Filter>Source Files\Shapes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\numbergenerator.cpp">
+      <Filter>Source Files\Commons</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -133,6 +139,9 @@
     </ClInclude>
     <ClInclude Include="..\src\trianglepatch.h">
       <Filter>Header Files\Radiosity</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\numbergenerator.h">
+      <Filter>Header Files\Commons</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

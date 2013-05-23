@@ -27,7 +27,7 @@ int main(int argc, char *argv[]) {
     printUsage();
     return -1;
   }
-  
+
   std::cout << *inputParameters;
   std::cout << "Loading scene..." << std::endl; 
 
@@ -45,7 +45,7 @@ int main(int argc, char *argv[]) {
   radiosityEngine.setImageResolution(inputParameters->xResolution, inputParameters->yResolution);
 
   std::cout << "Calculating illumination..." << std::endl;
-  radiosityEngine.calculateIllumination(inputParameters->iterationsNumber, inputParameters->patchSize);
+  radiosityEngine.calculateIllumination(inputParameters->iterationsNumber, inputParameters->patchSize, inputParameters->samplePointsNumberPerPatch);
   std::cout << "Calculating illumination is finished" << std::endl;
 
   std::cout << "Rendering scene..." << std::endl;
@@ -58,6 +58,16 @@ int main(int argc, char *argv[]) {
 
   return 0; 
 }
+
+//#include "numbergenerator.h"
+//
+//int main(int argc, char *argv[]) {
+//  for (int i = 0; i < 5; ++i) {
+//    std::cout << NumberGenerator::getInstance().generateNextId() << std::endl;
+//  }
+//
+//  return 0;
+//}
 
 void printUsage() {
   std::cout << "Usage: radiosity-engine.exe --scene=scene.xml --output=image.png --resolution_x=1280 --resolution_y=800 --num_iterations=30 --patch_size=1.0" << std::endl;

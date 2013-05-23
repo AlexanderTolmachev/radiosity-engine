@@ -36,6 +36,23 @@ void RayTracer::saveRenderedImageToFile(const QString& filePath) {
   mRenderedImage.save(filePath);
 }
 
+RayIntersection RayTracer::calculateNearestIntersectionWithPatch(const Ray &ray, const PatchCollectionPointer &patches) {
+  RayIntersection nearestIntersection;
+
+  for each (auto patch in *patches) {
+    RayIntersection intersection = patch->intersectWithRay(ray);
+    if (!intersection.rayIntersectsWithPatch) {
+      continue;
+    }
+
+    if (intersection.distanceFromRayOrigin < nearestIntersection.distanceFromRayOrigin) {
+      nearestIntersection = intersection;
+    }
+  }
+
+  return nearestIntersection;
+}
+
 /*
 * private:
 */
@@ -60,7 +77,7 @@ void RayTracer::render() {
 }
 
 Color RayTracer::traceRay(const Ray &ray) {
-  RayIntersection intersection = calculateNearestIntersectionWithPatch(ray);  
+  RayIntersection intersection = calculateNearestIntersectionWithPatch(ray, mScenePatches);  
   if (!intersection.rayIntersectsWithPatch) {
     return Color();
   }
@@ -68,19 +85,19 @@ Color RayTracer::traceRay(const Ray &ray) {
   return intersection.patch->getAccumulatedColor();
 }
 
-RayIntersection RayTracer::calculateNearestIntersectionWithPatch(const Ray &ray) const {
-  RayIntersection nearestIntersection;
-
-  for each (auto patch in *mScenePatches) {
-    RayIntersection intersection = patch->intersectWithRay(ray);
-    if (!intersection.rayIntersectsWithPatch) {
-      continue;
-    }
-
-    if (intersection.distanceFromRayOrigin < nearestIntersection.distanceFromRayOrigin) {
-      nearestIntersection = intersection;
-    }
-  }
-
-  return nearestIntersection;
-}
+//RayIntersection RayTracer::calculateNearestIntersectionWithPatch(const Ray &ray) const {
+//  RayIntersection nearestIntersection;
+//
+//  for each (auto patch in *mScenePatches) {
+//    RayIntersection intersection = patch->intersectWithRay(ray);
+//    if (!intersection.rayIntersectsWithPatch) {
+//      continue;
+//    }
+//
+//    if (intersection.distanceFromRayOrigin < nearestIntersection.distanceFromRayOrigin) {
+//      nearestIntersection = intersection;
+//    }
+//  }
+//
+//  return nearestIntersection;
+//}
