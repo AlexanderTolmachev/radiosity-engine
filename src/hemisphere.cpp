@@ -39,20 +39,9 @@ Vector Hemisphere::getViewDirection() const {
 Vector Hemisphere::getRandomCirclePointProjectedToSurface() const {
   Vector pointOnBase = getRandomPointOnBaseCircle();
   float distanceToCenter = pointOnBase.length();
-
-  qDebug() << "Dist - radius: " << distanceToCenter - mRadius;
-  assert (distanceToCenter <= mRadius);
-
   float offsetValue = sqrt(mRadius * mRadius - distanceToCenter * distanceToCenter);
-  Vector pointAtSurface = pointOnBase + mZAxis * offsetValue;
 
-  qDebug() << "abs(pointAtSurface.length() - mRadius): " << abs(pointAtSurface.length() - mRadius);
-  assert ( abs(pointAtSurface.length() - mRadius) <= EPS );
-
-  qDebug() << "pointAtSurface.dotProduct(mZAxis): " << pointAtSurface.dotProduct(mZAxis);
-  assert ( pointAtSurface.dotProduct(mZAxis) >= 0.0f );
-
-  return pointAtSurface + mCenter;
+  return pointOnBase + mZAxis * offsetValue + mCenter;
 }
 
 /**
