@@ -16,11 +16,12 @@
         <v3 x="-2.00" y="9.80" z="5.50"/>
         <material>
             <emission_color r="1.00" g="1.00" b="1.00"/>
-            <emission_factor value="10.0"/>
+            <emission_factor value="20.0"/>
             <reflectance_color r="1.00" g="1.00" b="1.00"/>
             <reflectance_factor value="0.0"/>
         </material>		
     </object>
+
     <!-- Back wall -->
     <object type="quad">
         <v0 x="-10.00" y="10.00" z="0.00"/>
@@ -79,6 +80,40 @@
         <v1 x="-10.00" y="-10.00" z="0.00"/>
         <v2 x="-10.00" y="-10.00" z="15.00"/>
         <v3 x="10.00" y="-10.00" z="15.00"/>
+        <material>
+            <emission_color r="0.00" g="0.00" b="0.00"/>
+            <emission_factor value="0.0"/>
+            <reflectance_color r="1.00" g="1.00" b="1.00"/>
+            <reflectance_factor value="1.0"/>
+        </material>		
+    </object>
+
+    <!-- Far box -->
+    <object type="box">
+        <center x="-4.00" y="-4.00" z="4.50"/>        
+        <width value="6.0"/>
+        <height value="12.0"/>
+        <depth value="6.0"/>        
+        <rotation_x angle="0.0"/>        
+        <rotation_y angle="-20.0"/>        
+        <rotation_z angle="0.0"/>        
+        <material>
+            <emission_color r="0.00" g="0.00" b="0.00"/>
+            <emission_factor value="0.0"/>
+            <reflectance_color r="1.00" g="1.00" b="1.00"/>
+            <reflectance_factor value="1.0"/>
+        </material>		
+    </object>
+
+    <!-- Near box -->
+    <object type="box">
+        <center x="3.50" y="-7.50" z="10.00"/>        
+        <width value="6.0"/>
+        <height value="6.0"/>
+        <depth value="6.0"/>        
+        <rotation_x angle="0.0"/>        
+        <rotation_y angle="25.0"/>        
+        <rotation_z angle="0.0"/>        
         <material>
             <emission_color r="0.00" g="0.00" b="0.00"/>
             <emission_factor value="0.0"/>

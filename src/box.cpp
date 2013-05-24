@@ -1,12 +1,17 @@
 #include "box.h"
 #include "quad.h"
 
-Box::Box(Vector center, float width, float height, float depth, MaterialPointer material) 
+Box::Box(Vector center, float width, float height, float depth, 
+         float rotationXAngle, float rotationYAngle, float rotationZAngle, 
+         MaterialPointer material) 
   : Shape(material),
     mCenter(center), 
     mWidth(width), 
     mHeight(height), 
-    mDepth(depth) {
+    mDepth(depth),
+    mRotationXAngle(rotationXAngle), 
+    mRotationYAngle(rotationYAngle), 
+    mRotationZAngle(rotationZAngle) {
 }
 
 Box::~Box() {
@@ -21,41 +26,43 @@ PatchCollectionPointer Box::splitIntoPatches() const {
   float halfHeight = mHeight / 2.0f;
   float halfDepth = mDepth / 2.0f;
   
-  Vector vertex0 = xDirection * (-halfWidth) + yDirection * (-halfHeight) + zDirection * halfDepth;
-  Vector vertex1 = xDirection * halfWidth + yDirection * (-halfHeight) + zDirection * halfDepth;  
-  Vector vertex2 = xDirection * halfWidth + yDirection * halfHeight + zDirection * halfDepth;  
-  Vector vertex3 = xDirection * (-halfWidth) + yDirection * halfHeight + zDirection * halfDepth;  
-  Quad frontSurface = Quad(vertex0 + mCenter, vertex1 + mCenter, vertex2 + mCenter, vertex3 + mCenter, getMaterial());
+  Matrix rotationMatrix = Matrix::createRotationAroundAxis(mRotationXAngle, mRotationYAngle, mRotationZAngle);
 
-  vertex0 = xDirection * halfWidth + yDirection * (-halfHeight) + zDirection * halfDepth;
-  vertex1 = xDirection * halfWidth + yDirection * (-halfHeight) + zDirection * (-halfDepth);  
-  vertex2 = xDirection * halfWidth + yDirection * halfHeight + zDirection * (-halfDepth);  
-  vertex3 = xDirection * halfWidth + yDirection * halfHeight + zDirection * halfDepth;  
-  Quad rightSurface = Quad(vertex0 + mCenter, vertex1 + mCenter, vertex2 + mCenter, vertex3 + mCenter, getMaterial());
+  Vector vertex0 = mCenter + rotationMatrix * (xDirection * (-halfWidth) + yDirection * (-halfHeight) + zDirection * halfDepth);
+  Vector vertex1 = mCenter + rotationMatrix * (xDirection * halfWidth + yDirection * (-halfHeight) + zDirection * halfDepth);  
+  Vector vertex2 = mCenter + rotationMatrix * (xDirection * halfWidth + yDirection * halfHeight + zDirection * halfDepth);  
+  Vector vertex3 = mCenter + rotationMatrix * (xDirection * (-halfWidth) + yDirection * halfHeight + zDirection * halfDepth);  
+  Quad frontSurface = Quad(vertex0, vertex1, vertex2, vertex3, getMaterial());
 
-  vertex0 = xDirection * halfWidth + yDirection * (-halfHeight) + zDirection * (-halfDepth);
-  vertex1 = xDirection * (-halfWidth) + yDirection * (-halfHeight) + zDirection * (-halfDepth);  
-  vertex2 = xDirection * (-halfWidth) + yDirection * halfHeight + zDirection * (-halfDepth);  
-  vertex3 = xDirection * halfWidth + yDirection * halfHeight + zDirection * (-halfDepth);  
-  Quad backSurface = Quad(vertex0 + mCenter, vertex1 + mCenter, vertex2 + mCenter, vertex3 + mCenter, getMaterial());
+  vertex0 = mCenter + rotationMatrix * (xDirection * halfWidth + yDirection * (-halfHeight) + zDirection * halfDepth);
+  vertex1 = mCenter + rotationMatrix * (xDirection * halfWidth + yDirection * (-halfHeight) + zDirection * (-halfDepth));  
+  vertex2 = mCenter + rotationMatrix * (xDirection * halfWidth + yDirection * halfHeight + zDirection * (-halfDepth));  
+  vertex3 = mCenter + rotationMatrix * (xDirection * halfWidth + yDirection * halfHeight + zDirection * halfDepth);  
+  Quad rightSurface = Quad(vertex0, vertex1, vertex2, vertex3, getMaterial());
 
-  vertex0 = xDirection * (-halfWidth) + yDirection * (-halfHeight) + zDirection * (-halfDepth);
-  vertex1 = xDirection * (-halfWidth) + yDirection * (-halfHeight) + zDirection * halfDepth;  
-  vertex2 = xDirection * (-halfWidth) + yDirection * halfHeight + zDirection * halfDepth;  
-  vertex3 = xDirection * (-halfWidth) + yDirection * halfHeight + zDirection * (-halfDepth);  
-  Quad leftSurface = Quad(vertex0 + mCenter, vertex1 + mCenter, vertex2 + mCenter, vertex3 + mCenter, getMaterial());
+  vertex0 = mCenter + rotationMatrix * (xDirection * halfWidth + yDirection * (-halfHeight) + zDirection * (-halfDepth));
+  vertex1 = mCenter + rotationMatrix * (xDirection * (-halfWidth) + yDirection * (-halfHeight) + zDirection * (-halfDepth));  
+  vertex2 = mCenter + rotationMatrix * (xDirection * (-halfWidth) + yDirection * halfHeight + zDirection * (-halfDepth));  
+  vertex3 = mCenter + rotationMatrix * (xDirection * halfWidth + yDirection * halfHeight + zDirection * (-halfDepth));  
+  Quad backSurface = Quad(vertex0, vertex1, vertex2, vertex3, getMaterial());
 
-  vertex0 = xDirection * halfWidth + yDirection * halfHeight + zDirection * halfDepth;
-  vertex1 = xDirection * halfWidth + yDirection * halfHeight + zDirection * (-halfDepth);  
-  vertex2 = xDirection * (-halfWidth) + yDirection * halfHeight + zDirection * (-halfDepth);  
-  vertex3 = xDirection * (-halfWidth) + yDirection * halfHeight + zDirection * halfDepth;  
-  Quad topSurface = Quad(vertex0 + mCenter, vertex1 + mCenter, vertex2 + mCenter, vertex3 + mCenter, getMaterial());
+  vertex0 = mCenter + rotationMatrix * (xDirection * (-halfWidth) + yDirection * (-halfHeight) + zDirection * (-halfDepth));
+  vertex1 = mCenter + rotationMatrix * (xDirection * (-halfWidth) + yDirection * (-halfHeight) + zDirection * halfDepth);  
+  vertex2 = mCenter + rotationMatrix * (xDirection * (-halfWidth) + yDirection * halfHeight + zDirection * halfDepth);  
+  vertex3 = mCenter + rotationMatrix * (xDirection * (-halfWidth) + yDirection * halfHeight + zDirection * (-halfDepth));  
+  Quad leftSurface = Quad(vertex0, vertex1, vertex2, vertex3, getMaterial());
 
-  vertex0 = xDirection * halfWidth + yDirection * (-halfHeight) + zDirection * halfDepth;
-  vertex1 = xDirection * (-halfWidth) + yDirection * (-halfHeight) + zDirection * halfDepth;  
-  vertex2 = xDirection * (-halfWidth) + yDirection * (-halfHeight) + zDirection * (-halfDepth);  
-  vertex3 = xDirection * halfWidth + yDirection * (-halfHeight) + zDirection * (-halfDepth);  
-  Quad bottomSurface = Quad(vertex0 + mCenter, vertex1 + mCenter, vertex2 + mCenter, vertex3 + mCenter, getMaterial());
+  vertex0 = mCenter + rotationMatrix * (xDirection * halfWidth + yDirection * halfHeight + zDirection * halfDepth);
+  vertex1 = mCenter + rotationMatrix * (xDirection * halfWidth + yDirection * halfHeight + zDirection * (-halfDepth));  
+  vertex2 = mCenter + rotationMatrix * (xDirection * (-halfWidth) + yDirection * halfHeight + zDirection * (-halfDepth));  
+  vertex3 = mCenter + rotationMatrix * (xDirection * (-halfWidth) + yDirection * halfHeight + zDirection * halfDepth);  
+  Quad topSurface = Quad(vertex0, vertex1, vertex2, vertex3, getMaterial());
+
+  vertex0 = mCenter + rotationMatrix * (xDirection * halfWidth + yDirection * (-halfHeight) + zDirection * halfDepth);
+  vertex1 = mCenter + rotationMatrix * (xDirection * (-halfWidth) + yDirection * (-halfHeight) + zDirection * halfDepth);  
+  vertex2 = mCenter + rotationMatrix * (xDirection * (-halfWidth) + yDirection * (-halfHeight) + zDirection * (-halfDepth));  
+  vertex3 = mCenter + rotationMatrix * (xDirection * halfWidth + yDirection * (-halfHeight) + zDirection * (-halfDepth));  
+  Quad bottomSurface = Quad(vertex0, vertex1, vertex2, vertex3, getMaterial());
 
   PatchCollectionPointer frontSurfacePatches = frontSurface.splitIntoPatches();
   PatchCollectionPointer rightSurfacePatches = rightSurface.splitIntoPatches();

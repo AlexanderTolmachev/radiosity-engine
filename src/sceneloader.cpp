@@ -155,12 +155,18 @@ BoxPointer SceneLoader::readBox(const QDomElement &element, MaterialPointer mate
   float width;
   float height;
   float depth;
+  float rotationXAngle;
+  float rotationYAngle;
+  float rotationZAngle;
 
   if (readChildElementAsVector(element, "center", center) &&
       readChildElementAsFloat(element, "width", "value", width) &&
       readChildElementAsFloat(element, "height", "value", height) &&
-      readChildElementAsFloat(element, "depth", "value", depth)) {
-    return BoxPointer(new Box(center, width, height, depth, material));
+      readChildElementAsFloat(element, "depth", "value", depth),
+      readChildElementAsFloat(element, "rotation_x", "angle", rotationXAngle) &&
+      readChildElementAsFloat(element, "rotation_y", "angle", rotationYAngle) &&
+      readChildElementAsFloat(element, "rotation_z", "angle", rotationZAngle)) {
+    return BoxPointer(new Box(center, width, height, depth, rotationXAngle, rotationYAngle, rotationZAngle, material));
   }
 
   return BoxPointer(NULL);

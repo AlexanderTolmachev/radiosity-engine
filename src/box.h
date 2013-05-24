@@ -8,7 +8,9 @@ typedef QSharedPointer<Box> BoxPointer;
 
 class Box : public Shape {
   public:
-    Box(Vector center, float width, float height, float depth, MaterialPointer material);
+    Box(Vector center, float width, float height, float depth, 
+        float rotationXAngle, float rotationYAngle, float rotationZAngle, 
+        MaterialPointer material);
     virtual ~Box();
 
     virtual PatchCollectionPointer splitIntoPatches() const;
@@ -18,4 +20,7 @@ class Box : public Shape {
     float mWidth;
     float mHeight;
     float mDepth;
+    float mRotationXAngle;
+    float mRotationYAngle;
+    float mRotationZAngle;
 };

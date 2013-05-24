@@ -27,6 +27,7 @@ class RayTracer {
   private:
     void render();
     Color traceRay(const Ray &ray);
+    void postProcess();
 
   private:
     CameraPointer mCamera;

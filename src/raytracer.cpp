@@ -2,6 +2,7 @@
  *\file raytracer.cpp
  *\brief Contains RayTracer class definition
  */
+#include <QColor>
 
 #include "raytracer.h"
 
@@ -30,6 +31,7 @@ void RayTracer::setScenePatches(const PatchCollectionPointer &patches) {
 void RayTracer::renderScene() {
   mRenderedImage = QImage(mCamera->getImageWidth(), mCamera->getImageHeight(), QImage::Format_RGB32);
   render();
+  postProcess();
 }
 
 void RayTracer::saveRenderedImageToFile(const QString& filePath) {
@@ -57,8 +59,8 @@ RayIntersection RayTracer::calculateNearestIntersectionWithPatch(const Ray &ray,
 * private:
 */
 void RayTracer::render() {
-  int imageWidth = mCamera->getImageWidth();
-  int imageHeight = mCamera->getImageHeight();
+  const int imageWidth = mCamera->getImageWidth();
+  const int imageHeight = mCamera->getImageHeight();
   unsigned *renderedImageData = reinterpret_cast< unsigned* >(mRenderedImage.bits());
 
   for (int y = 0; y < imageHeight; ++y) {
@@ -83,4 +85,65 @@ Color RayTracer::traceRay(const Ray &ray) {
   }
 
   return intersection.patch->getAccumulatedColor();
+}
+
+void RayTracer::postProcess() {
+  const int imageWidth = mCamera->getImageWidth();
+  const int imageHeight = mCamera->getImageHeight();
+  const int radius = 2;
+  //const int blackComponentTreshhold = 50;
+  const float smoothingTreshold = 100.0f;
+
+  QImage resultImage = mRenderedImage.copy();  
+  QRgb* renderedImageData = reinterpret_cast< QRgb* >(mRenderedImage.bits());
+  QRgb* resultImageData = reinterpret_cast< QRgb* >(resultImage.bits());
+
+  for (int y = 0; y < imageHeight; ++y) {
+    for (int x = 0; x < imageWidth; ++x) {
+      int index = y * imageWidth + x;
+      
+      QColor pixelColor(renderedImageData[index]);            
+      //if (pixelColor.red() > blackComponentTreshhold || pixelColor.green() > blackComponentTreshhold || pixelColor.blue() > blackComponentTreshhold) {
+      //  resultImageData[index] = qRgba(pixelColor.red(), pixelColor.green(), pixelColor.blue(), pixelColor.alpha());
+      //  continue;
+      //}
+      
+      Color averageNeighboursColor;
+      int neighboursCount = 0;
+      for (int i = -radius; i <= radius; ++i) 
+      {
+        for (int j = -radius; j <= radius; ++j) 
+        {
+          if (i == 0 && j == 0) {
+            continue;
+          }
+          
+          int neighbourX = x + j;
+          int neighbourY = y + i;
+          if (neighbourX < 0 || neighbourX >= imageWidth || neighbourY < 0 || neighbourY >= imageHeight) 
+          {
+            continue;
+          }
+
+          int neighbourIndex = neighbourY * imageWidth + neighbourX;
+          QColor neighbourColor(renderedImageData[neighbourIndex]);
+          averageNeighboursColor += Color(neighbourColor.red(), neighbourColor.green(), neighbourColor.blue());
+          neighboursCount++;
+        }
+      }      
+      averageNeighboursColor /= (float)neighboursCount;
+
+      Color color = Color(pixelColor.red(), pixelColor.green(), pixelColor.blue());
+      Color newColor;
+      if (abs(averageNeighboursColor.length() - color.length()) > smoothingTreshold) {
+        newColor = averageNeighboursColor;
+      } else {
+        newColor = color;
+      }
+
+      resultImageData[index] = qRgba((int)newColor.r, (int)newColor.g, (int)newColor.b, pixelColor.alpha());
+    }
+  }
+
+  mRenderedImage = resultImage;
 }

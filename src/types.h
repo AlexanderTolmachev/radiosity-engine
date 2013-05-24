@@ -13,3 +13,4 @@
 
 typedef Vector3f Vector;
 typedef Vector3f Color;
+typedef Matrix3f Matrix;
