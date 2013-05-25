@@ -11,7 +11,7 @@ RadiosityEngine::RadiosityEngine()
   : mScene(NULL),
     mScenePatches(NULL),
     mTotalPatchesArea(0.0f),
-    mSamplePointsNumberPerPatch(0) {
+    mRaysNumberPerPatch(0) {
 }
 
 RadiosityEngine::~RadiosityEngine() {
@@ -25,9 +25,9 @@ void RadiosityEngine::setImageResolution(int width, int height) {
   mScene->getCamera()->setImageResolution(width, height);
 }
 
-void RadiosityEngine::calculateIllumination(int interationsNumber, float patchSize, int samplePointsNumberPerPatch) {
+void RadiosityEngine::calculateIllumination(int interationsNumber, float patchSize, int raysNumberPerPatch) {
   mScenePatches = mScene->splitIntoPatches(patchSize);
-  mSamplePointsNumberPerPatch = samplePointsNumberPerPatch;
+  mRaysNumberPerPatch = raysNumberPerPatch;
 
   std::cout << "Total patches number: " << mScenePatches->size() << std::endl;
   
@@ -69,11 +69,12 @@ void RadiosityEngine::initialize() {
   averageReflectance /= mTotalPatchesArea;
   mTotalReflectance = Color(1.0f / (1.0f - averageReflectance.r), 1.0f / (1.0f - averageReflectance.g), 1.0f / (1.0f - averageReflectance.b));
 
-  std::cout << "Total patches area: " << mTotalPatchesArea << std::endl;
-  std::cout << "Average reflectance: " << averageReflectance << std::endl;
-  std::cout << "Total reflectance: " << mTotalReflectance << std::endl;
+  //std::cout << "Total patches area: " << mTotalPatchesArea << std::endl;
+  //std::cout << "Average reflectance: " << averageReflectance << std::endl;
+  //std::cout << "Total reflectance: " << mTotalReflectance << std::endl;
 }
 
+// Estimate ambient illumination
 void RadiosityEngine::postProcess() {
   // Compute total unshot radiosity
   Color totalUnshotRadiosity;
@@ -85,7 +86,7 @@ void RadiosityEngine::postProcess() {
   // Update patches color with estimated ambient component
   Color ambientRadiosity = totalUnshotRadiosity * mTotalReflectance;
   
-  std::cout << "Ambient component: " << ambientRadiosity << std::endl;  
+  // std::cout << "Ambient component: " << ambientRadiosity << std::endl;  
   
   for each (auto patch in *mScenePatches) {
     patch->updateAccumulatedColor(patch->getMaterial()->reflectanceColor * ambientRadiosity);
@@ -142,11 +143,13 @@ PatchesAndFactorsCollectionPointer RadiosityEngine::getVisiblePatchesWithFormFac
   return patchesAndFormFactors;
 }
 
+// Determine visible patches and compute form factors for them
+// For method details see Michael F. Cohen and John R. Wallace, "Radiosity and Realistic Image Synthesis", section 4.9.5.
 PatchesAndFactorsCollectionPointer RadiosityEngine::calculateVisiblePatchesWithFormFactors(const PatchPointer &sourcePatch) {
   QHash<unsigned int, int> patchesIdToRayHitsCoutHash;
 
   Hemisphere hemisphere = sourcePatch->getHemisphere();
-  for (int i = 0; i < mSamplePointsNumberPerPatch; ++i) {
+  for (int i = 0; i < mRaysNumberPerPatch; ++i) {
     Vector hemispherePoint = hemisphere.getRandomCirclePointProjectedToSurface();
     Vector rayDirection = hemispherePoint - hemisphere.getCenter();
     Vector rayOrigin = sourcePatch->getCenter() + sourcePatch->getNormal() * EPS;
@@ -175,7 +178,7 @@ PatchesAndFactorsCollectionPointer RadiosityEngine::calculateVisiblePatchesWithF
     int hitsCount = it.value();
 
     PatchPointer patch = mScenePatchesHash.value(patchId);
-    float formFactor = ((float) hitsCount) / mSamplePointsNumberPerPatch;
+    float formFactor = ((float) hitsCount) / mRaysNumberPerPatch;
     visiblePatchesWithFormFactors->push_back(std::make_pair(patch, formFactor));
   }
 

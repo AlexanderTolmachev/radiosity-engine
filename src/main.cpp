@@ -45,7 +45,7 @@ int main(int argc, char *argv[]) {
   radiosityEngine.setImageResolution(inputParameters->xResolution, inputParameters->yResolution);
 
   std::cout << "Calculating illumination..." << std::endl;
-  radiosityEngine.calculateIllumination(inputParameters->iterationsNumber, inputParameters->patchSize, inputParameters->samplePointsNumberPerPatch);
+  radiosityEngine.calculateIllumination(inputParameters->iterationsNumber, inputParameters->patchSize, inputParameters->raysNumberPerPatch);
   std::cout << "Calculating illumination is finished" << std::endl;
 
   std::cout << "Rendering scene..." << std::endl;
@@ -60,5 +60,5 @@ int main(int argc, char *argv[]) {
 }
 
 void printUsage() {
-  std::cout << "Usage: radiosity-engine.exe --scene=scene.xml --output=image.png --resolution_x=1280 --resolution_y=800 --num_iterations=30 --patch_size=1.0" << std::endl;
+  std::cout << "Usage: radiosity-engine.exe --scene=scene.xml --output=image.png --resolution_x=512 --resolution_y=512 --num_iterations=10 --patch_size=1.5 --num_rays_per_patch=5000" << std::endl;
 }

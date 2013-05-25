@@ -87,6 +87,8 @@ Color RayTracer::traceRay(const Ray &ray) {
   return intersection.patch->getAccumulatedColor();
 }
 
+// Due to floating point operations inoccuracy sometimes there appears small pixel-size holes between patches of surfaces.
+// This post processing is intended to remove them on the rendered image.
 void RayTracer::postProcess() {
   const int imageWidth = mCamera->getImageWidth();
   const int imageHeight = mCamera->getImageHeight();

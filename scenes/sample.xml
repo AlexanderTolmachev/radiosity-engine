@@ -16,7 +16,7 @@
         <v3 x="-2.00" y="9.80" z="5.50"/>
         <material>
             <emission_color r="1.00" g="1.00" b="1.00"/>
-            <emission_factor value="20.0"/>
+            <emission_factor value="30.0"/>
             <reflectance_color r="1.00" g="1.00" b="1.00"/>
             <reflectance_factor value="0.0"/>
         </material>		
@@ -45,7 +45,7 @@
             <emission_color r="0.00" g="0.00" b="0.00"/>
             <emission_factor value="0.0"/>
             <reflectance_color r="1.00" g="0.00" b="0.00"/>
-            <reflectance_factor value="0.5"/>
+            <reflectance_factor value="0.25"/>
         </material>		
     </object>
     <!-- Right wall -->
@@ -58,7 +58,7 @@
             <emission_color r="0.00" g="0.00" b="0.00"/>
             <emission_factor value="0.0"/>
             <reflectance_color r="0.00" g="1.00" b="0.00"/>
-            <reflectance_factor value="0.5"/>
+            <reflectance_factor value="0.25"/>
         </material>		
     </object>
     <!-- Ceiling -->

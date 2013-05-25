@@ -36,6 +36,9 @@ Vector Hemisphere::getViewDirection() const {
   return mZAxis;
 }
 
+// Returns projection of random point on hemisphere base circle to hemisphere surface
+// Needed for formfactors calculation method, described at
+// Michael F. Cohen and John R. Wallace, "Radiosity and Realistic Image Synthesis", section 4.9.5.
 Vector Hemisphere::getRandomCirclePointProjectedToSurface() const {
   Vector pointOnBase = getRandomPointOnBaseCircle();
   float distanceToCenter = pointOnBase.length();
