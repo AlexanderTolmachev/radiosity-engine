@@ -74,7 +74,10 @@ void RadiosityEngine::initialize() {
   //std::cout << "Total reflectance: " << mTotalReflectance << std::endl;
 }
 
-// Estimate ambient illumination
+/**
+* Estimate ambient illumination.
+* See Michael F. Cohen and John R. Wallace, "Radiosity and Realistic Image Synthesis", section 5.3.4.
+*/
 void RadiosityEngine::postProcess() {
   // Compute total unshot radiosity
   Color totalUnshotRadiosity;
@@ -143,8 +146,10 @@ PatchesAndFactorsCollectionPointer RadiosityEngine::getVisiblePatchesWithFormFac
   return patchesAndFormFactors;
 }
 
-// Determine visible patches and compute form factors for them
-// For method details see Michael F. Cohen and John R. Wallace, "Radiosity and Realistic Image Synthesis", section 4.9.5.
+/** 
+* Determine visible patches and compute form factors for them.
+* For method details see Michael F. Cohen and John R. Wallace, "Radiosity and Realistic Image Synthesis", section 4.9.5.
+*/
 PatchesAndFactorsCollectionPointer RadiosityEngine::calculateVisiblePatchesWithFormFactors(const PatchPointer &sourcePatch) {
   QHash<unsigned int, int> patchesIdToRayHitsCoutHash;
 

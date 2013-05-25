@@ -36,6 +36,9 @@ Camera::Camera(Vector position, Vector up, Vector lookAt,
 Camera::~Camera() {
 }
 
+/**
+* Emit ray through screen pixel with coordinates (x, y)
+*/
 Ray Camera::emitRay(int x, int y) const {
   float xProjection	 = 2.0 * mAspectRatio * (static_cast<float>(x) / mImageWidth - 0.5);
   float yProjection  = 2.0 * (0.5 - static_cast<float>(y) / mImageHeight);

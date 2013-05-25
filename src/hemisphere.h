@@ -19,7 +19,7 @@ private:
 private:
   Vector mCenter;
   float mRadius;
-  // Hemisphere internal 
+  // Hemisphere internal coorfinate system
   Vector mXAxis;
   Vector mYAxis;
   Vector mZAxis; // View direction

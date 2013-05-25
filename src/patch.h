@@ -40,14 +40,12 @@ class Patch {
     void updateResidualColor(const Color &colorDelta);
     void resetResidualColor();
 
-    //void setAccumulatedColor(const Color &incidentLight);
-    //void setResidualColor(const Color &excidentLight);
-
   private:
     // Patch id
     unsigned int mId;
     // Patch material
     MaterialPointer mMaterial;
+    
     /* Values used to calculate result color, names according to http://http.developer.nvidia.com/GPUGems2/gpugems2_chapter39.html */
     // Already accumulated color
     Color mAccumulatedColor;

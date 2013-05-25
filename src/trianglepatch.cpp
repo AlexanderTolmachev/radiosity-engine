@@ -44,8 +44,11 @@ Vector TrianglePatch::getNormal() const {
 }
 
 // TODO: Not used, remove
+/**
+* Generates random point inside triangle.
+* Used method described at http://www.cs.princeton.edu/~funk/tog02.pdf, section 4.2
+*/
 Vector TrianglePatch::getRandomPoint() const {
-  // According to http://www.cs.princeton.edu/~funk/tog02.pdf, section 4.2
   // P = (1 - sqrt(r1)) * A + (sqrt(r1) * (1 - r2)) * B + (sqrt(r1) * r2) * C, where r1, r2 ~U[0, 1]
   float r1 = NumberGenerator::getInstance().generateRamdomNumberBetweenZeroAndOne();
   float r2 = NumberGenerator::getInstance().generateRamdomNumberBetweenZeroAndOne();
@@ -54,13 +57,18 @@ Vector TrianglePatch::getRandomPoint() const {
   return mVertex0 * (1 - r1sqrt) + mVertex1 * (r1sqrt * (1 - r2)) + mVertex2 * (r1sqrt * r2);
 }
 
-// Returns a hemisphere with a such readuis, that hemisphere base circle has the same area as patch
+/**
+* Returns a hemisphere with such a radius that hemisphere base circle has the same area as the patch.
+*/
 Hemisphere TrianglePatch::getHemisphere() const {
   float radius = sqrt(mArea / M_PI);
   Vector xAxisDirection = mVertex0 - mCenter;
   return Hemisphere(mCenter, radius, mNormal, xAxisDirection);
 }
 
+/**
+* Split patch into 4 smaller patches.
+*/
 PatchCollectionPointer TrianglePatch::split() const {
   Vector edgeCenter0 = (mVertex0 + mVertex1) * 0.5f;
   Vector edgeCenter1 = (mVertex1 + mVertex2) * 0.5f;

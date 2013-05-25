@@ -21,8 +21,14 @@ class Shape {
     
     MaterialPointer getMaterial() const;
 
-    PatchCollectionPointer splitIntoPatches(float patchSize) const;
+    /**
+    * Split shape into patches of any size;
+    */
     virtual PatchCollectionPointer splitIntoPatches() const = 0;
+    /**
+    * Split shape into patches such as each patch size is not grater than patchSize.
+    */
+    PatchCollectionPointer splitIntoPatches(float patchSize) const;
 
   private:
     MaterialPointer mMaterial;
