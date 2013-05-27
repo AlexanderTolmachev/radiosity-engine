@@ -156,7 +156,8 @@ PatchesAndFactorsCollectionPointer RadiosityEngine::calculateVisiblePatchesWithF
   for (int i = 0; i < mRaysNumberPerPatch; ++i) {
     Vector hemispherePoint = hemisphere.getRandomCirclePointProjectedToSurface();
     Vector rayDirection = hemispherePoint - hemisphere.getCenter();
-    Vector rayOrigin = sourcePatch->getCenter() + sourcePatch->getNormal() * EPS;
+    rayDirection.normalize();
+    Vector rayOrigin = sourcePatch->getRandomPoint() + rayDirection * EPS;
 
     Ray ray = Ray(rayOrigin, rayDirection);
     RayIntersection intersection = RayTracer::calculateNearestIntersectionWithPatch(ray, mScenePatches);
