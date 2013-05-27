@@ -9,6 +9,7 @@
 
 #include "material.h"
 #include "patch.h"
+#include "patchcollection.h"
 
 class Shape;
 

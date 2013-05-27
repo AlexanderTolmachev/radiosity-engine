@@ -55,6 +55,12 @@
     <Filter Include="Source Files\Commons">
       <UniqueIdentifier>{1ebad4e2-aab7-4cec-ae35-e892d329d737}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Patch">
+      <UniqueIdentifier>{78462d95-7be0-4688-a0e8-fea274b68ba3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Patch">
+      <UniqueIdentifier>{954fea1b-bc19-4040-8346-acc0f7d0758a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\main.cpp">
@@ -78,17 +84,11 @@
     <ClCompile Include="..\src\quad.cpp">
       <Filter>Source Files\Shapes</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\patch.cpp">
-      <Filter>Source Files\Radiosity</Filter>
-    </ClCompile>
     <ClCompile Include="..\src\raytracer.cpp">
       <Filter>Source Files\Tracer</Filter>
     </ClCompile>
     <ClCompile Include="..\src\ray.cpp">
       <Filter>Source Files\Tracer</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\trianglepatch.cpp">
-      <Filter>Source Files\Radiosity</Filter>
     </ClCompile>
     <ClCompile Include="..\src\shape.cpp">
       <Filter>Source Files\Shapes</Filter>
@@ -96,11 +96,23 @@
     <ClCompile Include="..\src\numbergenerator.cpp">
       <Filter>Source Files\Commons</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\hemisphere.cpp">
-      <Filter>Source Files\Radiosity</Filter>
-    </ClCompile>
     <ClCompile Include="..\src\box.cpp">
       <Filter>Source Files\Shapes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\patch.cpp">
+      <Filter>Source Files\Patch</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\hemisphere.cpp">
+      <Filter>Source Files\Patch</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\trianglepatch.cpp">
+      <Filter>Source Files\Patch</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\vertex.cpp">
+      <Filter>Source Files\Patch</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\patchcollection.cpp">
+      <Filter>Source Files\Patch</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -128,9 +140,6 @@
     <ClInclude Include="..\src\material.h">
       <Filter>Header Files\Radiosity</Filter>
     </ClInclude>
-    <ClInclude Include="..\src\patch.h">
-      <Filter>Header Files\Radiosity</Filter>
-    </ClInclude>
     <ClInclude Include="..\src\quad.h">
       <Filter>Header Files\Shapes</Filter>
     </ClInclude>
@@ -143,17 +152,26 @@
     <ClInclude Include="..\src\raytracer.h">
       <Filter>Header Files\Tracer</Filter>
     </ClInclude>
-    <ClInclude Include="..\src\trianglepatch.h">
-      <Filter>Header Files\Radiosity</Filter>
-    </ClInclude>
     <ClInclude Include="..\src\numbergenerator.h">
       <Filter>Header Files\Commons</Filter>
     </ClInclude>
-    <ClInclude Include="..\src\hemisphere.h">
-      <Filter>Header Files\Radiosity</Filter>
-    </ClInclude>
     <ClInclude Include="..\src\box.h">
       <Filter>Header Files\Shapes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\patch.h">
+      <Filter>Header Files\Patch</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\trianglepatch.h">
+      <Filter>Header Files\Patch</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\hemisphere.h">
+      <Filter>Header Files\Patch</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\vertex.h">
+      <Filter>Header Files\Patch</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\patchcollection.h">
+      <Filter>Header Files\Patch</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

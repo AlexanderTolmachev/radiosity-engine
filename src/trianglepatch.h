@@ -7,6 +7,7 @@
 
 #include "patch.h"
 #include "types.h"
+#include "vertex.h"
 
 class TrianglePatch;
 
@@ -14,7 +15,7 @@ typedef QSharedPointer<TrianglePatch> TrianglePatchPointer;
 
 class TrianglePatch : public Patch {
   public:
-    TrianglePatch(Vector vertex0, Vector vertex1, Vector vertex2, MaterialPointer material);
+    TrianglePatch(const VertexPointer &vertex0, const VertexPointer &vertex1, const VertexPointer &vertex2, const MaterialPointer &material);
     virtual ~TrianglePatch();
     
     virtual float getSize() const;
@@ -23,15 +24,16 @@ class TrianglePatch : public Patch {
     virtual Vector getNormal() const;
     virtual Vector getRandomPoint() const;
     virtual Hemisphere getHemisphere() const;
+    virtual std::vector<VertexPointer> getVertices() const;
 
-    virtual PatchCollectionPointer split() const;    
+    virtual QSharedPointer<PatchCollection> split() const;    
     virtual RayIntersection intersectWithRay(const Ray &ray) const;    
 
   private:
     // Triangle vertices
-    Vector mVertex0;
-    Vector mVertex1;
-    Vector mVertex2;
+    VertexPointer mVertex0;
+    VertexPointer mVertex1;
+    VertexPointer mVertex2;
     // Precalculated normal
     Vector mNormal;
     // Precalculated area

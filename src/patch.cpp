@@ -1,11 +1,12 @@
 #include "patch.h"
+#include "patchcollection.h"
 #include "numbergenerator.h"
 
 Patch::Patch(MaterialPointer material) 
   : mMaterial(material),
     mId(0) {
   // Generate patch id
-  mId = NumberGenerator::getInstance().generateNextId();
+  mId = NumberGenerator::getInstance().generateNextPatchId();
   // Initialize patch with emission light
   mResidualColor = mMaterial->emmissionColor * mMaterial->emissionFactor;
   mAccumulatedColor = mMaterial->emmissionColor;

@@ -1,31 +1,32 @@
 #include "trianglepatch.h"
 #include "rayintersection.h"
 #include "numbergenerator.h"
+#include "patchcollection.h"
 
-TrianglePatch::TrianglePatch(Vector vertex0, Vector vertex1, Vector vertex2, MaterialPointer material)
+TrianglePatch::TrianglePatch(const VertexPointer &vertex0, const VertexPointer &vertex1, const VertexPointer &vertex2, const MaterialPointer &material)
   : Patch(material),
     mVertex0(vertex0),
     mVertex1(vertex1),
     mVertex2(vertex2),
     mArea(0.0f) {
   // Precalculate triangle normal
-  Vector e1 = vertex1 - vertex0;
-  Vector e2 = vertex2 - vertex0;
+  Vector e1 = vertex1->getCoordinates() - vertex0->getCoordinates();
+  Vector e2 = vertex2->getCoordinates() - vertex0->getCoordinates();
   mNormal = e1.crossProduct(e2);
   mNormal.normalize();
   // Precalculate triangle area
-  mArea = 0.5f * (mVertex1 - mVertex0).crossProduct(mVertex2 - mVertex0).length();
+  mArea = 0.5f * (mVertex1->getCoordinates() - mVertex0->getCoordinates()).crossProduct(mVertex2->getCoordinates() - mVertex0->getCoordinates()).length();
   // Precalculate triangle center
-  mCenter = (mVertex0 + mVertex1 + mVertex2) * 0.333333333f;
+  mCenter = (mVertex0->getCoordinates() + mVertex1->getCoordinates() + mVertex2->getCoordinates()) * 0.333333333f;
 }
 
 TrianglePatch::~TrianglePatch() {
 }
 
 float TrianglePatch::getSize() const {
-  float edgeLength1 = (mVertex1 - mVertex0).length();
-  float edgeLength2 = (mVertex2 - mVertex0).length();
-  float edgeLength3 = (mVertex2 - mVertex1).length();  
+  float edgeLength1 = (mVertex1->getCoordinates() - mVertex0->getCoordinates()).length();
+  float edgeLength2 = (mVertex2->getCoordinates() - mVertex0->getCoordinates()).length();
+  float edgeLength3 = (mVertex2->getCoordinates() - mVertex1->getCoordinates()).length();  
   
   return std::max(edgeLength1, std::max(edgeLength2, edgeLength3));
   // return (edgeLength1 + edgeLength2 + edgeLength3) * 0.333333333f;
@@ -54,7 +55,7 @@ Vector TrianglePatch::getRandomPoint() const {
   float r2 = NumberGenerator::getInstance().generateRamdomNumberBetweenZeroAndOne();
   float r1sqrt = sqrt(r1);
 
-  return mVertex0 * (1 - r1sqrt) + mVertex1 * (r1sqrt * (1 - r2)) + mVertex2 * (r1sqrt * r2);
+  return mVertex0->getCoordinates() * (1 - r1sqrt) + mVertex1->getCoordinates() * (r1sqrt * (1 - r2)) + mVertex2->getCoordinates() * (r1sqrt * r2);
 }
 
 /**
@@ -62,23 +63,35 @@ Vector TrianglePatch::getRandomPoint() const {
 */
 Hemisphere TrianglePatch::getHemisphere() const {
   float radius = sqrt(mArea / M_PI);
-  Vector xAxisDirection = mVertex0 - mCenter;
+  Vector xAxisDirection = mVertex0->getCoordinates() - mCenter;
   return Hemisphere(mCenter, radius, mNormal, xAxisDirection);
+}
+
+std::vector<VertexPointer> TrianglePatch::getVertices() const {
+  std::vector<VertexPointer> vertices;
+  vertices.push_back(mVertex0);
+  vertices.push_back(mVertex1);
+  vertices.push_back(mVertex2);
+  return vertices;
 }
 
 /**
 * Split patch into 4 smaller patches.
 */
 PatchCollectionPointer TrianglePatch::split() const {
-  Vector edgeCenter0 = (mVertex0 + mVertex1) * 0.5f;
-  Vector edgeCenter1 = (mVertex1 + mVertex2) * 0.5f;
-  Vector edgeCenter2 = (mVertex0 + mVertex2) * 0.5f;
+  Vector edgeCenter0 = (mVertex0->getCoordinates() + mVertex1->getCoordinates()) * 0.5f;
+  Vector edgeCenter1 = (mVertex1->getCoordinates() + mVertex2->getCoordinates()) * 0.5f;
+  Vector edgeCenter2 = (mVertex0->getCoordinates() + mVertex2->getCoordinates()) * 0.5f;
+
+  VertexPointer edgeCenter0Vertex = VertexPointer(new Vertex(edgeCenter0));
+  VertexPointer edgeCenter1Vertex = VertexPointer(new Vertex(edgeCenter1));
+  VertexPointer edgeCenter2Vertex = VertexPointer(new Vertex(edgeCenter2));
 
   PatchCollectionPointer newPatches = PatchCollectionPointer(new PatchCollection());
-  newPatches->push_back(TrianglePatchPointer(new TrianglePatch(mVertex0, edgeCenter0, edgeCenter2, getMaterial())));
-  newPatches->push_back(TrianglePatchPointer(new TrianglePatch(mVertex1, edgeCenter1, edgeCenter0, getMaterial())));
-  newPatches->push_back(TrianglePatchPointer(new TrianglePatch(mVertex2, edgeCenter2, edgeCenter1, getMaterial())));
-  newPatches->push_back(TrianglePatchPointer(new TrianglePatch(edgeCenter0, edgeCenter1, edgeCenter2, getMaterial())));
+  newPatches->addPatch(TrianglePatchPointer(new TrianglePatch(mVertex0, edgeCenter0Vertex, edgeCenter2Vertex, getMaterial())));
+  newPatches->addPatch(TrianglePatchPointer(new TrianglePatch(mVertex1, edgeCenter1Vertex, edgeCenter0Vertex, getMaterial())));
+  newPatches->addPatch(TrianglePatchPointer(new TrianglePatch(mVertex2, edgeCenter2Vertex, edgeCenter1Vertex, getMaterial())));
+  newPatches->addPatch(TrianglePatchPointer(new TrianglePatch(edgeCenter0Vertex, edgeCenter1Vertex, edgeCenter2Vertex, getMaterial())));
 
   return newPatches;
 }
@@ -87,8 +100,8 @@ RayIntersection TrianglePatch::intersectWithRay(const Ray &ray) const {
   Vector rayOrigin	= ray.getOriginPosition();
   Vector rayDirection = ray.getDirection();
 
-  Vector e1 = mVertex1 - mVertex0;
-  Vector e2 = mVertex2 - mVertex0;
+  Vector e1 = mVertex1->getCoordinates() - mVertex0->getCoordinates();
+  Vector e2 = mVertex2->getCoordinates() - mVertex0->getCoordinates();
 
   Vector pvector = rayDirection.crossProduct(e2);
   float	determinant = e1.dotProduct(pvector);
@@ -99,7 +112,7 @@ RayIntersection TrianglePatch::intersectWithRay(const Ray &ray) const {
 
   const float invertedDeterminant = 1.0f / determinant;
 
-  Vector tvec	= rayOrigin - mVertex0;
+  Vector tvec	= rayOrigin - mVertex0->getCoordinates();
   float	lambda = tvec.dotProduct(pvector);
 
   lambda *= invertedDeterminant;

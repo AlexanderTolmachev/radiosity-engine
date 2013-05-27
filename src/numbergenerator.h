@@ -4,7 +4,8 @@ class NumberGenerator {
   public:
     static NumberGenerator& getInstance();
   
-    unsigned int generateNextId();
+    unsigned int generateNextPatchId();
+    unsigned int generateNextVertexId();
     float generateRamdomNumberBetweenZeroAndOne() const;
 
   private:
@@ -13,5 +14,6 @@ class NumberGenerator {
     void operator=(NumberGenerator const&);
 
   private:
-    unsigned int mCurrentId; 
+    unsigned int mCurrentPatchId;
+    unsigned int mCurrentVertexId; 
 };

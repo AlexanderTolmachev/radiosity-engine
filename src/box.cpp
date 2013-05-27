@@ -1,5 +1,6 @@
 #include "box.h"
 #include "quad.h"
+#include "patchcollection.h"
 
 Box::Box(Vector center, float width, float height, float depth, 
          float rotationXAngle, float rotationYAngle, float rotationZAngle, 
@@ -71,13 +72,13 @@ PatchCollectionPointer Box::splitIntoPatches() const {
   PatchCollectionPointer topSurfacePatches = topSurface.splitIntoPatches();
   PatchCollectionPointer bottomSurfacePatches = bottomSurface.splitIntoPatches();
 
-  PatchCollectionPointer patches = PatchCollectionPointer(new PatchCollection());  
-  patches->insert(patches->end(), frontSurfacePatches->begin(), frontSurfacePatches->end());
-  patches->insert(patches->end(), rightSurfacePatches->begin(), rightSurfacePatches->end());
-  patches->insert(patches->end(), backSurfacePatches->begin(), backSurfacePatches->end());
-  patches->insert(patches->end(), leftSurfacePatches->begin(), leftSurfacePatches->end());
-  patches->insert(patches->end(), topSurfacePatches->begin(), topSurfacePatches->end());
-  patches->insert(patches->end(), bottomSurfacePatches->begin(), bottomSurfacePatches->end());
+  PatchCollectionPointer patches = PatchCollectionPointer(new PatchCollection());
+  patches->addPatches(frontSurfacePatches);
+  patches->addPatches(rightSurfacePatches);
+  patches->addPatches(backSurfacePatches);
+  patches->addPatches(leftSurfacePatches);
+  patches->addPatches(topSurfacePatches);
+  patches->addPatches(bottomSurfacePatches);
 
   return patches;
 }

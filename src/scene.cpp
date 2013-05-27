@@ -29,7 +29,7 @@ PatchCollectionPointer Scene::splitIntoPatches(float patchSize) const {
 
   for each (auto shape in mShapes) {
     PatchCollectionPointer shapePatches = shape->splitIntoPatches(patchSize);
-    scenePatches->insert(scenePatches->end(), shapePatches->begin(), shapePatches->end());
+    scenePatches->addPatches(shapePatches);
   }
 
   return scenePatches;

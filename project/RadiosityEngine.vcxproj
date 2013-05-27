@@ -94,6 +94,7 @@
     <ClCompile Include="..\src\main.cpp" />
     <ClCompile Include="..\src\numbergenerator.cpp" />
     <ClCompile Include="..\src\patch.cpp" />
+    <ClCompile Include="..\src\patchcollection.cpp" />
     <ClCompile Include="..\src\quad.cpp" />
     <ClCompile Include="..\src\radiosityengine.cpp" />
     <ClCompile Include="..\src\ray.cpp" />
@@ -102,6 +103,7 @@
     <ClCompile Include="..\src\sceneloader.cpp" />
     <ClCompile Include="..\src\shape.cpp" />
     <ClCompile Include="..\src\trianglepatch.cpp" />
+    <ClCompile Include="..\src\vertex.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\box.h" />
@@ -111,6 +113,7 @@
     <ClInclude Include="..\src\material.h" />
     <ClInclude Include="..\src\numbergenerator.h" />
     <ClInclude Include="..\src\patch.h" />
+    <ClInclude Include="..\src\patchcollection.h" />
     <ClInclude Include="..\src\quad.h" />
     <ClInclude Include="..\src\radiosityengine.h" />
     <ClInclude Include="..\src\ray.h" />
@@ -121,6 +124,7 @@
     <ClInclude Include="..\src\shape.h" />
     <ClInclude Include="..\src\trianglepatch.h" />
     <ClInclude Include="..\src\types.h" />
+    <ClInclude Include="..\src\vertex.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -9,12 +9,17 @@ NumberGenerator& NumberGenerator::getInstance() {
 }
 
 NumberGenerator::NumberGenerator()
-  : mCurrentId(0) {
+  : mCurrentPatchId(0),
+    mCurrentVertexId(0) {
   srand((unsigned)time(0));
 }
 
-unsigned int NumberGenerator::generateNextId() {
-  return mCurrentId++;
+unsigned int NumberGenerator::generateNextPatchId() {
+  return mCurrentPatchId++;
+}
+
+unsigned int NumberGenerator::generateNextVertexId() {
+  return mCurrentVertexId++;
 }
 
 float NumberGenerator::generateRamdomNumberBetweenZeroAndOne() const {

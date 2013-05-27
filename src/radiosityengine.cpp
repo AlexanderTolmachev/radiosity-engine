@@ -29,7 +29,7 @@ void RadiosityEngine::calculateIllumination(int interationsNumber, float patchSi
   mScenePatches = mScene->splitIntoPatches(patchSize);
   mRaysNumberPerPatch = raysNumberPerPatch;
 
-  std::cout << "Total patches number: " << mScenePatches->size() << std::endl;
+  std::cout << "Total patches number: " << mScenePatches->getPatches().size() << std::endl;
   
   initialize();
 
@@ -57,9 +57,7 @@ void RadiosityEngine::saveRenderedImageToFile(const QString& filePath) {
 void RadiosityEngine::initialize() {
   Color averageReflectance;
 
-  for each (auto patch in *mScenePatches) {
-    // Fill patches hash
-    mScenePatchesHash.insert(patch->getId(), patch);
+  for each (auto patch in mScenePatches->getPatches()) {
     // Calculate factors for ambient illumination estimation
     float patchArea = patch->getArea();
     mTotalPatchesArea += patchArea;
@@ -81,7 +79,7 @@ void RadiosityEngine::initialize() {
 void RadiosityEngine::postProcess() {
   // Compute total unshot radiosity
   Color totalUnshotRadiosity;
-  for each (auto patch in *mScenePatches) {
+  for each (auto patch in mScenePatches->getPatches()) {
     totalUnshotRadiosity += patch->getResidualColor() * patch->getArea();
   }
   totalUnshotRadiosity /= mTotalPatchesArea;
@@ -91,17 +89,17 @@ void RadiosityEngine::postProcess() {
   
   // std::cout << "Ambient component: " << ambientRadiosity << std::endl;  
   
-  for each (auto patch in *mScenePatches) {
+  for each (auto patch in mScenePatches->getPatches()) {
     patch->updateAccumulatedColor(patch->getMaterial()->reflectanceColor * ambientRadiosity);
   }
 }
 
 void RadiosityEngine::processIteration() {
-  PatchCollectionPointer sourcePatches = getSourcePatches();
+  std::vector<PatchPointer> sourcePatches = getSourcePatches();
   // Sort patches in descending order by emission energy
-  std::sort(sourcePatches->rbegin(), sourcePatches->rend(), comparePatchesByEmissionEmergy);
+  std::sort(sourcePatches.rbegin(), sourcePatches.rend(), comparePatchesByEmissionEmergy);
 
-  for each (auto sourcePatch in *sourcePatches) {
+  for each (auto sourcePatch in sourcePatches) {
     shootRadiosity(sourcePatch);
   }
 }
@@ -123,13 +121,13 @@ void RadiosityEngine::shootRadiosity(PatchPointer sourcePatch) {
   sourcePatch->resetResidualColor();
 }
 
-PatchCollectionPointer RadiosityEngine::getSourcePatches() const {
-  PatchCollectionPointer sourcePatches = PatchCollectionPointer(new PatchCollection());
+std::vector<PatchPointer> RadiosityEngine::getSourcePatches() const {
+  std::vector<PatchPointer> sourcePatches;
 
   // Collect patches with not-null residual color (emmission energy)
-  for each (auto patch in *mScenePatches) {
+  for each (auto patch in mScenePatches->getPatches()) {
     if (patch->getEmissionEnergyValue() != 0) {
-      sourcePatches->push_back(patch);
+      sourcePatches.push_back(patch);
     }
   }
 
@@ -182,7 +180,7 @@ PatchesAndFactorsCollectionPointer RadiosityEngine::calculateVisiblePatchesWithF
     unsigned int patchId = it.key();
     int hitsCount = it.value();
 
-    PatchPointer patch = mScenePatchesHash.value(patchId);
+    PatchPointer patch = mScenePatches->getPatchById(patchId);
     float formFactor = ((float) hitsCount) / mRaysNumberPerPatch;
     visiblePatchesWithFormFactors->push_back(std::make_pair(patch, formFactor));
   }

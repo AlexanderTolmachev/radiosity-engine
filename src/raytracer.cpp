@@ -41,7 +41,7 @@ void RayTracer::saveRenderedImageToFile(const QString& filePath) {
 RayIntersection RayTracer::calculateNearestIntersectionWithPatch(const Ray &ray, const PatchCollectionPointer &patches) {
   RayIntersection nearestIntersection;
 
-  for each (auto patch in *patches) {
+  for each (auto patch in patches->getPatches()) {
     RayIntersection intersection = patch->intersectWithRay(ray);
     if (!intersection.rayIntersectsWithPatch) {
       continue;

@@ -11,6 +11,7 @@
 #include "camera.h"
 #include "ray.h"
 #include "rayintersection.h"
+#include "patchcollection.h"
 
 class RayTracer {
   public:

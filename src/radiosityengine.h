@@ -27,7 +27,7 @@ class RadiosityEngine {
     void shootRadiosity(PatchPointer sourcePatch);
     void postProcess();
   
-    PatchCollectionPointer getSourcePatches() const;
+    std::vector<PatchPointer> getSourcePatches() const;
     PatchesAndFactorsCollectionPointer getVisiblePatchesWithFormFactors(const PatchPointer &patch);
     PatchesAndFactorsCollectionPointer calculateVisiblePatchesWithFormFactors(const PatchPointer &patch);
 
@@ -40,6 +40,5 @@ class RadiosityEngine {
     float mTotalPatchesArea;
     Color mTotalReflectance;
 
-    QHash<unsigned int, PatchPointer> mScenePatchesHash;
     QHash<unsigned int, PatchesAndFactorsCollectionPointer> mPatchToVisiblePatchesAndFormFactorsHash;
 };

@@ -13,8 +13,13 @@ Quad::~Quad() {
 }
 
 PatchCollectionPointer Quad::splitIntoPatches() const {
+  VertexPointer vertex0 = VertexPointer(new Vertex(mVertex0));
+  VertexPointer vertex1 = VertexPointer(new Vertex(mVertex1));
+  VertexPointer vertex2 = VertexPointer(new Vertex(mVertex2));
+  VertexPointer vertex3 = VertexPointer(new Vertex(mVertex3));
+
   PatchCollectionPointer patches = PatchCollectionPointer(new PatchCollection());
-  patches->push_back(TrianglePatchPointer(new TrianglePatch(mVertex0, mVertex1, mVertex2, getMaterial())));
-  patches->push_back(TrianglePatchPointer(new TrianglePatch(mVertex0, mVertex2, mVertex3, getMaterial())));
+  patches->addPatch(TrianglePatchPointer(new TrianglePatch(vertex0, vertex1, vertex2, getMaterial())));
+  patches->addPatch(TrianglePatchPointer(new TrianglePatch(vertex0, vertex2, vertex3, getMaterial())));
   return patches;
 }

@@ -5,13 +5,13 @@
 #include "material.h"
 #include "ray.h"
 #include "hemisphere.h"
+#include "vertex.h"
 
 class Patch;
+class PatchCollection;
 struct RayIntersection;
 
 typedef QSharedPointer<Patch> PatchPointer;
-typedef std::vector<PatchPointer> PatchCollection;
-typedef QSharedPointer<PatchCollection> PatchCollectionPointer;
 
 class Patch {
   public:
@@ -24,8 +24,9 @@ class Patch {
     virtual Vector getNormal() const = 0;
     virtual Vector getRandomPoint() const = 0;
     virtual Hemisphere getHemisphere() const = 0;
+    virtual std::vector<VertexPointer> getVertices() const = 0;
     
-    virtual PatchCollectionPointer split() const = 0;
+    virtual QSharedPointer<PatchCollection> split() const = 0;
     virtual RayIntersection intersectWithRay(const Ray &ray) const = 0;
 
     unsigned int getId() const;

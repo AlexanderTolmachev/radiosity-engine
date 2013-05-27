@@ -18,9 +18,9 @@ PatchCollectionPointer Shape::splitIntoPatches(float patchSize) const {
   PatchCollectionPointer splittedShapePatches = PatchCollectionPointer(new PatchCollection());
   PatchCollectionPointer shapePatches = splitIntoPatches();
 
-  for each (auto patch in *shapePatches) {
+  for each (auto patch in shapePatches->getPatches()) {
     if (patch->getSize() <= patchSize) {
-      splittedShapePatches->push_back(patch);
+      splittedShapePatches->addPatch(patch);
     } else {
       patchQueue.push(patch);
     }
@@ -31,9 +31,9 @@ PatchCollectionPointer Shape::splitIntoPatches(float patchSize) const {
     patchQueue.pop();
 
     PatchCollectionPointer splittedPatches = patch->split();
-    for each (auto splittedPatch in *splittedPatches) {
+    for each (auto splittedPatch in splittedPatches->getPatches()) {
       if (splittedPatch->getSize() <= patchSize) {
-        splittedShapePatches->push_back(splittedPatch);
+        splittedShapePatches->addPatch(splittedPatch);
       } else {
         patchQueue.push(splittedPatch);
       }
