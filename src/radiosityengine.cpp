@@ -91,7 +91,7 @@ void RadiosityEngine::estimateAmbientIllumination() {
   // std::cout << "Ambient component: " << ambientRadiosity << std::endl;  
   
   for each (auto patch in mScenePatches->getPatches()) {
-    patch->updateAccumulatedColor(patch->getMaterial()->reflectanceColor * ambientRadiosity);
+    patch->updateAccumulatedColor(patch->getMaterial()->reflectanceColor * patch->getMaterial()->reflectanceFactor * ambientRadiosity);
   }
 }
 
@@ -114,9 +114,9 @@ void RadiosityEngine::shootRadiosity(PatchPointer sourcePatch) {
     PatchPointer visiblePatch = visiblePatchWithFormFactor.first;
     float formFactor = visiblePatchWithFormFactor.second;
 
-    Color radiosityDelta = visiblePatch->getMaterial()->reflectanceColor * sourcePatchRadiosity * formFactor * (sourcePatch->getArea() / visiblePatch->getArea());
+    Color radiosityDelta = visiblePatch->getMaterial()->reflectanceColor * visiblePatch->getMaterial()->reflectanceFactor * sourcePatchRadiosity * formFactor * (sourcePatch->getArea() / visiblePatch->getArea());
     visiblePatch->updateAccumulatedColor(radiosityDelta);
-    visiblePatch->updateResidualColor(radiosityDelta * visiblePatch->getMaterial()->reflectanceFactor);  
+    visiblePatch->updateResidualColor(radiosityDelta);  
   }
 
   sourcePatch->resetResidualColor();
