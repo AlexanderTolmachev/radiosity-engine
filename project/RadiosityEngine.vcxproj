@@ -92,7 +92,9 @@
     <ClCompile Include="..\src\hemisphere.cpp" />
     <ClCompile Include="..\src\inputparameters.cpp" />
     <ClCompile Include="..\src\main.cpp" />
+    <ClCompile Include="..\src\model.cpp" />
     <ClCompile Include="..\src\numbergenerator.cpp" />
+    <ClCompile Include="..\src\objfilereader.cpp" />
     <ClCompile Include="..\src\patch.cpp" />
     <ClCompile Include="..\src\patchcollection.cpp" />
     <ClCompile Include="..\src\quad.cpp" />
@@ -111,7 +113,9 @@
     <ClInclude Include="..\src\hemisphere.h" />
     <ClInclude Include="..\src\inputparameters.h" />
     <ClInclude Include="..\src\material.h" />
+    <ClInclude Include="..\src\model.h" />
     <ClInclude Include="..\src\numbergenerator.h" />
+    <ClInclude Include="..\src\objfilereader.h" />
     <ClInclude Include="..\src\patch.h" />
     <ClInclude Include="..\src\patchcollection.h" />
     <ClInclude Include="..\src\quad.h" />

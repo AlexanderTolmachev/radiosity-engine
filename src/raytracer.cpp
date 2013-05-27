@@ -95,8 +95,8 @@ void RayTracer::postProcess() {
   const int imageWidth = mCamera->getImageWidth();
   const int imageHeight = mCamera->getImageHeight();
   const int radius = 2;
-  //const int blackComponentTreshhold = 50;
-  const float smoothingTreshold = 100.0f;
+  const int blackComponentTreshhold = 10;
+  const float smoothingTreshold = 150.0f;
 
   QImage resultImage = mRenderedImage.copy();  
   QRgb* renderedImageData = reinterpret_cast< QRgb* >(mRenderedImage.bits());
@@ -105,13 +105,7 @@ void RayTracer::postProcess() {
   for (int y = 0; y < imageHeight; ++y) {
     for (int x = 0; x < imageWidth; ++x) {
       int index = y * imageWidth + x;
-      
-      QColor pixelColor(renderedImageData[index]);            
-      //if (pixelColor.red() > blackComponentTreshhold || pixelColor.green() > blackComponentTreshhold || pixelColor.blue() > blackComponentTreshhold) {
-      //  resultImageData[index] = qRgba(pixelColor.red(), pixelColor.green(), pixelColor.blue(), pixelColor.alpha());
-      //  continue;
-      //}
-      
+            
       Color averageNeighboursColor;
       int neighboursCount = 0;
       for (int i = -radius; i <= radius; ++i) 
@@ -136,10 +130,15 @@ void RayTracer::postProcess() {
         }
       }      
       averageNeighboursColor /= (float)neighboursCount;
-
+      
+      QColor pixelColor(renderedImageData[index]);            
       Color color = Color(pixelColor.red(), pixelColor.green(), pixelColor.blue());
       Color newColor;
-      if (abs(averageNeighboursColor.length() - color.length()) > smoothingTreshold) {
+
+      if (color.r < blackComponentTreshhold && color.g < blackComponentTreshhold && color.b < blackComponentTreshhold) {
+        newColor = averageNeighboursColor;
+      } else if (color.r < averageNeighboursColor.r && color.g < averageNeighboursColor.g && color.b < averageNeighboursColor.b &&
+            averageNeighboursColor.length() - color.length() > smoothingTreshold) {       
         newColor = averageNeighboursColor;
       } else {
         newColor = color;

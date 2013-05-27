@@ -114,6 +114,12 @@
     <ClCompile Include="..\src\patchcollection.cpp">
       <Filter>Source Files\Patch</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\objfilereader.cpp">
+      <Filter>Source Files\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\model.cpp">
+      <Filter>Source Files\Shapes</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\inputparameters.h">
@@ -172,6 +178,12 @@
     </ClInclude>
     <ClInclude Include="..\src\patchcollection.h">
       <Filter>Header Files\Patch</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\objfilereader.h">
+      <Filter>Header Files\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\model.h">
+      <Filter>Header Files\Shapes</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

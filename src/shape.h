@@ -29,7 +29,7 @@ class Shape {
     /**
     * Split shape into patches such as each patch size is not grater than patchSize.
     */
-    PatchCollectionPointer splitIntoPatches(float patchSize) const;
+    virtual PatchCollectionPointer splitIntoPatches(float patchSize) const;
 
   private:
     MaterialPointer mMaterial;

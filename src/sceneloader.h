@@ -13,6 +13,7 @@
 #include "shape.h"
 #include "quad.h"
 #include "box.h"
+#include "model.h"
 
 class SceneLoader {
   public:
@@ -30,6 +31,7 @@ class SceneLoader {
 
     QuadPointer readQuad(const QDomElement &element, MaterialPointer material) const;
     BoxPointer readBox(const QDomElement &element, MaterialPointer material) const;
+    MeshModelPointer readMeshModel(const QDomElement &element, MaterialPointer material) const;
 
     bool readVector(const QDomElement &element, Vector &vector) const;
     bool readColor(const QDomElement &element, Color &color) const;

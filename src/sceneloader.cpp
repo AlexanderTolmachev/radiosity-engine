@@ -8,6 +8,7 @@
 
 #include "sceneloader.h"
 #include "camera.h"
+#include "objfilereader.h"
 
 /*
 * public:
@@ -129,6 +130,9 @@ ShapePointer SceneLoader::readShape(const QDomElement &element) const {
   if (shapeType == "box") {
     return readBox(element, shapeMaterial);
   }
+  if (shapeType == "model") {
+    return readMeshModel(element, shapeMaterial);
+  }
 
   std::cerr << "Scene parsing error: unknown shape type '" << shapeType.toUtf8().constData() << "'" << std::endl;
   return ShapePointer(NULL);
@@ -172,6 +176,20 @@ BoxPointer SceneLoader::readBox(const QDomElement &element, MaterialPointer mate
   return BoxPointer(NULL);
 }
 
+MeshModelPointer SceneLoader::readMeshModel(const QDomElement &element, MaterialPointer material) const {
+  Vector translation;
+  Vector scale;
+  QString modelFileName;
+
+  if (readChildElementAsVector(element, "translation", translation) &&
+    readChildElementAsVector(element, "scale", scale) &&
+    readChildElementAsString(element, "model", "file_name", modelFileName)) {
+      ObjFileReader objFileReader;
+      return objFileReader.readMeshFromObjFile(modelFileName, translation, scale, material);
+  }
+
+  return MeshModelPointer(NULL);
+}
 
 MaterialPointer SceneLoader::readMaterial(const QDomElement &element) const {
   QDomElement materialElement = element.firstChildElement("material");

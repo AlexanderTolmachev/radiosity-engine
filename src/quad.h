@@ -12,7 +12,7 @@ class Quad : public Shape {
     virtual ~Quad();
 
     virtual PatchCollectionPointer splitIntoPatches() const;
-
+    
   private:
     Vector mVertex0;
     Vector mVertex1;
