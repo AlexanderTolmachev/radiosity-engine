@@ -1,4 +1,5 @@
 #include "patchcollection.h"
+#include "trianglepatch.h"
 
 PatchCollection::PatchCollection() {
 }
@@ -7,12 +8,14 @@ PatchCollection::~PatchCollection() {
 }
 
 void PatchCollection::addPatch(const PatchPointer &patch) {
-  if (!patchesHash.contains(patch->getId())) {
-    patchesHash.insert(patch->getId(), patch);
-    for each (auto vertex in patch->getVertices()) {
-      addVertex(vertex);
-      addAdjacentPatchToVertex(vertex, patch);
-    }
+  if (patchesHash.contains(patch->getId())) {
+    return;
+  }
+
+  patchesHash.insert(patch->getId(), patch);
+  for each (auto vertex in patch->getVertices()) {
+    addVertex(vertex);
+    addAdjacentPatchToVertex(vertex, patch);
   }
 }
 
@@ -62,10 +65,33 @@ QList<PatchPointer> PatchCollection::getPatchesAdjacentToVertex(const VertexPoin
   return adjacentPatches;
 }
 
-void PatchCollection::insertPatch(const PatchPointer &patch) {
-  PatchPointer patchToInsert = patch;
+void PatchCollection::mergePatch(const PatchPointer &patch) {
+  if (patchesHash.contains(patch->getId())) {
+    return;
+  }
+
   std::vector<VertexPointer> patchVertices = patch->getVertices();
   VertexPointer vertex0 = patchVertices[0];
   VertexPointer vertex1 = patchVertices[1];
   VertexPointer vertex2 = patchVertices[2];
+  PatchPointer patchToInsert = patch;
+
+  for each (auto vertex in getVertices()) {
+    if (vertex->getCoordinates() == vertex0->getCoordinates()) {
+      patchToInsert = PatchPointer(new TrianglePatch(vertex, vertex1, vertex2, patch->getMaterial()));
+      vertex0 = vertex;
+    } else if (vertex->getCoordinates() == vertex1->getCoordinates()) {
+      patchToInsert = PatchPointer(new TrianglePatch(vertex0, vertex, vertex2, patch->getMaterial()));
+      vertex1 = vertex;
+    } else if (vertex->getCoordinates() == vertex2->getCoordinates()) {
+      patchToInsert = PatchPointer(new TrianglePatch(vertex0, vertex1, vertex, patch->getMaterial()));
+      vertex2 = vertex;
+    }
+  }
+
+  patchesHash.insert(patchToInsert->getId(), patchToInsert);
+  for each (auto vertex in patchToInsert->getVertices()) {
+    addVertex(vertex);
+    addAdjacentPatchToVertex(vertex, patchToInsert);
+  }
 }

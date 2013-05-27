@@ -20,7 +20,7 @@ PatchCollectionPointer Shape::splitIntoPatches(float patchSize) const {
 
   for each (auto patch in shapePatches->getPatches()) {
     if (patch->getSize() <= patchSize) {
-      splittedShapePatches->addPatch(patch);
+      splittedShapePatches->mergePatch(patch);
     } else {
       patchQueue.push(patch);
     }
@@ -33,7 +33,7 @@ PatchCollectionPointer Shape::splitIntoPatches(float patchSize) const {
     PatchCollectionPointer splittedPatches = patch->split();
     for each (auto splittedPatch in splittedPatches->getPatches()) {
       if (splittedPatch->getSize() <= patchSize) {
-        splittedShapePatches->addPatch(splittedPatch);
+        splittedShapePatches->mergePatch(splittedPatch);
       } else {
         patchQueue.push(splittedPatch);
       }

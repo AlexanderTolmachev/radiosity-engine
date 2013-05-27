@@ -17,6 +17,7 @@ class PatchCollection {
 
     void addPatch(const PatchPointer &patch);
     void addPatches(const PatchCollectionPointer &patches);
+    void mergePatch(const PatchPointer &patch);
 
     QList<VertexPointer> getVertices() const;
     QList<PatchPointer> getPatches() const;
