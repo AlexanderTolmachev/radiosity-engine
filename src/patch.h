@@ -25,6 +25,7 @@ class Patch {
     virtual Vector getRandomPoint() const = 0;
     virtual Hemisphere getHemisphere() const = 0;
     virtual std::vector<VertexPointer> getVertices() const = 0;
+    virtual Color getColor(const RayIntersection &rayIntersection) const = 0;
     
     virtual QSharedPointer<PatchCollection> split() const = 0;
     virtual RayIntersection intersectWithRay(const Ray &ray) const = 0;
@@ -33,7 +34,7 @@ class Patch {
     const MaterialPointer& getMaterial() const; 
     const Color& getAccumulatedColor() const;
     const Color& getResidualColor() const;
-    
+
     Color getEmissionEnergy() const;
     float getEmissionEnergyValue() const;
 

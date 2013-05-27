@@ -84,7 +84,7 @@ Color RayTracer::traceRay(const Ray &ray) {
     return Color();
   }
 
-  return intersection.patch->getAccumulatedColor();
+  return intersection.patch->getColor(intersection);
 }
 
 /**

@@ -25,6 +25,7 @@ class TrianglePatch : public Patch {
     virtual Vector getRandomPoint() const;
     virtual Hemisphere getHemisphere() const;
     virtual std::vector<VertexPointer> getVertices() const;
+    virtual Color getColor(const RayIntersection &rayIntersection) const;
 
     virtual QSharedPointer<PatchCollection> split() const;    
     virtual RayIntersection intersectWithRay(const Ray &ray) const;    

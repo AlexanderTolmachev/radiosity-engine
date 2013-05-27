@@ -138,5 +138,11 @@ RayIntersection TrianglePatch::intersectWithRay(const Ray &ray) const {
   }
   
   TrianglePatchPointer pointer = TrianglePatchPointer(new TrianglePatch(*this));
-  return RayIntersection(true, pointer, f /*, getNormal(ray, f) */);
+  return RayIntersection(true, pointer, f, lambda, mue);
+}
+
+Color TrianglePatch::getColor(const RayIntersection &rayIntersection) const {
+  float u = rayIntersection.u;
+  float v = rayIntersection.v;
+  return mVertex1->getColor() * u + mVertex2->getColor() * v + mVertex0->getColor() * (1 - u - v);
 }

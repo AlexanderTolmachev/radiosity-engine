@@ -25,6 +25,7 @@ class RadiosityEngine {
     void initialize();
     void processIteration();
     void shootRadiosity(PatchPointer sourcePatch);
+    void estimateAmbientIllumination();
     void postProcess();
   
     std::vector<PatchPointer> getSourcePatches() const;

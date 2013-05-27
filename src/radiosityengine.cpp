@@ -38,6 +38,7 @@ void RadiosityEngine::calculateIllumination(int interationsNumber, float patchSi
     processIteration();
   }
 
+  estimateAmbientIllumination();
   postProcess();
 }
 
@@ -76,7 +77,7 @@ void RadiosityEngine::initialize() {
 * Estimate ambient illumination.
 * See Michael F. Cohen and John R. Wallace, "Radiosity and Realistic Image Synthesis", section 5.3.4.
 */
-void RadiosityEngine::postProcess() {
+void RadiosityEngine::estimateAmbientIllumination() {
   // Compute total unshot radiosity
   Color totalUnshotRadiosity;
   for each (auto patch in mScenePatches->getPatches()) {
@@ -186,4 +187,16 @@ PatchesAndFactorsCollectionPointer RadiosityEngine::calculateVisiblePatchesWithF
   }
 
   return visiblePatchesWithFormFactors;
+}
+
+void RadiosityEngine::postProcess() {
+  for each (auto vertex in mScenePatches->getVertices()) {
+    QList<PatchPointer> adjacentPatches = mScenePatches->getPatchesAdjacentToVertex(vertex);
+    Color vertexColor;
+    for each (auto patch in adjacentPatches) {
+      vertexColor += patch->getAccumulatedColor();
+    }
+    vertexColor /= adjacentPatches.size();
+    vertex->setColor(vertexColor);
+  }
 }
