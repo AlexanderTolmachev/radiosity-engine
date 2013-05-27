@@ -90,7 +90,7 @@
     
     <!-- Stanford bunny -->
     <object type="model">
-        <translation x="3.000" y="-12.00" z="7.00"/>
+        <translation x="2.000" y="-12.00" z="7.00"/>
         <scale x="100.000" y="100.000" z="100.000"/>
         <model file_name="../meshes/bunny.obj"/>
         <material>
