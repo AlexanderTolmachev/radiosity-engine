@@ -1,0 +1,104 @@
+<?xml version="1.0"?>
+<scene>
+    <camera>
+        <pos x="0.00" y="0.00" z="33.00"/>
+        <up  x="0.00" y="1.00" z="0.00"/>
+        <look_at x="0.00" y="0.00" z="0.00"/>
+        <fov angle="60.00"/>
+        <dist_to_near_plane dist="1.00"/>
+    </camera>
+
+    <!-- Light on the ceiling -->
+    <object type="quad">
+        <v0 x="2.00" y="9.80" z="5.50"/>
+        <v1 x="2.00" y="9.80" z="9.50"/>
+        <v2 x="-2.00" y="9.80" z="9.50"/>
+        <v3 x="-2.00" y="9.80" z="5.50"/>
+        <material>
+            <emission_color r="1.00" g="1.00" b="1.00"/>
+            <emission_factor value="30.0"/>
+            <reflectance_color r="1.00" g="1.00" b="1.00"/>
+            <reflectance_factor value="0.0"/>
+        </material>		
+    </object>
+
+    <!-- Back wall -->
+    <object type="quad">
+        <v0 x="-10.00" y="10.00" z="0.00"/>
+        <v1 x="-10.00" y="-10.00" z="0.00"/>
+        <v2 x="10.00" y="-10.00" z="0.00"/>
+        <v3 x="10.00" y="10.00" z="0.00"/>
+        <material>
+            <emission_color r="0.00" g="0.00" b="0.00"/>
+            <emission_factor value="0.0"/>
+            <reflectance_color r="1.00" g="1.00" b="1.00"/>
+            <reflectance_factor value="1.0"/>
+        </material>		
+    </object>
+    <!-- Left wall -->
+    <object type="quad">
+        <v0 x="-10.00" y="-10.00" z="0.00"/>
+        <v1 x="-10.00" y="10.00" z="0.00"/>
+        <v2 x="-10.00" y="10.00" z="15.00"/>
+        <v3 x="-10.00" y="-10.00" z="15.00"/>
+        <material>
+            <emission_color r="0.00" g="0.00" b="0.00"/>
+            <emission_factor value="0.0"/>
+            <reflectance_color r="1.00" g="0.00" b="0.00"/>
+            <reflectance_factor value="0.25"/>
+        </material>		
+    </object>
+    <!-- Right wall -->
+    <object type="quad">
+        <v0 x="10.00" y="-10.00" z="0.00"/>
+        <v1 x="10.00" y="-10.00" z="15.00"/>
+        <v2 x="10.00" y="10.00" z="15.00"/>
+        <v3 x="10.00" y="10.00" z="0.00"/>
+        <material>
+            <emission_color r="0.00" g="0.00" b="0.00"/>
+            <emission_factor value="0.0"/>
+            <reflectance_color r="0.00" g="1.00" b="0.00"/>
+            <reflectance_factor value="0.25"/>
+        </material>		
+    </object>
+    <!-- Ceiling -->
+    <object type="quad">
+        <v0 x="-10.00" y="10.00" z="0.00"/>
+        <v1 x="10.00" y="10.00" z="0.00"/>
+        <v2 x="10.00" y="10.00" z="15.00"/>
+        <v3 x="-10.00" y="10.00" z="15.00"/>
+        <material>
+            <emission_color r="0.00" g="0.00" b="0.00"/>
+            <emission_factor value="0.0"/>
+            <reflectance_color r="1.00" g="1.00" b="1.00"/>
+            <reflectance_factor value="1.0"/>
+        </material>		
+    </object>
+    <!-- Floor -->
+    <object type="quad">
+        <v0 x="10.00" y="-10.00" z="0.00"/>
+        <v1 x="-10.00" y="-10.00" z="0.00"/>
+        <v2 x="-10.00" y="-10.00" z="15.00"/>
+        <v3 x="10.00" y="-10.00" z="15.00"/>
+        <material>
+            <emission_color r="0.00" g="0.00" b="0.00"/>
+            <emission_factor value="0.0"/>
+            <reflectance_color r="1.00" g="1.00" b="1.00"/>
+            <reflectance_factor value="1.0"/>
+        </material>		
+    </object>
+    
+    <!-- Stanford bunny -->
+    <object type="model">
+        <translation x="3.000" y="-12.00" z="7.00"/>
+        <scale x="100.000" y="100.000" z="100.000"/>
+        <model file_name="../meshes/bunny.obj"/>
+        <material>
+            <emission_color r="0.00" g="0.00" b="0.00"/>
+            <emission_factor value="0.0"/>
+            <reflectance_color r="1.00" g="1.00" b="1.00"/>
+            <reflectance_factor value="0.5"/>
+        </material>		
+    </object>
+    
+</scene>
