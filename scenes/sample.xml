@@ -9,19 +9,22 @@
     </camera>
 
     <!-- Light on the ceiling -->
-    <object type="quad">
-        <v0 x="2.00" y="9.80" z="5.50"/>
-        <v1 x="2.00" y="9.80" z="9.50"/>
-        <v2 x="-2.00" y="9.80" z="9.50"/>
-        <v3 x="-2.00" y="9.80" z="5.50"/>
+    <object type="box">
+        <center x="0.00" y="10.00" z="7.50"/>        
+        <width value="4.00"/>
+        <height value="0.01"/>
+        <depth value="4.00"/>        
+        <rotation_x angle="0.0"/>        
+        <rotation_y angle="0.0"/>        
+        <rotation_z angle="0.0"/>        
         <material>
             <emission_color r="1.00" g="1.00" b="1.00"/>
             <emission_factor value="30.0"/>
             <reflectance_color r="1.00" g="1.00" b="1.00"/>
             <reflectance_factor value="0.0"/>
         </material>		
-    </object>
-
+    </object>        
+ 
     <!-- Back wall -->
     <object type="quad">
         <v0 x="-10.00" y="10.00" z="0.00"/>

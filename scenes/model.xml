@@ -9,18 +9,21 @@
     </camera>
 
     <!-- Light on the ceiling -->
-    <object type="quad">
-        <v0 x="2.00" y="9.80" z="5.50"/>
-        <v1 x="2.00" y="9.80" z="9.50"/>
-        <v2 x="-2.00" y="9.80" z="9.50"/>
-        <v3 x="-2.00" y="9.80" z="5.50"/>
+    <object type="box">
+        <center x="0.00" y="10.00" z="7.50"/>        
+        <width value="4.00"/>
+        <height value="0.01"/>
+        <depth value="4.00"/>        
+        <rotation_x angle="0.0"/>        
+        <rotation_y angle="0.0"/>        
+        <rotation_z angle="0.0"/>        
         <material>
             <emission_color r="1.00" g="1.00" b="1.00"/>
             <emission_factor value="30.0"/>
             <reflectance_color r="1.00" g="1.00" b="1.00"/>
             <reflectance_factor value="0.0"/>
         </material>		
-    </object>
+    </object>            
 
     <!-- Back wall -->
     <object type="quad">
@@ -45,7 +48,7 @@
             <emission_color r="0.00" g="0.00" b="0.00"/>
             <emission_factor value="0.0"/>
             <reflectance_color r="1.00" g="0.00" b="0.00"/>
-            <reflectance_factor value="0.25"/>
+            <reflectance_factor value="0.50"/>
         </material>		
     </object>
     <!-- Right wall -->
@@ -58,7 +61,7 @@
             <emission_color r="0.00" g="0.00" b="0.00"/>
             <emission_factor value="0.0"/>
             <reflectance_color r="0.00" g="1.00" b="0.00"/>
-            <reflectance_factor value="0.25"/>
+            <reflectance_factor value="0.50"/>
         </material>		
     </object>
     <!-- Ceiling -->
@@ -90,14 +93,14 @@
     
     <!-- Stanford bunny -->
     <object type="model">
-        <translation x="2.000" y="-12.00" z="7.00"/>
-        <scale x="100.000" y="100.000" z="100.000"/>
+        <translation x="2.000" y="-13.00" z="5.00"/>
+        <scale x="90.000" y="90.000" z="90.000"/>
         <model file_name="../meshes/bunny.obj"/>
         <material>
             <emission_color r="0.00" g="0.00" b="0.00"/>
             <emission_factor value="0.0"/>
             <reflectance_color r="1.00" g="1.00" b="1.00"/>
-            <reflectance_factor value="0.5"/>
+            <reflectance_factor value="0.75"/>
         </material>		
     </object>
     
