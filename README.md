@@ -11,8 +11,12 @@ radiosity-engine.exe --scene=scene.xml --output=image.png --resolution_x=512 --r
 
 Sample images
 -------------
+Sample images were rendered with 15 iterations, patch size 5.0 and 5000 rays per patch.
 ####Sample Cornell Box scene
-Rendered with 10 iterations, patch size 5.0 and 5000 rays per patch.
 <p align="center">
-<img align="center" src="https://raw.github.com/AlexanderTolmachev/radiosity-engine/master/images/sample-it10-s5-r5000.png"/>
+<img align="center" src="https://raw.github.com/AlexanderTolmachev/radiosity-engine/master/images/sample-it15-s5.0-r5000.png"/>
+</p>
+####Sample scene with mesh model
+<p align="center">
+<img align="center" src="https://raw.github.com/AlexanderTolmachev/radiosity-engine/master/images/model-it15-s5.0-r5000.png"/>
 </p>
